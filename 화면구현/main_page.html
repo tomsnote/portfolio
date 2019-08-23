@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>게시판 제공 플랫폼</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+        #wrap{
+            width: 95%;
+            margin: 0 auto;
+            border: 1px solid #f00;
+        }
+        #menu{
+            position: fixed;
+            z-index: 100;
+            text-align: center;
+            background: rgba(100, 100, 100, 0.5);
+            float: left;
+            top: 0;
+            bottom: 0;
+            display: none;
+        }
+        #menu ul {
+            width: 300px;
+        }
+        #menu ul li{
+            margin: 30px 0;
+            
+        }
+        #menu ul li a{
+            font-size: 40px;
+            padding: 10px;
+            font-family: "Times New Roman";
+            background: skyblue;
+            border-radius: 40px;
+            
+            color: #fff;
+        }
+        #qMenu{
+            position: absolute;
+            top: 0.5%;
+            left: 3%;
+        }
+        #qMenu img{
+            max-width: 90%;
+        }
+        #logo{
+            position: relative;
+            margin: 0 auto;
+            width: 90%;
+            text-align: center;
+        }
+        #logo img{
+            max-width: 60%;
+        }
+        #login{
+            position: absolute;
+            right: 3%;
+            top: 10px;
+        }
+        #login button{
+            float: left;
+        }
+        header{
+            /* display: block;
+            content: '';
+            clear: both; */
+            border: 1px solid #f00;
+        }
+
+        #search{
+            width: 65%;
+            margin: 0 auto;
+            border: 1px solid #f00;
+            height: 30px;
+            text-align: center;
+        }
+        #search input{
+            width: 70%;
+            
+        }
+        #search button{
+            height: 80%;
+            background: rgba(255, 255, 255, 0);
+            border: 0;
+            outline: 0;
+        }
+        #search button img{
+            height: 80%;
+            
+        }
+        .sub{
+            width: 70%;
+            margin: 0 auto;
+        }
+        .sub-menu{
+            text-align: center;
+            margin-left: 10%;
+        }
+        .sub-menu::after{
+            display: block;
+            content: '';
+            clear: both;
+        }
+        .sub-menu li{
+            float: left;
+            display: block;
+            margin: 20px;
+            
+        }
+        .sub-menu-img{
+            border: 1px solid #f00;
+            max-width: 100%;
+        }
+    </style>
+    <script src="./libs/jquery-3.4.1.min.js"></script>
+    <script src="./libs/jquery.easing.1.3.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#qMenu").click(function(){
+                $("#menu").css("display", "block");
+            })
+        })
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <header>
+            <div id="qMenu">
+                <img src="http://placehold.it/50x50?text=sample">
+            </div>
+            <nav id="menu">
+                <img src="http://placehold.it/100x100?text=sample">
+                <ul>
+                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="#">태그검색</a></li>
+                    <li><a href="#">나만의 게시판</a></li>
+                    <li><a href="#">공유 게시판</a></li>
+                    <li><a href="#">알리미</a></li>
+                    <li><a href="#">CONTACT</a></li>
+                </ul>
+            </nav>
+            <div id="logo">
+                <img src="./img/free_horizontal_on_white_by_logaster.png" alt="">
+            </div>
+            <div id="login">
+                <button><a href="#">로그인</a></button>
+            </div>
+            
+        </header>
+        <div id="search">
+            <input type="text">
+            <button><a><img src="./img/magnifying-glass-4186151_960_720.png" alt=""></a></button>
+        </div>
+        <nav class="sub">
+            <ul class="sub-menu">
+                <li><img src="http://placehold.it/300x300?text=sample" class="sub-menu-img"></li>
+                <li><img src="http://placehold.it/300x300?text=sample" class="sub-menu-img"></li>
+                <li><img src="http://placehold.it/300x300?text=sample" class="sub-menu-img"></li>
+                <li><img src="http://placehold.it/300x300?text=sample" class="sub-menu-img"></li>
+            </ul>
+        </nav>
+    </div>
+</body>
+</html>

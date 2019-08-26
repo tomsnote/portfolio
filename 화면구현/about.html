@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>게시판 제공 플랫폼</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+        #wrap{
+            width: 95%;
+            margin: 0 auto;
+        }
+        #qMenu{
+            position: fixed;
+            top: 3px;
+            left: 3%;
+            width: 70px;
+            height: 50px;
+
+        }
+        #qMenu>div{
+            max-width: 90%;
+            height: 10px;
+            background-color: skyblue;
+            margin: 5px;
+            border-radius: 5px;
+        }
+        #menu{
+            position: fixed;
+            z-index: 100;
+            text-align: center;
+            background: rgba(100, 100, 100, 0.5);
+            float: left;
+            top: 0;
+            bottom: 0;
+            display: none;
+        }
+        #menu img{
+            opacity: 0.8;
+        }
+        #menu>ul {
+            width: 300px;
+        }
+        #menu>ul>.menu{
+            margin: 30px 0;
+        }
+        #menu>ul>.menu>a{
+            font-size: 40px;
+            padding: 10px;
+            font-family: "Times New Roman";
+            background: skyblue;
+            border-radius: 40px;
+            color: #fff;
+            box-shadow: 5px 5px 5px grey;
+        }
+        #menu>ul>.menu>a:hover{
+            background: yellow;
+            color: #000;
+        }
+        .post1_2{
+            margin: 30px 0 30px 70px;
+            display: none;
+        }
+        .post1_2>a{
+            box-shadow: 5px 5px 5px grey;
+            font-size: 20px;
+            padding: 10px;
+            font-family: "Times New Roman";
+            background: grey;
+            border-radius: 40px;
+            color: #fff;
+        }
+        .post1_2>a:hover{
+            background-color: greenyellow;
+        }
+
+        
+        
+        #logo{
+            position: relative;
+            margin: 0 auto;
+            width: 90%;
+            text-align: center;
+        }
+        #logo img{
+            max-width: 60%;
+        }
+        #login{
+            position: absolute;
+            right: 3%;
+            top: 10px;   
+        }
+        #login button{
+            border-radius: 5px;
+            background-color: rgba(0, 0, 0, 0);
+            border: 1px solid skyblue;
+            padding: 10px 0;
+        }
+        #login button a{
+            color: skyblue; 
+            padding: 15px 5px;   
+        }
+        #login button:hover{
+            background-color: skyblue;
+        }
+        #login button a:hover{
+            color: #fff;
+        }
+        header{
+            /* display: block;
+            content: '';
+            clear: both; */
+
+        }
+        #body{
+            width: 50%;
+            margin: 0 auto;
+        }
+        #body h3{
+            text-align: center;
+            font-size: 40px;
+            color: darkcyan;
+            margin: 50px 0;
+        }
+        #body article{
+            line-height: px;
+        }
+    </style>
+    <script src="./libs/jquery-3.4.1.min.js"></script>
+    <script src="./libs/jquery.easing.1.3.js"></script>
+    <script>
+        $(document).ready(function(){
+            post($("#qMenu"),$("#menu"));
+            post($("#post1"),$(".post1_2"));            
+        })
+
+        function post(obj1,obj2){
+            obj1.click(function(){
+                obj2.css("display", "block");
+            })
+        }
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <header>
+            <div id="qMenu">
+                <div></div><div></div><div></div>
+            </div>
+            <nav id="menu">
+                <img src="./img/free_horizontal_on_white_by_logaster.png">
+                <ul>
+                    <li class="menu"><a href="#">ABOUT</a></li>
+                    <li class="menu"><a href="#">태그검색</a></li>
+                    <ul class="menu" id="post1">
+                        <a href="#">나만의 게시판</a> 
+                        <li class="post1_2"><a href="#">게시판 요소 선택</a></li>
+                        <li class="post1_2"><a href="#">요소 선택 결과</a></li>
+                    </ul>
+                    <li class="menu"><a href="#">공유 게시판</a></li>
+                    <li class="menu"><a href="#">알리미</a></li>
+                    <li class="menu"><a href="#">CONTACT</a></li>
+                </ul>
+            </nav>
+            <div id="logo">
+                <img src="./img/free_horizontal_on_white_by_logaster.png" alt="">
+            </div>
+            <div id="login">
+                <button><a href="./login.html">로그인</a></button>
+            </div>
+            
+        </header>
+        <div id="body">
+            <h3>About</h3>
+            <article>
+                    게시판 플랫폼이란?<br>
+                    1. 게시판 기능을 배포 및 공유하여 다양한 방법으로 제작된 게시판을 확인하여  자기계발에 도움이 되도록 만든 것입니다. <br>
+                    2. 또는 비전공자가 원하는 이미지와 아이디어를 쉽게 구성하기 위한 플랫폼입니다.  <br>
+                    3. GIT을 통해 서버관리를 하며 다양한 피드백을 통해 업데이트를 합니다. <br>
+            </article>
+        </div>
+    </div>
+</body>
+</html>

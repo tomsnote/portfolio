@@ -15,7 +15,21 @@
         #wrap{
             width: 95%;
             margin: 0 auto;
-            border: 1px solid #f00;
+        }
+        #qMenu{
+            position: fixed;
+            top: 3px;
+            left: 3%;
+            width: 70px;
+            height: 50px;
+
+        }
+        #qMenu>div{
+            max-width: 90%;
+            height: 10px;
+            background-color: skyblue;
+            margin: 5px;
+            border-radius: 5px;
         }
         #menu{
             position: fixed;
@@ -27,30 +41,46 @@
             bottom: 0;
             display: none;
         }
-        #menu ul {
+        #menu img{
+            opacity: 0.8;
+        }
+        #menu>ul {
             width: 300px;
         }
-        #menu ul li{
+        #menu>ul>.menu{
             margin: 30px 0;
-            
         }
-        #menu ul li a{
+        #menu>ul>.menu>a{
             font-size: 40px;
             padding: 10px;
             font-family: "Times New Roman";
             background: skyblue;
             border-radius: 40px;
-            
+            color: #fff;
+            box-shadow: 5px 5px 5px grey;
+        }
+        #menu>ul>.menu>a:hover{
+            background: yellow;
+            color: #000;
+        }
+        .post1_2{
+            /* margin: 30px 0 30px 70px; */
+            display: none;
+        }
+        .post1_2>a{
+            font-size: 5px;
+            padding: 10px;
+            font-family: "Times New Roman";
+            background: grey;
+            border-radius: 40px;
             color: #fff;
         }
-        #qMenu{
-            position: absolute;
-            top: 0.5%;
-            left: 3%;
+        .post1_2>a:hover{
+            color: #f1f1f1;
         }
-        #qMenu img{
-            max-width: 90%;
-        }
+
+        
+        
         #logo{
             position: relative;
             margin: 0 auto;
@@ -63,22 +93,35 @@
         #login{
             position: absolute;
             right: 3%;
-            top: 10px;
+            top: 10px;   
         }
         #login button{
-            float: left;
+            border-radius: 5px;
+            background-color: rgba(0, 0, 0, 0);
+            border: 1px solid skyblue;
+            padding: 10px 0;
+        }
+        #login button a{
+            color: skyblue; 
+            padding: 15px 5px;   
+        }
+        #login button:hover{
+            background-color: skyblue;
+        }
+        #login button a:hover{
+            color: #fff;
         }
         header{
             /* display: block;
             content: '';
             clear: both; */
-            border: 1px solid #f00;
+
         }
 
         #search{
             width: 65%;
             margin: 0 auto;
-            border: 1px solid #f00;
+
             height: 30px;
             text-align: center;
         }
@@ -104,6 +147,15 @@
             text-align: center;
             margin-left: 10%;
         }
+        .sub-menu p{
+            position: absolute;
+            padding: 10px 20px;
+            font-size: 30px;
+            color: black;
+            background: rgba(96, 223, 255, 0.4);
+            border-top-right-radius: 30px;
+            border-bottom-right-radius: 30px;
+        }
         .sub-menu::after{
             display: block;
             content: '';
@@ -116,55 +168,181 @@
             
         }
         .sub-menu-img{
-            border: 1px solid #f00;
+
             max-width: 100%;
         }
+
+
+        .sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: #111; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+ 
+    /* The navigation menu links */
+    .sidenav a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+        transition: 0.3s
+    }
+    
+    /* When you mouse over the navigation links, change their color */
+    .sidenav a:hover, .offcanvas a:focus{
+        color: #f1f1f1;
+    }
+    
+    /* Position and style the close button (top right corner) */
+    .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
+    
+    /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+    /* #main {
+        transition: margin-left .5s;
+        padding: 20px;
+        overflow:hidden;
+        width:100%;
+    } */
+    /* body {
+    overflow-x: hidden;
+    } */
+    
+    /* Add a black background color to the top navigation */
+    .topnav {
+        background-color: #fff;
+        overflow: hidden;
+        position: fixed;
+    }
+    
+    /* Style the links inside the navigation bar */
+    .topnav a {
+        float: left;
+        display: block;
+        padding: 14px 16px;
+    }
+    
+    /* Change the color of links on hover */
+    .topnav a:hover {
+        background-color: #ddd;
+        /* color: black; */
+    }
+    
+    /* Add a color to the active/current link */
+    .topnav a:active {
+        background-color: #4CAF50;
+        color: white;
+    }
     </style>
     <script src="./libs/jquery-3.4.1.min.js"></script>
     <script src="./libs/jquery.easing.1.3.js"></script>
     <script>
         $(document).ready(function(){
-            $("#qMenu").click(function(){
-                $("#menu").css("display", "block");
-            })
+            post($("#qMenu"),$("#menu"));
+            post($("#post1"),$(".post1_2"));            
         })
+
+        function post(obj1,obj2){
+            obj1.click(function(){
+                obj2.css("display", "block");
+            })
+        }
+        function openNav() {
+		document.getElementById("sideNavigation").style.width = "250px";
+		// document.getElementById("main").style.marginLeft = "250px";
+	}
+ 
+	function closeNav() {
+		document.getElementById("sideNavigation").style.width = "0";
+		// document.getElementById("main").style.marginLeft = "0";
+	}
     </script>
 </head>
 <body>
     <div id="wrap">
         <header>
-            <div id="qMenu">
-                <img src="http://placehold.it/50x50?text=sample">
+            <!-- <div id="qMenu">
+                <div></div><div></div><div></div>
             </div>
             <nav id="menu">
-                <img src="http://placehold.it/100x100?text=sample">
+                <img src="./img/free_horizontal_on_white_by_logaster.png">
                 <ul>
-                    <li><a href="#">ABOUT</a></li>
-                    <li><a href="#">태그검색</a></li>
-                    <li><a href="#">나만의 게시판</a></li>
-                    <li><a href="#">공유 게시판</a></li>
-                    <li><a href="#">알리미</a></li>
-                    <li><a href="#">CONTACT</a></li>
+                    <li class="menu"><a href="#">ABOUT</a></li>
+                    <li class="menu"><a href="#">태그검색</a></li>
+                    <ul class="menu" id="post1">
+                        <a href="#">나만의 게시판</a> 
+                        <li class="post1_2"><a href="#">게시판 요소 선택</a></li>
+                        <li class="post1_2"><a href="#">요소 선택 결과</a></li>
+                    </ul>
+                    <li class="menu"><a href="#">공유 게시판</a></li>
+                    <li class="menu"><a href="#">알리미</a></li>
+                    <li class="menu"><a href="#">CONTACT</a></li>
                 </ul>
-            </nav>
+            </nav> -->
+            <div id="sideNavigation" class="sidenav">
+                    <a class="menu" href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <a class="menu" href="#">ABOUT</a>
+                    <a class="menu" href="#">태그검색</a>
+                    <a class="menu" id="post1" href="#">나만의 게시판</a>
+                        <li class="post1_2"><a href="#">게시판 요소 선택</a></li>
+                        <li class="post1_2"><a href="#">요소 선택 결과</a></li>
+                    <a class="menu" href="#">공유 게시판</a>
+                    <a class="menu" href="#">알리미</a>
+                    <a class="menu" href="#">CONTACT</a>
+                  </div>
+                   
+                  <nav class="topnav">
+                    <a href="#" onclick="openNav()">
+                      <svg width="30" height="30" id="icoOpen">
+                          <path d="M0,5 30,5" stroke="#555" stroke-width="5"/>
+                          <path d="M0,14 30,14" stroke="#555" stroke-width="5"/>
+                          <path d="M0,23 30,23" stroke="#555" stroke-width="5"/>
+                      </svg>
+                    </a>
+                  </nav>
             <div id="logo">
                 <img src="./img/free_horizontal_on_white_by_logaster.png" alt="">
             </div>
             <div id="login">
-                <button><a href="#">로그인</a></button>
+                <button><a href="./login.html">로그인</a></button>
             </div>
             
         </header>
-        <div id="search">
-            <input type="text">
-            <button><a><img src="./img/magnifying-glass-4186151_960_720.png" alt=""></a></button>
-        </div>
+        <form id="search" name="google_search" method="GET" action="http://www.google.co.kr/search" onsubmit="javascript:this.q.value">
+            <input type="search" name="q" placeholder="검색어 입력">
+            <button type="submit"><a><img src="./img/magnifying-glass-4186151_960_720.png" alt=""></a></button>
+        </form>
         <nav class="sub">
             <ul class="sub-menu">
-                <li><img src="http://placehold.it/300x300?text=sample" class="sub-menu-img"></li>
-                <li><img src="http://placehold.it/300x300?text=sample" class="sub-menu-img"></li>
-                <li><img src="http://placehold.it/300x300?text=sample" class="sub-menu-img"></li>
-                <li><img src="http://placehold.it/300x300?text=sample" class="sub-menu-img"></li>
+                <li><a href="#">
+                    <p>태그검색</p>
+                    <img src="http://placehold.it/300x300" class="sub-menu-img">
+                </a></li>
+                <li><a href="#">
+                    <p>나만의 게시판</p>
+                    <img src="http://placehold.it/300x300" class="sub-menu-img">
+                </a></li>
+                <li><a href="#">
+                    <p>공유게시판</p>
+                    <img src="http://placehold.it/300x300" class="sub-menu-img">
+                </a></li>
+                <li><a href="#">
+                    <p>마이페이지</p>
+                    <img src="http://placehold.it/300x300" class="sub-menu-img">
+                </a></li>
             </ul>
         </nav>
     </div>

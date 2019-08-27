@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>태그검색</title>
+    <link rel="stylesheet" href="./total.css">
+    <style>
+    #body{
+        width: 100%;
+        margin: 0 auto;
+    }
+    h2{
+        text-align: center;
+        font-size: 30px;
+    }
+    .imgBox{
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        margin: 20px; 
+        overflow:hidden;
+        
+    }
+    .imgBox>a{
+        width: 99%;
+        display: inline-block;
+        margin: 0 0.6%;
+    }
+    #btn{
+        position: relative;
+        bottom: 10px;
+        display: flex;
+        justify-content: space-between;
+    }
+    #prev{
+        margin-left: 42%;
+    }
+    #next{
+        margin-right: 42%;
+    }
+    .btn{
+        width: 5%;
+        font-size: 40px;
+        background: skyblue;
+        border: none;
+        border-radius: 10px;
+    }
+    hr{
+        clear: both;
+    }
+    
+
+
+    .tag{
+        border: 1px solid black;
+    }
+    </style>
+    <script src="./libs/jquery-3.4.1.min.js"></script>
+    <script src="./libs/jquery.easing.1.3.js"></script>
+    <script>
+        var currentIndex = 0;
+        var $banner = null;
+        var $bannerItems = null;
+        $(document).ready(function(){
+            $prev = $("#prev");
+            $next = $("#next");
+            $banner = $("#basic .imgBox");
+            $bannerItems = $("#basic .imgBox .img");
+
+            show_logo(0);
+
+            
+            $prev.on("click",function(){
+                currentIndex-=3;
+                if(currentIndex<0){
+                    currentIndex=$bannerItems.length-1;
+                    $(".imgBox").css("overflow","visible");
+                }else if(currentIndex<=3){
+                    currentIndex=0;
+                }
+                    
+                show_logo(currentIndex);
+                
+            })
+
+            $next.on("click",function(){
+                currentIndex+=3;
+                if(currentIndex > $bannerItems.length-1){
+                    currentIndex = 0; 
+                    $(".imgBox").css("overflow","hidden");
+                } else{
+                    $(".imgBox").css("overflow","visible");
+                }
+                    
+                show_logo(currentIndex);
+                
+            })  
+
+            
+        })                                  
+        function show_logo(index) {
+            $banner.stop().animate({
+                left:parseFloat(-$bannerItems.eq(index).outerWidth() * index)
+            },1000,"swing")
+	    }
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <header>
+            <div id="sideNavigation" class="sidenav">
+                <a class="menu" href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <a class="menu" id="post1" href="#">소개</a>
+                    <li class="post1"><a href="./about.html">ABOUT</a></li>
+                    <li class="post1"><a href="./useMethod.html">사용 방법</a></li>
+                <a class="menu" href="./tagSearch.html">태그검색</a>
+                <a class="menu" id="post2" href="#">나만의 게시판</a>
+                    <li class="post2"><a href="#">게시판 요소 선택</a></li>
+                    <li class="post2"><a href="#">요소 선택 결과</a></li>
+                <a class="menu" href="#">공유 게시판</a>
+                <a class="menu" href="#">알리미</a>
+                <a class="menu" href="#">CONTACT</a>
+            </div>
+                
+            <nav class="topnav">
+                <a href="#" onclick="openNav()">
+                    <svg width="30" height="30" id="icoOpen">
+                        <path d="M0,5 30,5" stroke="darkblue" stroke-width="5"/>
+                        <path d="M0,14 30,14" stroke="darkblue" stroke-width="5"/>
+                        <path d="M0,23 30,23" stroke="darkblue" stroke-width="5"/>
+                    </svg>
+                </a>
+            </nav>
+            <div id="logo">
+                    <a href="./main_page.html"><img src="./img/free_horizontal_on_white_by_logaster.png" alt=""></a>
+            </div>
+            <div id="login">
+                <button><a href="./login.html">로그인</a></button>
+            </div>   
+        </header>
+        
+        <div id="body">
+            <!-- 기본유형 -->
+            <section id="basic">
+                <h2>기본 이미지 추천</h2>
+                <div class="imgBox">
+                    <a href="./select.html"><img class="img" src="http://placehold.it/220x220" alt=""></a>
+                    <a href="./select.html"><img class="img" src="http://placehold.it/220x220" alt=""></a>
+                    <a href="./select.html"><img class="img" src="http://placehold.it/220x220" alt=""></a>
+                    <a href="./select.html"><img class="img" src="http://placehold.it/220x220" alt=""></a>
+                    <a href="./select.html"><img class="img" src="http://placehold.it/220x220" alt=""></a>
+                    <a href="./select.html"><img class="img" src="http://placehold.it/220x220" alt=""></a>
+                    <a href="./select.html"><img class="img" src="http://placehold.it/220x220" alt=""></a>
+                    <a href="./select.html"><img class="img" src="http://placehold.it/220x220" alt=""></a>
+                </div>
+                <div id="btn">
+                    <button id="prev" class="btn">&lt;</button>
+                    <button id="next" class="btn">&gt;</button>
+                </div>
+                
+                <hr>
+            </section>
+            <!-- 태그검색 -->
+            <section id="tag">
+                <h2>태그 검색</h2>
+                <form id="search" name="google_search" method="GET" action="http://www.google.co.kr/search" onsubmit="javascript:this.q.value">
+                    <input type="search" name="q" placeholder="태그 입력">
+                    <button type="submit"><a><img src="./img/magnifying-glass-4186151_960_720.png" alt=""></a></button>
+                </form>
+                <div class="imgBox">
+                    <div>
+                        <a href="./select.html"><img class="img" src="http://placehold.it/220x220" alt=""></a>
+                        <div class="tag"> #반응형</div>
+                    </div>
+                    <div>
+                        <a href="./select.html"><img class="img" src="http://placehold.it/220x220" alt=""></a>
+                        <div class="tag"> #반응형#쇼핑몰</div>
+                    </div>
+                    <div>
+                        <a href="./select.html"><img class="img" src="http://placehold.it/220x220" alt=""></a>
+                        <div class="tag"> #반응형#바나나</div>
+                    </div>
+                    <div>
+                        <a href="./select.html"><img class="img" src="http://placehold.it/220x220" alt=""></a>
+                        <div class="tag"> #반응형#달</div>
+                    </div>
+                    <div>
+                        <a href="./select.html"><img class="img" src="http://placehold.it/220x220" alt=""></a>
+                        <div class="tag"> #반응형</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+    </div>
+
+    
+    
+    <script type="text/javascript"src="./total.js"></script>
+</body>
+</html>

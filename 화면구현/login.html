@@ -9,6 +9,7 @@
         *{
             padding: 0;
             margin: 0;
+            text-decoration: none;
 
         }
         #wrap{
@@ -26,10 +27,18 @@
             width: 80%;
             margin: 10px;
         }
+        .lo a{
+            color: black;
+        }
     </style>
 
     <script src="./libs/jquery-3.4.1.min.js"></script>
     <script src="./libs/jquery.easing.1.3.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#log").val();
+        })
+    </script>
 </head>
 <body>
     <div id="wrap">
@@ -38,10 +47,13 @@
             <form action="" method="post">
                 <input class="lo" type="text" placeholder="Username">
                 <input class="lo" type="password" placeholder="＊＊＊＊">
-                <button class="lo">로그인</button><br>
+                <button id="log" class="lo"><a href="./main_page.html">로그인</a></button><br>
+                <button class="lo"><a href="./membership.html">회원가입</a></button><br>
                 <input type="checkbox" name="" id="dd">로그인 상태 유지
             </form>
         </div>
     </div>
+
+    <script src="./total.js"></script>
 </body>
 </html>

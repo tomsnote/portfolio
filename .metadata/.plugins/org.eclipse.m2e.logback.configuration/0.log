@@ -12274,3 +12274,175 @@ org.eclipse.core.runtime.CoreException: Could not resolve artifact com.sun.jmx:j
 2019-11-29 17:50:35,301 [Worker-96: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
 2019-11-29 17:50:51,317 [Worker-94: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
 2019-11-29 17:50:51,319 [Worker-94: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-11-29 23:37:32,838 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2019-11-30 00:18:56,423 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2019-11-30 00:24:31,451 [Worker-21: Updating Maven Dependencies] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.ta:biz:1.0.0-BUILD-SNAPSHOT @ C:\portfolio\flight_hotel_reserve\TravelArchitect\pom.xml.
+2019-11-30 00:24:33,475 [Worker-21: Updating Maven Dependencies] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/commons-dbcp/commons-dbcp/1.4/commons-dbcp-1.4.pom
+2019-11-30 00:24:33,850 [Worker-21: Updating Maven Dependencies] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/commons-dbcp/commons-dbcp/1.4/commons-dbcp-1.4.pom
+2019-11-30 00:24:34,077 [Worker-21: Updating Maven Dependencies] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/12/commons-parent-12.pom
+2019-11-30 00:24:34,452 [Worker-21: Updating Maven Dependencies] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/12/commons-parent-12.pom
+2019-11-30 00:24:34,694 [Worker-21: Updating Maven Dependencies] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/commons-pool/commons-pool/1.5.4/commons-pool-1.5.4.pom
+2019-11-30 00:24:34,913 [Worker-21: Updating Maven Dependencies] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/commons-pool/commons-pool/1.5.4/commons-pool-1.5.4.pom
+2019-11-30 00:24:35,112 [Worker-21: Updating Maven Dependencies] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/projectlombok/lombok/1.18.10/lombok-1.18.10.pom
+2019-11-30 00:24:35,300 [Worker-21: Updating Maven Dependencies] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/projectlombok/lombok/1.18.10/lombok-1.18.10.pom
+2019-11-30 00:24:35,669 [Worker-21: Updating Maven Dependencies] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/commons-dbcp/commons-dbcp/1.4/commons-dbcp-1.4.jar
+2019-11-30 00:24:36,241 [Worker-21: Updating Maven Dependencies] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/commons-dbcp/commons-dbcp/1.4/commons-dbcp-1.4.jar
+2019-11-30 00:24:36,422 [Worker-21: Updating Maven Dependencies] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/commons-pool/commons-pool/1.5.4/commons-pool-1.5.4.jar
+2019-11-30 00:24:36,700 [Worker-21: Updating Maven Dependencies] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/commons-pool/commons-pool/1.5.4/commons-pool-1.5.4.jar
+2019-11-30 00:24:36,892 [Worker-21: Updating Maven Dependencies] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/projectlombok/lombok/1.18.10/lombok-1.18.10.jar
+2019-11-30 00:24:37,890 [Worker-21: Updating Maven Dependencies] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/projectlombok/lombok/1.18.10/lombok-1.18.10.jar
+2019-11-30 00:24:48,170 [Worker-10: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/commons-dbcp/commons-dbcp/1.4/commons-dbcp-1.4-sources.jar
+2019-11-30 00:24:48,927 [Worker-10: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/commons-dbcp/commons-dbcp/1.4/commons-dbcp-1.4-sources.jar
+2019-11-30 00:24:49,092 [Worker-10: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for commons-dbcp:commons-dbcp:1.4
+2019-11-30 00:24:49,280 [Worker-10: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/commons-pool/commons-pool/1.5.4/commons-pool-1.5.4-sources.jar
+2019-11-30 00:24:49,505 [Worker-10: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/commons-pool/commons-pool/1.5.4/commons-pool-1.5.4-sources.jar
+2019-11-30 00:24:50,516 [Worker-10: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for commons-pool:commons-pool:1.5.4
+2019-11-30 00:24:50,711 [Worker-10: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/projectlombok/lombok/1.18.10/lombok-1.18.10-sources.jar
+2019-11-30 00:24:51,382 [Worker-10: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/projectlombok/lombok/1.18.10/lombok-1.18.10-sources.jar
+2019-11-30 00:24:51,555 [Worker-10: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.projectlombok:lombok:1.18.10
+2019-11-30 00:24:51,587 [Worker-22: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-11-30 00:24:51,600 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 6 resources
+2019-11-30 00:24:51,679 [Worker-22: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-11-30 00:24:51,682 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-11-30 00:25:02,390 [Worker-14: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-11-30 00:25:02,394 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-11-30 00:25:02,396 [Worker-14: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-11-30 00:25:02,398 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-11-30 00:29:47,783 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2019-11-30 00:33:42,480 [Worker-10: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-11-30 00:33:42,500 [Worker-10: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 6 resources
+2019-11-30 00:33:42,539 [Worker-10: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-11-30 00:33:42,542 [Worker-10: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-11-30 00:35:53,669 [Worker-13: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-11-30 00:35:53,672 [Worker-13: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 6 resources
+2019-11-30 00:35:53,695 [Worker-13: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-11-30 00:35:53,697 [Worker-13: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-11-30 00:36:34,922 [Worker-8: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2019-11-30 00:36:35,640 [Worker-8: Updating Maven Project] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.ta:biz:1.0.0-BUILD-SNAPSHOT @ C:\portfolio\flight_hotel_reserve\TravelArchitect\pom.xml.
+2019-11-30 00:36:36,347 [Worker-8: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /TravelArchitect/src/main/java
+2019-11-30 00:36:36,348 [Worker-8: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /TravelArchitect/src/main/resources
+2019-11-30 00:36:36,349 [Worker-8: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /TravelArchitect/src/test/java
+2019-11-30 00:36:36,350 [Worker-8: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /TravelArchitect/src/test/resources
+2019-11-30 00:36:36,871 [Worker-8: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed: 1 sec
+2019-11-30 00:36:40,244 [Worker-7: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-11-30 00:36:40,246 [Worker-7: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 6 resources
+2019-11-30 00:36:40,277 [Worker-7: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-11-30 00:36:40,278 [Worker-7: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-11-30 01:00:33,294 [Worker-26: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-11-30 01:00:33,448 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 6 resources
+2019-11-30 01:00:33,473 [Worker-26: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-11-30 01:00:33,477 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-11-30 01:08:10,724 [Worker-27: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-11-30 01:08:10,728 [Worker-27: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-11-30 01:08:10,730 [Worker-27: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-11-30 01:08:10,732 [Worker-27: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-11-30 01:08:39,400 [Worker-34: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2019-11-30 01:08:40,111 [Worker-34: Updating Maven Project] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.ta:biz:1.0.0-BUILD-SNAPSHOT @ C:\portfolio\flight_hotel_reserve\TravelArchitect\pom.xml.
+2019-11-30 01:08:40,745 [Worker-34: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /TravelArchitect/src/main/java
+2019-11-30 01:08:40,746 [Worker-34: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /TravelArchitect/src/main/resources
+2019-11-30 01:08:40,747 [Worker-34: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /TravelArchitect/src/test/java
+2019-11-30 01:08:40,747 [Worker-34: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /TravelArchitect/src/test/resources
+2019-11-30 01:08:41,120 [Worker-34: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed: 1 sec
+2019-11-30 01:08:43,445 [Worker-44: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-11-30 01:08:43,447 [Worker-44: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 6 resources
+2019-11-30 01:08:43,579 [Worker-44: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-11-30 01:08:43,582 [Worker-44: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-11-30 01:09:00,303 [Worker-40: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-11-30 01:09:00,305 [Worker-40: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 6 resources
+2019-11-30 01:09:00,377 [Worker-40: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-11-30 01:09:00,379 [Worker-40: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-11-30 01:09:04,056 [Worker-47: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2019-11-30 01:09:04,716 [Worker-47: Updating Maven Project] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.ta:biz:1.0.0-BUILD-SNAPSHOT @ C:\portfolio\flight_hotel_reserve\TravelArchitect\pom.xml.
+2019-11-30 01:09:05,193 [Worker-47: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /TravelArchitect/src/main/java
+2019-11-30 01:09:05,193 [Worker-47: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /TravelArchitect/src/main/resources
+2019-11-30 01:09:05,194 [Worker-47: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /TravelArchitect/src/test/java
+2019-11-30 01:09:05,194 [Worker-47: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /TravelArchitect/src/test/resources
+2019-11-30 01:09:05,449 [Worker-47: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed: 1 sec
+2019-11-30 01:09:07,300 [Worker-40: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-11-30 01:09:07,303 [Worker-40: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 6 resources
+2019-11-30 01:09:07,352 [Worker-40: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-11-30 01:09:07,354 [Worker-40: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-11-30 01:10:03,572 [Worker-27: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-11-30 01:10:03,595 [Worker-27: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 6 resources
+2019-11-30 01:10:03,607 [Worker-27: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-11-30 01:10:03,609 [Worker-27: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-11-30 01:10:08,750 [Worker-34: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-11-30 01:10:08,755 [Worker-34: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 6 resources
+2019-11-30 01:10:08,759 [Worker-34: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-11-30 01:10:08,764 [Worker-34: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-11-30 01:10:41,038 [Worker-46: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-11-30 01:10:41,041 [Worker-46: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 6 resources
+2019-11-30 01:10:41,045 [Worker-46: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-11-30 01:10:41,049 [Worker-46: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-11-30 01:22:42,378 [Worker-49: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2019-11-30 01:22:43,070 [Worker-49: Updating Maven Project] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.ta:biz:1.0.0-BUILD-SNAPSHOT @ C:\portfolio\flight_hotel_reserve\TravelArchitect\pom.xml.
+2019-11-30 01:22:43,521 [Worker-49: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /TravelArchitect/src/main/java
+2019-11-30 01:22:43,522 [Worker-49: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /TravelArchitect/src/main/resources
+2019-11-30 01:22:43,522 [Worker-49: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /TravelArchitect/src/test/java
+2019-11-30 01:22:43,523 [Worker-49: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /TravelArchitect/src/test/resources
+2019-11-30 01:22:43,762 [Worker-49: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed: 1 sec
+2019-11-30 01:22:45,262 [Worker-53: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-11-30 01:22:45,266 [Worker-53: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 6 resources
+2019-11-30 01:22:45,362 [Worker-53: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-11-30 01:22:45,365 [Worker-53: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-11-30 01:25:44,374 [Worker-5: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2019-11-30 01:26:02,281 [Worker-2: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-11-30 01:26:02,324 [Worker-2: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 6 resources
+2019-11-30 01:26:02,339 [Worker-2: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-11-30 01:26:02,341 [Worker-2: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-11-30 01:26:29,942 [Worker-17: Building workspace] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.ta:biz:1.0.0-BUILD-SNAPSHOT @ C:\portfolio\flight_hotel_reserve\TravelArchitect\pom.xml.
+2019-11-30 01:26:30,450 [Worker-17: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-11-30 01:26:30,454 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-11-30 01:26:30,457 [Worker-17: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-11-30 01:26:30,459 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-11-30 01:27:04,514 [Worker-2: Building workspace] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.ta:biz:1.0.0-BUILD-SNAPSHOT @ C:\portfolio\flight_hotel_reserve\TravelArchitect\pom.xml.
+2019-11-30 01:27:04,991 [Worker-2: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-11-30 01:27:04,996 [Worker-2: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-11-30 01:27:05,000 [Worker-2: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-11-30 01:27:05,002 [Worker-2: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-11-30 01:27:08,669 [Worker-12: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-11-30 01:27:08,671 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-11-30 01:27:08,673 [Worker-12: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-11-30 01:27:08,675 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-11-30 01:27:13,295 [Worker-4: Building workspace] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.ta:biz:1.0.0-BUILD-SNAPSHOT @ C:\portfolio\flight_hotel_reserve\TravelArchitect\pom.xml.
+2019-11-30 01:27:13,801 [Worker-4: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-11-30 01:27:13,814 [Worker-4: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-11-30 01:27:13,826 [Worker-4: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-11-30 01:27:13,861 [Worker-4: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-11-30 01:27:17,655 [Worker-20: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-11-30 01:27:17,668 [Worker-20: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 6 resources
+2019-11-30 01:27:17,762 [Worker-20: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-11-30 01:27:17,765 [Worker-20: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-11-30 01:27:20,747 [Worker-0: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-11-30 01:27:20,750 [Worker-0: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-11-30 01:27:20,760 [Worker-0: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-11-30 01:27:20,762 [Worker-0: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-11-30 01:27:21,128 [Worker-10: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2019-11-30 01:27:22,823 [Worker-10: Updating Maven Project] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.ta:biz:1.0.0-BUILD-SNAPSHOT @ C:\portfolio\flight_hotel_reserve\TravelArchitect\pom.xml.
+2019-11-30 01:27:23,446 [Worker-10: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /TravelArchitect/src/main/java
+2019-11-30 01:27:23,447 [Worker-10: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /TravelArchitect/src/main/resources
+2019-11-30 01:27:23,449 [Worker-10: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /TravelArchitect/src/test/java
+2019-11-30 01:27:23,451 [Worker-10: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /TravelArchitect/src/test/resources
+2019-11-30 01:27:24,249 [Worker-10: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed: 3 sec
+2019-11-30 01:27:27,676 [Worker-16: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-11-30 01:27:27,689 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 6 resources
+2019-11-30 01:27:27,725 [Worker-16: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-11-30 01:27:27,728 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-11-30 01:29:51,849 [Worker-16: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2019-11-30 01:29:52,388 [Worker-16: Updating Maven Project] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.ta:biz:1.0.0-BUILD-SNAPSHOT @ C:\portfolio\flight_hotel_reserve\TravelArchitect\pom.xml.
+2019-11-30 01:29:52,810 [Worker-16: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /TravelArchitect/src/main/java
+2019-11-30 01:29:52,811 [Worker-16: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /TravelArchitect/src/main/resources
+2019-11-30 01:29:52,812 [Worker-16: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /TravelArchitect/src/test/java
+2019-11-30 01:29:52,812 [Worker-16: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /TravelArchitect/src/test/resources
+2019-11-30 01:29:53,056 [Worker-16: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed: 1 sec
+2019-11-30 01:29:54,600 [Worker-6: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-11-30 01:29:54,604 [Worker-6: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 6 resources
+2019-11-30 01:29:54,682 [Worker-6: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-11-30 01:29:54,684 [Worker-6: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-11-30 01:31:05,316 [Worker-18: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-11-30 01:31:05,321 [Worker-18: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-11-30 01:31:05,329 [Worker-18: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-11-30 01:31:05,335 [Worker-18: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-11-30 01:31:08,141 [Worker-23: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-11-30 01:31:08,143 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-11-30 01:31:08,146 [Worker-23: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!

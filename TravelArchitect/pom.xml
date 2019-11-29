@@ -123,7 +123,7 @@
 			<artifactId>ojdbc</artifactId>
 			<version>18.3</version>
 			<scope>system</scope>
-			<systemPath>C:\DB\ojdbc8.jar</systemPath>
+			<systemPath>C:\portfolio\flight_hotel_reserve\init_config\ojdbc8.jar</systemPath>
 		</dependency>
 
 		<!-- Spring JDBC -->

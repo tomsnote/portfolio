@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="MemberDAO">
+
+	<select id="memberLogin" resultType="member">
+		SELECT * FROM members 
+		WHERE id=#{id} AND pwd=#{pwd}
+	</select>
+	<select id="memberLoginCheck" resultType="member">
+		SELECT * FROM members 
+		WHERE id=#{id}
+	</select>
+
+	<select id="checkMember" resultType="string">
+		SELECT id FROM members
+		WHERE id=#{id}
+	</select>
+
+	<resultMap id="addressResult" type="address">
+		<result property="zipNum" column="zip_num"/>
+		<result property="sido" column="sido"/>
+		<result property="gugun" column="gugun"/>
+		<result property="dong" column="dong"/>
+		<result property="zipCode" column="zipCode"/>
+		<result property="bunji" column="bunji"/>
+		
+	</resultMap>
+	<select id="selectAddressByDong" resultMap="addressResult">
+		SELECT * FROM address
+		WHERE dong like '%'||#{dong}||'%'
+	</select>
+	
+	
+	<insert id="insertMember">
+		INSERT INTO members(id, pwd, fname_ko, lname_ko, fname_en, lname_en, nationality, address, email, phone) 
+		VALUES(#{id}, #{pwd}, #{fname_ko}, #{lname_ko}, #{fname_en}, #{lname_en}, #{nationality}, #{address}, #{email}, #{phone})
+	</insert>
+	
+	<select id="findId" resultType="string">
+		SELECT id FROM members
+		WHERE fname_ko=#{fname_ko} OR (lname_ko=#{lname_ko} AND email=#{email})
+	</select>
+	
+	<select id="findPwd" resultType="string">
+		SELECT pwd FROM members
+		WHERE id=#{id}
+	</select>
+	
+	<delete id="deleteMember">
+		DELETE FROM members
+		WHERE id=#{id}
+	</delete>
+	
+	<update id="updateMember">
+		UPDATE members 
+		SET pwd=#{pwd}, fname_ko=#{fname_ko}, lname_ko=#{lname_ko}, fname_en=#{fname_en}, lname_en=#{lname_en}
+		, nationality=#{nationality}, address=#{address}, email=#{email}, phone=#{phone}
+		WHERE id=#{id}
+	</update>
+</mapper>

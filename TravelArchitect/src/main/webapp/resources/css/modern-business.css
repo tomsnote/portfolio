@@ -1,0 +1,205 @@
+/*!
+ * Start Bootstrap - Modern Business (https://startbootstrap.com/template-overviews/modern-business)
+ * Copyright 2013-2019 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-logomodern-business-nav/blob/master/LICENSE)
+ */
+body {
+	padding-top: 56px;
+}
+
+.carousel-item {
+	height: 65vh;
+	min-height: 300px;
+	background: no-repeat center center scroll;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.portfolio-item {
+	margin-bottom: 30px;
+}
+
+.login {
+	width: 60%;
+	margin: 0 auto;
+}
+.join {
+	width: 70%;
+	margin: 0 auto;
+}
+
+.mypageTop h3{
+	float:left;
+	margin-left: 120px; 
+}
+.mypageTop ul{
+	list-style:none;	
+	float:right;
+	margin: 50px 30px 0 0;
+}
+.mypageTop>ul>li{
+	float:left;
+	margin-left: 10px;
+	color: #ccc;
+}
+
+.mypageTop>ul>li>a{
+	color: #ccc;
+	text-decoration:none;
+}
+.mypageTop>ul>li>a:hover{
+	color: red;
+}
+.myInfo ul{
+	float:left;
+}
+.mypageTop::after{
+	content:"";
+	display:block;
+	clear:both;
+}
+.mypageBody1, .mypageBody2{
+	margin: 20px 100px;
+	
+}
+
+.b1-h p{
+	margin:0;
+	border-bottom: 3px solid skyblue;
+	float:left;
+}
+.b1-h::after{
+	content:"";
+	display:block;
+	clear:both;
+}
+
+.myInfo{
+	margin-top: -3px;
+	border-top: 3px solid #ccc;
+}
+.m-left, .m-right{
+	margin: 20px;
+	float:left;
+	width: 45%;
+	height: 210px;
+}
+.myInfo::after{
+	content:"";
+	display:block;
+	clear:both;
+}
+
+.b2-h{
+	margin: 0;
+	width: 100%;
+	border-bottom:3px solid #ccc;
+}
+.b2-h p{
+	position:relative;
+	left:45%;
+	margin-bottom:-3px;
+	border-bottom: 3px solid skyblue;
+	float:left;
+}
+.b2-h::after{
+	content:"";
+	display:block;
+	clear:both;
+}
+
+.reserveList table{
+	text-align:center;
+	margin:0;
+	width:100%;
+}
+.reserveList div:first-child{
+	float:right;
+}
+.reserveList div:first-child input{
+	margin: 10px;
+	border-radius: 5px;
+	background-color: #ccc;	
+}
+.thead, .tbody{
+	text-align:center;
+}
+.thead th{
+	color: white;
+	background-color: skyblue;
+}
+
+
+/* airReserve */
+#a-r-s{
+	border: 1px solid #ccc;
+	border-radius: 10px;
+	width: 90%;
+	margin: 0 auto;
+	padding: 10px;
+	height: auto;
+}
+.a-r-t, .a-r-b{
+	float:left;
+	margin: 0 10px;
+}
+
+#a-r-h::after, #a-r-m::after{
+	display:block;
+	content:"";
+	clear:both;
+}
+
+#a-r-h, #a-r-m{
+	margin:20px;
+}
+
+.a-r-t-h{
+	margin: 30px 0 20px 0;
+	width: 100%;
+	border-bottom:3px solid #ccc;
+}
+.a-r-t-h p{
+	margin:0 0 -3px 0;
+	border-bottom: 3px solid skyblue;
+	float:left;
+}
+.a-r-t-h::after{
+	content:"";
+	display:block;
+	clear:both;
+}
+.a-r-mt{
+	margin: 20px;
+	padding: 10px;
+	background-color:#eee;
+}
+.a-r-mt table{
+	margin: 0 auto;
+	width: 100%;
+	background-color:#fff;
+}
+.r-table{
+	text-align:center;
+	width: 80%;
+	margin: 0 auto;
+}
+
+textarea{
+	text-align:left;
+	width: 100%;
+	height: 100px;
+}
+
+.a-r-button{
+	margin-top: 30px;
+	text-align:center;
+}
+
+.a-r-button input{
+	margin: 0 10px;
+}
+
+

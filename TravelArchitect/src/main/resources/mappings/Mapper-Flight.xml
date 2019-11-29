@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="FlightDAO">
+	<resultMap type="flight" id="flightResult">
+		<result property="airplaneCode" column="airplane_code" />
+		<result property="airline" column="airline" />
+		<result property="departureCity" column="departure_city" />
+		<result property="arrivalCity" column="arrival_city" />
+		<result property="departureDate" column="departure_date" />
+		<result property="arrivalDate" column="arrival_date" />
+		<result property="departureTime" column="departure_time" />
+		<result property="arrivalTime" column="arrival_time" />
+		<result property="seatCode" column="seat_code" />
+		<result property="seatType" column="seat_type" />
+		<result property="flightPrice" column="price" />
+		<result property="seatNum" column="seat_num" />
+
+		<result property="fReserveCode" column="f_reserve_code" />
+		<result property="fReserveName" column="f_reserve_name" />
+		<result property="fReserveDate" column="f_reserve_date" />
+		<result property="passport" column="passport" />
+		<result property="fComment" column="f_comment" />
+		<result property="id" column="id" />
+	</resultMap>
+	<parameterMap type="flight" id="flightParameter">
+		<parameter property="departureCity"/>
+		<parameter property="arrivalCity"/>
+	</parameterMap>
+
+
+	<select id="distinctDepartureCities" resultType="String">
+		SELECT DISTINCT departure_city FROM flights
+	</select>
+	<select id="distinctArrivalCities" parameterType="String" resultType="String">
+		SELECT DISTINCT arrival_city FROM flights 
+		<if test="value!=null">
+			WHERE departure_city=#{departureCity}
+		</if>
+	</select>
+	<select id="distinctSeatTypes" resultType="String">
+		SELECT DISTINCT seat_type FROM seats
+	</select>
+	<select id="possibleDate" parameterMap="flightParameter" resultType="String">
+		SELECT DISTINCT TO_CHAR(departure_date, 'DD') AS dd FROM flights
+		WHERE departure_city=#{departureCity} AND arrival_city=#{arrivalCity}
+		ORDER BY dd ASC
+	</select>
+	
+	
+	
+	
+	<select id="searchSchedules" resultMap="flightResult">
+		SELECT * FROM flights f, seats s
+		WHERE f.departure_city=#{departureCity} AND f.arrival_city=#{arrivalCity}
+		AND s.seat_type =#{seatType}
+		AND f.departure_date = #{departureDate}
+		<if test="airline!=null and airline!=''">
+			AND f.airline=#{airline}
+		</if>
+		<if test="departureTime!=null and departureTime!=''">
+			AND f.departure_time=#{departureTime}
+		</if>
+		
+	</select>
+	
+	<select id="distinctAir" resultMap="flightResult">
+		SELECT DISTINCT airline FROM
+		(SELECT airline FROM flights f, seats s
+		WHERE f.departure_city=#{departureCity} AND
+		f.arrival_city=#{arrivalCity} AND s.seat_type =#{seatType}
+		AND
+		f.departure_date = #{departureDate})
+	</select>
+	
+	<select id="distinctTime" resultMap="flightResult">
+		SELECT DISTINCT departure_time FROM (SELECT departure_time FROM
+		flights f, seats s
+		WHERE f.departure_city=#{departureCity} AND
+		f.arrival_city=#{arrivalCity} AND s.seat_type =#{seatType}
+		AND
+		f.departure_date = #{departureDate}
+		<if test="airline!=null and airline!=''">
+			AND f.airline=#{airline}
+		</if>
+		)
+		ORDER BY departure_time ASC
+	</select>
+	
+	
+	
+	
+	
+	<select id="getFlight" resultMap="flightResult">
+		SELECT * FROM flights
+	</select>
+	<select id="getViewFlight" resultMap="flightResult">
+		SELECT * FROM
+		view_flight_reserve
+	</select>
+
+
+	
+
+	<select id="searchAir" resultMap="flightResult">
+		SELECT * FROM (SELECT * FROM flights
+		WHERE departure_city=#{departureCity} AND arrival_city=#{arrivalCity} AND
+		seat_type =#{seatType}
+		AND departure_date >= #{departureDate})
+		WHERE
+		<choose>
+			<when test="departureTime==''">
+				airline=#{airline}
+			</when>
+			<when test="airline==''">
+				departure_time=#{departureTime}
+			</when>
+			<otherwise>
+				airline=#{airline} AND departure_time=#{departureTime}
+			</otherwise>
+		</choose>
+	</select>
+
+	
+
+	<select id="selectFlight" resultMap="flightResult">
+		SELECT * FROM flights
+		WHERE airplane_code=#{airplaneCode}
+	</select>
+</mapper>

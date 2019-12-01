@@ -1,5 +1,8 @@
 package com.ta.view.page;
 
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -53,9 +56,7 @@ public class PageController {
 		model.addAttribute("distinctSeatTypes", flightService.distinctSeatTypes());
 		model.addAttribute("distinctDepartureCities", flightService.distinctDepartureCities());
 		model.addAttribute("distinctArrivalCities", flightService.distinctArrivalCities(departureCity));
-		System.out.println(vo);
 		if (vo.getDepartureCity() != null && vo.getArrivalCity() != null) {
-			System.out.println(vo);
 			model.addAttribute("possibleDate", flightService.possibleDate(vo));
 		}
 		model.addAttribute("depart", departureCity);
@@ -83,26 +84,25 @@ public class PageController {
 			}
 
 		}
+		
 		try {
 			model.addAttribute("flights", flightService.searchSchedules(vo));
+			model.addAttribute("distinctAir", flightService.distinctAir(vo));
+			model.addAttribute("distinctTime", flightService.distinctTime(vo));
+			model.addAttribute("airline", vo.getAirline());
+			model.addAttribute("time", vo.getDepartureTime());
+			model.addAttribute("info", vo);
+			return "page/airSchedules";
 		} catch (Exception e) {
+			e.printStackTrace();
 			return "redirect:/airReserve";
 		}
-
-		model.addAttribute("distinctAir", flightService.distinctAir(vo));
-		model.addAttribute("distinctTime", flightService.distinctTime(vo));
-		model.addAttribute("airline", vo.getAirline());
-		model.addAttribute("time", vo.getDepartureTime());
-		model.addAttribute("flight", vo);
-
-		return "page/airSchedules";
 	}
 	
 	
 	@RequestMapping(value="selectReserve", method=RequestMethod.GET)
-	public String selectReserve() {
-		
-		
+	public String selectReserve(FlightVO vo, Model model, @SessionAttribute("reserve") FlightVO session) {
+		model.addAttribute("flight",flightService.getFlight(vo));
 		return "page/reserve";
 	}
 

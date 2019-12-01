@@ -9,6 +9,7 @@ public interface FlightService {
 	List<String> possibleDate(FlightVO vo);
 	
 	List<FlightVO> getFlights();
+	FlightVO getFlight(FlightVO vo);
 	List<FlightVO> searchSchedules(FlightVO vo);
 	List<FlightVO> searchAir(FlightVO vo);
 	List<FlightVO> distinctAir(FlightVO vo);

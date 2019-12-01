@@ -66,6 +66,11 @@ public class FlightServiceImpl implements FlightService {
 		return flightDAO.selectFlight(code);
 	}
 
+	@Override
+	public FlightVO getFlight(FlightVO vo) {
+		return flightDAO.getFlight(vo);
+	}
+
 	
 
 	

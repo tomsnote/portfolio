@@ -26,17 +26,20 @@
 			<tr>
 				<td>예약자 명</td>
 				<td><input type="text" name="fRserveName" /></td>
-				<td>생년원일</td>
+				<td>생년월일</td>
 				<td><input type="text" name="fBirth" /></td>
 			</tr>
 			<tr>
 				<td>연락처</td>
-				<td><input type="text" name="ph" /></td>
+				<td><input type="text" name="fPhone" /></td>
 				<td>이메일</td>
-				<td><input type="text" name="email" /></td>
+				<td><input type="text" name="fEmail" /></td>
 			</tr>
 		</table>
-
+		<div style="text-align:right; margin: 20px 40px;">
+			탑승자가 위의 예약자와 동일인물입니까?
+			<input type="checkbox" value="Y" />
+		</div>
 		<div class="a-r-t-h">
 			<p style="position: relative; left: 45%">탑승객 정보</p>
 		</div>
@@ -61,7 +64,7 @@
 			</tr>
 			<tr>
 				<td><input type="text" name="passport" /></td>
-				<td><input type="text" name="name_ko" /></td>
+				<td><input type="text" name="name" /></td>
 				<td><input type="text" name="lname_en" /></td>
 				<td><input type="text" name="fname_en" /></td>
 				<td><input type="text" name="birth" /></td>
@@ -90,14 +93,14 @@
 				<th>좌석등급</th>
 			</tr>
 			<tr>
-				<c:forEach items="${flights}" var="air">
-					<td>${air.airline}</td>
-					<td>${air.flight}</td>
-					<td>${air.departureCity}</td>
-					<td>${air.departureDate}+${air.departureTime}</td>
-					<td>${air.arrivalCity}</td>
-					<td>${air.arrivalDate}+${air.arrivalTime}</td>
-					<td>${air.seatType}</td>
+				<c:forEach items="${flight}" var="f">
+					<td>${f.airline}</td>
+					<td>${f.flight}</td>
+					<td>${f.departureCity}</td>
+					<td>${f.departureDate}+${f.departureTime}</td>
+					<td>${f.arrivalCity}</td>
+					<td>${f.arrivalDate}+${f.arrivalTime}</td>
+					<td>${f.seatType}</td>
 				</c:forEach>
 			</tr>
 			

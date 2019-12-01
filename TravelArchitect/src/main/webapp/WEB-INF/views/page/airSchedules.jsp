@@ -51,15 +51,15 @@
 			</script>
 			<div class="a-r-t">
 				<h5>출발도시</h5>
-				<p>${flight.departureCity}</p>
+				<p>${info.departureCity}</p>
 			</div>
 			<div class="a-r-t">
 				<h5>도착도시</h5>
-				<p>${flight.arrivalCity}</p>
+				<p>${info.arrivalCity}</p>
 			</div>
 			<div class="a-r-t">
 				<h5>출발날짜</h5>
-				<p>${flight.departureDate}</p>
+				<p>${info.departureDate}</p>
 			</div>
 		</div>
 	</form>
@@ -91,16 +91,16 @@
 				</tr>
 			</thead>
 			<tbody class="tbody">
-				<c:forEach items="${flights}" var="air">
+				<c:forEach items="${flights}" var="flight">
 					<tr class="trAir">
-						<td>${air.flight}</td>
-						<td class="airline">${air.airline}</td>
-						<td class="seat">${air.seatType}</td>
-						<td>${air.flightPrice}</td>
-						<td>${air.departureTime}</td>
-						<td>${air.arrivalTime}</td>
-						<td>${air.seatNum}</td>
-						<td><a href="selectReserve?airplaneCode=${air.flight}">예약</a></td>
+						<td>${flight.flight}</td>
+						<td>${flight.airline}</td>
+						<td>${flight.seatType}</td>
+						<td>${flight.flightPrice}</td>
+						<td>${flight.departureTime}</td>
+						<td>${flight.arrivalTime}</td>
+						<td>${flight.seatNum}</td>
+						<td><a href="selectReserve?flight=${flight.flight}&seatNum=${seatNum}">예약</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>

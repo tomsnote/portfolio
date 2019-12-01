@@ -15,17 +15,14 @@ public class FlightVO {
 	private Date arrivalDate;
 	private String departureTime;
 	private String arrivalTime;
-	private String seatCode;
 	private String seatType;
-	private int seatNum;
-	private int flightPrice;
+	private String seatNum;
+	private Integer flightPrice;
 	private String reserveYN;
-	
-	
-	
 	// flight resevation 
 	private int fReserveCode;
 	private String fReserveName;
+	private String fBirth;
 	private Date fReserveDate;
 	private String passport;
 	private String fComment;

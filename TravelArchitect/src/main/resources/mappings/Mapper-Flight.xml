@@ -4,7 +4,7 @@
 
 <mapper namespace="FlightDAO">
 	<resultMap type="flight" id="flightResult">
-		<result property="airplaneCode" column="airplane_code" />
+		<result property="flight" column="flight"/>
 		<result property="airline" column="airline" />
 		<result property="departureCity" column="departure_city" />
 		<result property="arrivalCity" column="arrival_city" />
@@ -12,10 +12,10 @@
 		<result property="arrivalDate" column="arrival_date" />
 		<result property="departureTime" column="departure_time" />
 		<result property="arrivalTime" column="arrival_time" />
-		<result property="seatCode" column="seat_code" />
-		<result property="seatType" column="seat_type" />
-		<result property="flightPrice" column="price" />
+		
 		<result property="seatNum" column="seat_num" />
+		<result property="seatType" column="seat_type" />
+		<result property="flightPrice" column="f_price" />
 
 		<result property="fReserveCode" column="f_reserve_code" />
 		<result property="fReserveName" column="f_reserve_name" />
@@ -24,6 +24,7 @@
 		<result property="fComment" column="f_comment" />
 		<result property="id" column="id" />
 	</resultMap>
+	
 	<parameterMap type="flight" id="flightParameter">
 		<parameter property="departureCity"/>
 		<parameter property="arrivalCity"/>
@@ -49,10 +50,8 @@
 	</select>
 	
 	
-	
-	
 	<select id="searchSchedules" resultMap="flightResult">
-		SELECT * FROM flights f, seats s
+		SELECT f.*, s.f_price, s.seat_type, s.seat_num FROM flights f, seats s
 		WHERE f.departure_city=#{departureCity} AND f.arrival_city=#{arrivalCity}
 		AND s.seat_type =#{seatType}
 		AND f.departure_date = #{departureDate}
@@ -88,11 +87,16 @@
 		ORDER BY departure_time ASC
 	</select>
 	
+	<select id="getFlight"  resultMap="flightResult">
+		SELECT * FROM flights f, seats s
+		WHERE f.flight=#{flight} AND s.seat_num=#{seatNum}
+	</select>
 	
 	
 	
 	
-	<select id="getFlight" resultMap="flightResult">
+	
+	<select id="getFlights" resultMap="flightResult">
 		SELECT * FROM flights
 	</select>
 	<select id="getViewFlight" resultMap="flightResult">

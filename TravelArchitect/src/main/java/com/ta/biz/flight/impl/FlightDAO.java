@@ -33,9 +33,6 @@ public class FlightDAO {
 		return mybatis.selectList("FlightDAO.getFlights");
 	}
 	
-	
-	
-	
 	public List<FlightVO> getViewFlight() {
 		return mybatis.selectList("FlightDAO.getViewFlight");
 	}
@@ -55,5 +52,9 @@ public class FlightDAO {
 	}
 	public FlightVO selectFlight(int code) {
 		return mybatis.selectOne("FlightDAO.selectFlight", code);
+	}
+	
+	public FlightVO getFlight(FlightVO vo) {
+		return mybatis.selectOne("FlightDAO.getFlight", vo);
 	}
 }

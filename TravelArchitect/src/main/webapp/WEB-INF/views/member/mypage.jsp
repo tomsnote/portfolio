@@ -12,14 +12,16 @@
 	</h3>
 
 	<ul>
-		<li><a href="airList?change=airList">항공 예약 리스트</a></li>
+		<li><a href="mypage?change=airList">항공 예약 리스트</a></li>
 		<li>/</li>
-		<li><a href="hotelList?change=hotelList">호텔 예약 리스트</a></li>
+		<li><a href="mypage?change=hotelList">호텔 예약 리스트</a></li>
 	</ul>
 </section>
 <hr>
 <!-- Page Content -->
+<c:if test="${!empty loginMember}">
 <section class="mypageBody1">
+
 	<div class="b1-h">
 		<p>나의 회원 정보</p>
 	</div>
@@ -32,14 +34,14 @@
 			<p>0점</p>
 			<p>쿠폰</p>
 			<p>0장</p>
-			<input type="button" value="개인정보변경" onclick="location.href='updateUserForm'" /> 
-			<input type="button" value="회원탈퇴" onclick="location.href='deleteUser'" />
+			<input type="button" value="개인정보변경" onclick="location.href='updateMemberForm'" /> 
+			<input type="button" value="회원탈퇴" onclick="location.href='deleteMember'" />
 		</div>
 	</div>
 </section>
-
+</c:if>
 <c:choose>
-	<c:when test="${changeList == 'airList'}">
+	<c:when test="${change == 'airList'}">
 		<%@ include file="airList.jsp"%>
 	</c:when>
 	<c:otherwise>

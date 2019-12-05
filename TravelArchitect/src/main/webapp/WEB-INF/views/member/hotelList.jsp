@@ -31,19 +31,19 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${reserveList}" var="reserve">
+				<c:forEach items="${flightLIst}" var="reserve">
 					<tr>
 						<td><input type="checkbox"></td>
-						<td>${reserve.fReserveCode }</td>
+						<td>${reserve.flightReserveCode }</td>
 						<td>${reserve.passport }</td>
-						<td></td>
-						<td></td>
+						<td>${loginUser.fname_ko}${loginUser.lname_ko}</td>
+						<td>${loginUser.fname_en}&nbsp;${loginUser.lname_en}</td>
 						<td></td>
 						<td></td>
 						<td></td>
 						<td></td>
 						<td>${reserve.seatNum }</td>
-						<td>${reserve.fComment }</td>
+						<td>${reserve.flightComment }</td>
 					</tr>
 				</c:forEach>
 			</tbody>

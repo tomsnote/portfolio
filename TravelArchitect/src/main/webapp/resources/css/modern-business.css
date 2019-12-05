@@ -16,6 +16,98 @@ body {
 	-o-background-size: cover;
 	background-size: cover;
 }
+.carousel-item:before{
+	content:"";
+	position:absolute;
+	top:0; left:0; right:0; bottom:0;
+	background:inherit;
+	z-index:-1;
+	filter:blur(3px);
+	-webkit-filter: blur(3px);
+	-moz-filter: blur(3px);
+	-o-filter: blur(3px);
+}
+
+.button_base {
+    margin: 0;
+    border: 0;
+    font-size: 18px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    /* margin-top: -25px; */
+    margin-left: -100px;
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-user-select: none;
+    cursor: default;
+}
+
+.button_base:hover {
+    cursor: pointer;
+}
+
+.b03_skewed_slide_in {
+    overflow: hidden;
+    border: #000000 solid 1px;
+}
+
+.b03_skewed_slide_in div {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    height: 50px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    padding: 10px;
+}
+
+.b03_skewed_slide_in div:nth-child(1) {
+    color: #000000;
+    background-color: #ffffff;
+}
+
+.b03_skewed_slide_in div:nth-child(2) {
+    background-color: #000000;
+    width: 230px;
+    transition: all 0.2s ease;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    transform: translate(-250px, 0px) skewX(-30deg);
+    -webkit-transform: translate(-250px, 0px) skewX(-30deg);
+    -moz-transform: translate(-250px, 0px) skewX(-30deg);
+}
+
+.b03_skewed_slide_in div:nth-child(3) {
+    color: #ffffff;
+    left: -200px;
+    transition: left 0.2s ease;
+    -webkit-transition: left 0.2s ease;
+    -moz-transition: left 0.2s ease;
+}
+
+.b03_skewed_slide_in:hover div:nth-child(2) {
+    transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    transform: translate(-15px, 0px) skewX(-30deg);
+    -webkit-transform: translate(-15px, 0px) skewX(-30deg);
+    -moz-transform: translate(-15px, 0px) skewX(-30deg);
+}
+
+.b03_skewed_slide_in:hover div:nth-child(3) {
+    left: 0px;
+    transition: left 0.30000000000000004s ease;
+    -webkit-transition: left 0.30000000000000004s ease;
+    -moz-transition: left 0.30000000000000004s ease;
+}
+
+
 
 .portfolio-item {
 	margin-bottom: 30px;
@@ -94,12 +186,12 @@ body {
 
 .b2-h{
 	margin: 0;
-	width: 100%;
+	width: inherited;
 	border-bottom:3px solid #ccc;
 }
 .b2-h p{
 	position:relative;
-	left:45%;
+	left:43%;
 	margin-bottom:-3px;
 	border-bottom: 3px solid skyblue;
 	float:left;
@@ -109,16 +201,18 @@ body {
 	display:block;
 	clear:both;
 }
-
-.reserveList table{
+.flightList{
+	margin: 10px 0;
+}
+.flightList table, .reserveList table{
 	text-align:center;
 	margin:0;
 	width:100%;
 }
-.reserveList div:first-child{
+.flightList div:first-child,.reserveList div:first-child{
 	float:right;
 }
-.reserveList div:first-child input{
+.flightList div:first-child input,.reserveList div:first-child input{
 	margin: 10px;
 	border-radius: 5px;
 	background-color: #ccc;	
@@ -202,4 +296,77 @@ textarea{
 	margin: 0 10px;
 }
 
+/* 관리자 페이지 */
+#admin-h{
+	width:50%;
+	margin:50px auto;
+	border: 1px solid #ccc;
+	border-radius: 10px;
+	padding: 10px;
+}
+#admin-h::after{
+	display:block;
+	content:"";
+	clear:both;
+}
+.admin-h-ul, .f-m-ul{
+	list-style:none;
+	padding:0;
+}
+.admin-menu{
+	float:left;
+	padding: 10px 20px;
+	position: relative;
+	left: 12%;
+}
+.admin-h-ul>div{
+	width: 200px;
+	margin: 0 auto;
+	height: 200px;
+	background-image: url('https://placeimg.com/200/200/any');
+	background-repeat: no-repeat; 
+}
 
+.f-m-s{
+	width:90%;
+	margin: 0 auto;
+	border: 1px solid #ccc;
+	border-radius: 10px;
+	text-align: center;
+	padding: 10px 20px;
+}
+
+.f-m-s::after{
+	display:block;
+	content:"";
+	clear:both;
+}
+.f-m-d{
+	float:left;
+	width: 40%;
+	margin: 10px;
+}
+#f-m-d{
+	width: 55%;
+}
+
+#addSeat input{
+	width: 100px;
+	height: 30px;
+}
+#addSeat select{
+	height: 30px;
+}
+.tri{
+	border:1px solid #ccc;
+	padding: 5px;
+	border-radius:5px;
+	cursor:pointer;
+}
+.tri>div{
+	width:0; height:0;
+	border-top: 10px solid transparent;
+	border-bottom: 10px solid transparent;
+	border-left: 10px solid black;
+	border-right: 10px solid none;
+}

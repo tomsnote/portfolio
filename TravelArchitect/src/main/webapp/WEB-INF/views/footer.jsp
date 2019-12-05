@@ -15,6 +15,8 @@
 	
 	<script src="js/member.js"></script>
 	<script src="js/reserve.js"></script>
+	<script src="js/manager.js"></script>
+	
 </body>
 
 </html>

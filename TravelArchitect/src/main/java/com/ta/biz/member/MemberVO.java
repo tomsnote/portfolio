@@ -18,6 +18,7 @@ public class MemberVO {
 	private String address;
 	private String email;
 	private String phone;
+	private String passport;
 	private String useyn;
 	private Date regDate;
 	private String authority;

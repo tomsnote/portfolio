@@ -23,5 +23,6 @@
 	<mappers>
 		<mapper resource="mappings/Mapper-Member.xml" />
 		<mapper resource="mappings/Mapper-Flight.xml" />
+		<mapper resource="mappings/Mapper-Admin.xml" />
 	</mappers>
 </configuration>

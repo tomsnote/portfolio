@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ include file="header.jsp" %>
 
 	<header>
@@ -12,28 +14,36 @@
 			<div class="carousel-inner" role="listbox">
 				<!-- Slide One - Set the background image for this slide in the line below -->
 				<div class="carousel-item active"
-					style="background-image: url('http://placehold.it/1900x1080')">
+					style="background-image: url('img/index1.jpg')">
 					<div class="carousel-caption d-none d-md-block">
-						<h3>First Slide</h3>
-						<p>This is a description for the first slide.</p>
+						<h3>여행 떠나볼래?</h3>
+						<div class="button_base b03_skewed_slide_in">
+							<div>항공예약</div>
+							<div></div>
+							<div onclick="location.href='airReserve'">항공예약</div>
+						</div>
 					</div>
 				</div>
 				<!-- Slide Two - Set the background image for this slide in the line below -->
 				<div class="carousel-item"
-					style="background-image: url('http://placehold.it/1900x1080')">
+					style="background-image: url('img/index2.jpg')">
 					<div class="carousel-caption d-none d-md-block">
-						<h3>Second Slide</h3>
-						<p>This is a description for the second slide.</p>
+						<h3>잘 곳은 정했니?</h3>
+						<div class="button_base b03_skewed_slide_in">
+							<div>호텔예약</div>
+							<div></div>
+							<div onclick="location.href='hotelReserve'">항공예약</div>
+						</div>
 					</div>
 				</div>
 				<!-- Slide Three - Set the background image for this slide in the line below -->
-				<div class="carousel-item"
-					style="background-image: url('http://placehold.it/1900x1080')">
+				<!-- <div class="carousel-item"
+					style="background-image: url('https://placeimg.com/1900/1080/any')">
 					<div class="carousel-caption d-none d-md-block">
 						<h3>Third Slide</h3>
 						<p>This is a description for the third slide.</p>
 					</div>
-				</div>
+				</div> -->
 			</div>
 			<a class="carousel-control-prev" href="#carouselExampleIndicators"
 				role="button" data-slide="prev"> <span
@@ -65,8 +75,12 @@
 				<a class="btn btn-lg btn-secondary btn-block" href="#">Call to
 					Action</a>
 			</div>
+			
+			<c:forEach items="${images}" var="img">
+				<div><img src="${img.path}"><div>${img.img_name}</div></div>
+			</c:forEach>
 		</div>
-
+		
 	</div>
 	<!-- /.container -->
 

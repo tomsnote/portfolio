@@ -1,4 +1,5 @@
 // airReserve.jsp 
+
 function change() {
 	const sel = document.getElementById('airlineTicket');
 	if (sel.options[sel.selectedIndex].value == "2") {
@@ -45,5 +46,75 @@ function searchSchedules(){
 	
 }
 
+function reserve(){
+	if(document.formm.passport.value==""){
+		alert("여권번호를 입력해주세요.")
+		document.formm.passport.focus();
+		return false;reserveBirth
+	} else if(document.formm.reserveBirth.value==""){
+		alert("생일을 입력해주세요.")
+		document.formm.reserveBirth.focus();
+		return false;
+	} else if(document.formm.passengerBirth.value==""){
+		alert("생일을 입력해주세요.")
+		document.formm.passengerBirth.focus();
+		return false;
+	} else{
+		alert("예약이 완료되었습니다.");
+		document.formm.action="reserve";
+		document.formm.submit();
+		return true;
+	}
+	
+	
+}
 
+function deleteReserve(){
+	var checkbox = document.getElementsByName('cseq');
+	var count = true;
+	for ( var i=0; i < checkbox.length; i++) {
+		if (checkbox[i].checked) {
+			count=false;
+		}
+	}
+	
+	if(count)
+		alert('삭제할 항목을 선택해 주세요.');
+	else {
+		document.formm.action = "deleteReserve"
+		document.formm.submit();
+	}
+}
+function moveUpdateReserve(){
+	var cnt = $("input:checkbox[name=cseq]:checked").length;
+	
+	if(cnt>1)
+		alert('수정할 항목을 1개 선택하셔야 합니다.');
+	else if(cnt==0)
+		alert('수정할 항목을 선택해 주세요');
+	else{
+		document.formm.action = "checkReserve"
+		document.formm.submit();
+	}
+}
 
+function updateReserve(){
+	if(document.formm.passport.value==""){
+		alert("여권번호를 입력해주세요.")
+		document.formm.passport.focus();
+		return false;reserveBirth
+	} else if(document.formm.reserveBirth.value==""){
+		alert("생일을 입력해주세요.")
+		document.formm.reserveBirth.focus();
+		return false;
+	} else if(document.formm.passengerBirth.value==""){
+		alert("생일을 입력해주세요.")
+		document.formm.passengerBirth.focus();
+		return false;
+	} else{
+		alert("수정이 완료되었습니다.");
+		document.formm.action="updateReserve";
+		document.formm.submit();
+		return true;
+	}
+}

@@ -22,7 +22,7 @@
 
 <!-- Custom styles for this template -->
 <link href="css/modern-business.css" rel="stylesheet">
-
+<script src="js/jquery-3.4.1.min.js"></script>
 </head>
 
 <body>
@@ -48,20 +48,33 @@
 							</li>
 							<li class="nav-item"><a class="nav-link" href="hotelReserve">호텔예약</a>
 							</li>
-							<li class="nav-item"><a class="nav-link" href="mypage">마이페이지</a>
-							</li>
 						</c:when>
 						<c:otherwise>
-							<li class="nav-item"><a class="nav-link" href="about">관리자홈</a>
+							<li class="nav-item"><a class="nav-link" href="/">관리자홈</a>
 							</li>
-							<li class="nav-item"><a class="nav-link" href="airReserve">항공권관리</a>
+							<li class="nav-item"><a class="nav-link" href="flightManage">항공권관리</a>
 							</li>
-							<li class="nav-item"><a class="nav-link" href="hotelReserve">호텔관리</a>
+							<li class="nav-item"><a class="nav-link" href="hotelManage">호텔관리</a>
 							</li>
-							<li class="nav-item"><a class="nav-link" href="mypage">회원관리</a>
+							<li class="nav-item"><a class="nav-link" href="memberManage">회원관리</a>
 							</li>
 						</c:otherwise>
 					</c:choose>
+					<c:if test="${empty adminUser}">
+						<c:choose>
+							<c:when test="${!empty loginMember}">
+								<li class="nav-item"><a class="nav-link" href="mypage">마이페이지</a>
+								</li>
+							</c:when>
+							<c:otherwise>
+								<li class="nav-item"><a class="nav-link" href="mypage">예약리스트</a>
+								</li>
+							</c:otherwise>
+						</c:choose>
+					</c:if>
+					<c:if test="${!empty adminUser}">
+						<li class="nav-item"><a class="nav-link" href="addManager">관리자추가</a></li>
+					</c:if>
 					<c:choose>
 						<c:when test="${empty loginMember && empty adminUser}">
 							<li class="nav-item"><a class="nav-link" href="loginForm">로그인</a></li>
@@ -70,8 +83,10 @@
 							<li class="nav-item"><a class="nav-link" href="logout">로그아웃</a></li>
 						</c:otherwise>
 					</c:choose>
+					<c:if test="${empty adminUser}">
 					<li class="nav-item"><a class="nav-link"
 						href="customerService">고객센터</a></li>
+					</c:if>
 				</ul>
 			</div>
 		</div>

@@ -19,7 +19,7 @@ import com.ta.biz.member.MemberService;
 import com.ta.biz.member.MemberVO;
 
 @Controller
-@SessionAttributes(value = { "adminMember", "loginMember" })
+@SessionAttributes(value = { "adminUser", "loginMember" })
 public class MemberController {
 	@Autowired
 	private MemberService memberService;
@@ -33,20 +33,24 @@ public class MemberController {
 	public String login(MemberVO vo, Model model) {
 		MemberVO loginCheck = memberService.memberLogin(vo);
 		String alert = "아이디가 틀립니다. 다시입력해주세요.";
-		if(loginCheck != null) {// 아이디가 틀리면
+		if (loginCheck != null) {
 			if (loginCheck.getId().equals("none")) {// 아이디를 입력 안할시
 				alert = "아이디를 입력해주세요";
-			}else if (!loginCheck.getPwd().equals(vo.getPwd())) { // 비번이 틀리면
+			} else if (!loginCheck.getPwd().equals(vo.getPwd())) { // 비번이 틀리면
 				alert = "비밀번호가 틀립니다.";
 			} else {
 				if (loginCheck.getAuthority().equals("Y")) {
 					model.addAttribute("adminUser", loginCheck);
+					return "admin/managerHome";
 				} else {
 					model.addAttribute("loginMember", loginCheck);
+					return "index";
 				}
-				return "index";
+				
 			}
 		}
+			
+		
 		model.addAttribute("alert", alert);
 		return "member/login";
 	}
@@ -54,7 +58,7 @@ public class MemberController {
 	@RequestMapping(value = "logout", method = RequestMethod.GET)
 	public String logout(SessionStatus sessionStatus) {
 		sessionStatus.setComplete();
-		return "redirect:/";
+		return "redirect:/loginForm";
 	}
 
 	@RequestMapping(value = "joinForm", method = RequestMethod.GET)

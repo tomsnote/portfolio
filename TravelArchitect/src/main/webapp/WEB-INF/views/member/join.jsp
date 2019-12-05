@@ -17,32 +17,39 @@
 				<input type="hidden" name="reid">
 				<table>
 					<tr>
-						<td>User ID</td>
+						<td>아이디</td>
 						<td><input type="text" name="id" size="12"></td>
 						<td><input type="button" value="중복 체크" class="dup" onclick="idCheck()"></td>
 					</tr>
 					<tr>
-						<td>Password</td>
+						<td>비밀번호</td>
 						<td><input type="password" name="pwd"></td>
-					</tr>
-					<tr>
-						<td>Retype Password</td>
+						<td>비밀번호 확인</td>
 						<td><input type="password" name="pwdCheck"></td>
 					</tr>
 					<tr>
-						<td>First Name(Ko)</td>
+						<td>생일</td>
+						<td><input type="date" name="birth"></td>
+						<td>성별</td>
+						<td><select name="gender">
+							<option value="M">남
+							<option value="W">여
+						</select></td>
+					</tr>
+					<tr>
+						<td>성(국문)</td>
 						<td><input type="text" name="fname_ko"></td>
-						<td>Last Name(Ko)</td>
+						<td>이름(국문)</td>
 						<td><input type="text" name="lname_ko"></td>
 					</tr>
 					<tr>
-						<td>First Name(En)</td>
+						<td>성(영어)</td>
 						<td><input type="text" name="fname_en"></td>
-						<td>Last Name(En)</td>
+						<td>이름(영어)</td>
 						<td><input type="text" name="lname_en"></td>
 					</tr>
 					<tr>
-						<td>Nationality</td>
+						<td>국가</td>
 						<td><input type="text" name="nationality"></td>
 					</tr>
 					<tr>
@@ -53,25 +60,29 @@
 			</fieldset>
 			<br>
 			<fieldset>
-				<legend>Optional</legend>
+				<legend>추가 정보</legend>
 				<table>
 					<tr>
-						<td rowspan="2">Address</td>
+						<td rowspan="2">주소</td>
 						<td><input type="text" name="zipNum" size="10"/>&nbsp;<input type="button" value="주소 찾기" class="dup" onclick="postZip()"/></td>
 					</tr>
 					<tr>
 						<td><input type="text" name="addr1" size="50"/>&nbsp;<input type="text" name="addr2" size="25"/></td>
 					</tr>
 					<tr>
-						<td>Phone Number</td>
+						<td>전화번호</td>
 						<td><input type="text" name="phone"></td>
+					</tr>
+					<tr>
+						<td>여권번호</td>
+						<td><input type="text" name="passport"></td>
 					</tr>
 				</table>
 			</fieldset>
 			<div class="clear"></div>
 			<div id="buttons">
-				<input type="button" value="JOIN" class="submit" onclick="go_save('join')">
-				<input type="reset" value="CANCEL" class="cancel">
+				<input type="button" value="회원가입" class="submit" onclick="go_save('join')">
+				<input type="reset" value="취소" class="cancel">
 			</div>
 
 		</form>

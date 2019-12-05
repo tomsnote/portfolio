@@ -14,6 +14,11 @@ public class FlightServiceImpl implements FlightService {
 	private FlightDAO flightDAO;
 	
 	@Override
+	public List<FlightVO> image() {
+		return flightDAO.image();
+	}
+
+	@Override
 	public List<String> distinctDepartureCities() {
 		return flightDAO.distinctDepartureCities();
 	}
@@ -31,14 +36,14 @@ public class FlightServiceImpl implements FlightService {
 		return flightDAO.possibleDate(vo);
 	}
 	
+	
 	@Override
-	public List<FlightVO> getViewFlight() {
-		return flightDAO.getViewFlight();
+	public List<FlightVO> getViewFlights() {
+		return flightDAO.getViewFlights();
 	}
-
 	@Override
-	public List<FlightVO> getFlights() {
-		return flightDAO.getFlights();
+	public List<FlightVO> getViewFlightsGuest() {
+		return flightDAO.getViewFlightsGuest();
 	}
 
 	@Override
@@ -61,16 +66,101 @@ public class FlightServiceImpl implements FlightService {
 		return flightDAO.distinctTime(vo);
 	}
 
-	@Override
-	public FlightVO selectFlight(int code) {
-		return flightDAO.selectFlight(code);
-	}
 
 	@Override
 	public FlightVO getFlight(FlightVO vo) {
 		return flightDAO.getFlight(vo);
 	}
+	
+	@Override
+	public List<FlightVO> getFlights(FlightVO vo) {
+		return flightDAO.getFlights(vo);
+	}
 
+	@Override
+	public void insertReserveFlightGuest(FlightVO vo) {
+		flightDAO.insertReserveFlightGuest(vo);
+	}
+	@Override
+	public void insertReserveFlight(FlightVO vo) {
+		flightDAO.insertReserveFlight(vo);
+	}
+
+	@Override
+	public void updateReserveSeatY(String seatNum) {
+		flightDAO.updateReserveSeatY(seatNum);
+	}
+	@Override
+	public void updateReserveSeatN(Integer code) {
+		flightDAO.updateReserveSeatN(code);
+	}
+
+	@Override
+	public void deleteReserve(Integer cseq) {
+		flightDAO.deleteReserve(cseq);
+	}
+
+	@Override
+	public void updateCancelSeat(Integer cseq) {
+		flightDAO.updateCancelSeat(cseq);
+	}
+	@Override
+	public void updateReserve(FlightVO vo) {
+		flightDAO.updateReserve(vo);
+	}
+	
+
+//	admin
+	@Override
+	public List<FlightVO> getFlightSeatListAdmin() {
+		return flightDAO.getFlightSeatListAdmin();
+	}
+	
+	@Override
+	public List<FlightVO> getFlightListAdmin() {
+		return flightDAO.getFlightListAdmin();
+	}
+	
+	@Override
+	public void insertSeat(FlightVO vo) {
+		flightDAO.insertSeat(vo);
+	}
+	@Override
+	public void insertFlight(FlightVO vo) {
+		flightDAO.insertFlight(vo);
+	}
+
+	@Override
+	public void deleteSeat(String seatNum) {
+		flightDAO.deleteSeat(seatNum);
+	}
+
+	@Override
+	public void deleteFlight(String flight) {
+		flightDAO.deleteFlight(flight);
+	}
+	
+	@Override
+	public FlightVO selectSeat(String seatNum) {
+		return flightDAO.selectSeat(seatNum);
+	}
+
+	@Override
+	public void updateSeat(FlightVO vo) {
+		flightDAO.updateSeat(vo);
+	}
+
+	@Override
+	public void updateFlight(FlightVO vo) {
+		flightDAO.updateFlight(vo);
+	}
+
+	@Override
+	public FlightVO checkReserve(Integer cseq) {
+		return flightDAO.checkReserve(cseq);
+	}
+
+	
 	
 
 	

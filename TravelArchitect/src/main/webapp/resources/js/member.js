@@ -11,6 +11,9 @@ function go_save(page) {
 	} else if ((document.formm.pwd.value != document.formm.pwdCheck.value)) {
 		alert("비밀번호를 확인해주세요.");
 		document.formm.pwd.focus();
+	} else if (document.formm.birth.value == "") {
+		alert("생일을 입력해주세요.");
+		document.formm.birth.focus();
 	} else if (document.formm.fname_ko.value == "") {
 		alert("성(한글)을 입력해주세요");
 		document.formm.fname_ko.focus();

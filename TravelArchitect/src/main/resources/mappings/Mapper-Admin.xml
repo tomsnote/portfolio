@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Admin">
+	<resultMap type="flight" id="flightResult">
+		<result property="flight" column="flight" />
+		<result property="airline" column="airline" />
+		<result property="departureCity" column="departure_city" />
+		<result property="arrivalCity" column="arrival_city" />
+		<result property="departureDate" column="departure_date" />
+		<result property="arrivalDate" column="arrival_date" />
+		<result property="departureTime" column="departure_time" />
+		<result property="arrivalTime" column="arrival_time" />
+
+		<result property="seatNum" column="seat_num" />
+		<result property="seatType" column="seat_type" />
+		<result property="flightPrice" column="f_price" />
+		<result property="flightReserveCode" column="f_reserve_code" />
+		<result property="flightReserveName" column="f_reserve_name" />
+		<result property="flightReserveDate" column="f_reserve_date" />
+		<result property="passengerBirth" column="passenger_birth" />
+		<result property="reserveBirth" column="reserve_birth" />
+		<result property="passport" column="passport" />
+		<result property="flightComment" column="f_comment" />
+		<result property="id" column="id" />
+	</resultMap>
+	<select id="getFlightSeatListAdmin" resultMap="flightResult">
+		SELECT * FROM flights f, seats s
+		WHERE f.flight=s.flight
+	</select>
+	<select id="getFlightListAdmin" resultMap="flightResult">
+		SELECT * FROM flights
+	</select>
+	<insert id="insertSeat">
+		INSERT INTO seats (seat_num, seat_type, f_price, flight)
+		VALUES (#{seatNum}, #{seatType}, #{flightPrice}, #{flight})
+	</insert>
+	<insert id="insertFlight">
+		INSERT INTO flights	VALUES 
+		(#{flight}, #{airline}, #{departureCity}, #{arrivalCity},
+		 #{departureDate}, #{arrivalDate}, #{departureTime}, #{arrivalTime})
+	</insert>
+	<delete id="deleteSeat">
+		DELETE FROM seats WHERE seat_num=#{seatNum}
+	</delete>
+	<delete id="deleteFlight">
+		DELETE FROM flights WHERE flight=#{flight}
+	</delete>
+	<select id="selectSeat" resultMap="flightResult">
+		SELECT * FROM seats WHERE seat_num=#{seatNum}
+	</select>
+	<update id="updateSeat">
+		UPDATE seats SET seat_type=#{seatType}, f_price=#{flightPrice}
+		WHERE seat_num=#{seatNum}
+	</update>
+</mapper>

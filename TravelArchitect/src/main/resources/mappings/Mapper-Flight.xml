@@ -4,7 +4,7 @@
 
 <mapper namespace="FlightDAO">
 	<resultMap type="flight" id="flightResult">
-		<result property="flight" column="flight"/>
+		<result property="flight" column="flight" />
 		<result property="airline" column="airline" />
 		<result property="departureCity" column="departure_city" />
 		<result property="arrivalCity" column="arrival_city" />
@@ -12,67 +12,83 @@
 		<result property="arrivalDate" column="arrival_date" />
 		<result property="departureTime" column="departure_time" />
 		<result property="arrivalTime" column="arrival_time" />
-		
+
 		<result property="seatNum" column="seat_num" />
 		<result property="seatType" column="seat_type" />
 		<result property="flightPrice" column="f_price" />
-
-		<result property="fReserveCode" column="f_reserve_code" />
-		<result property="fReserveName" column="f_reserve_name" />
-		<result property="fReserveDate" column="f_reserve_date" />
+		<result property="flightReserveCode" column="f_reserve_code" />
+		<result property="flightReserveName" column="f_reserve_name" />
+		<result property="flightReserveDate" column="f_reserve_date" />
+		<result property="passengerBirth" column="passenger_birth" />
+		<result property="reserveBirth" column="reserve_birth" />
 		<result property="passport" column="passport" />
-		<result property="fComment" column="f_comment" />
+		<result property="flightComment" column="f_comment" />
 		<result property="id" column="id" />
 	</resultMap>
-	
+
 	<parameterMap type="flight" id="flightParameter">
-		<parameter property="departureCity"/>
-		<parameter property="arrivalCity"/>
+		<parameter property="departureCity" />
+		<parameter property="arrivalCity" />
 	</parameterMap>
 
+	<select id="image" resultType="flight">
+		SELECT path, img_name FROM img
+	</select>
 
 	<select id="distinctDepartureCities" resultType="String">
-		SELECT DISTINCT departure_city FROM flights
+		SELECT DISTINCT
+		departure_city FROM flights
 	</select>
-	<select id="distinctArrivalCities" parameterType="String" resultType="String">
-		SELECT DISTINCT arrival_city FROM flights 
+	<select id="distinctArrivalCities" parameterType="String"
+		resultType="String">
+		SELECT DISTINCT arrival_city FROM flights
 		<if test="value!=null">
 			WHERE departure_city=#{departureCity}
 		</if>
 	</select>
 	<select id="distinctSeatTypes" resultType="String">
-		SELECT DISTINCT seat_type FROM seats
+		SELECT DISTINCT
+		seat_type FROM seats
 	</select>
-	<select id="possibleDate" parameterMap="flightParameter" resultType="String">
-		SELECT DISTINCT TO_CHAR(departure_date, 'DD') AS dd FROM flights
-		WHERE departure_city=#{departureCity} AND arrival_city=#{arrivalCity}
+	<select id="possibleDate" parameterMap="flightParameter"
+		resultType="String">
+		SELECT DISTINCT TO_CHAR(departure_date, 'DD') AS dd FROM
+		flights
+		WHERE departure_city=#{departureCity} AND
+		arrival_city=#{arrivalCity}
 		ORDER BY dd ASC
 	</select>
-	
-	
+
+
 	<select id="searchSchedules" resultMap="flightResult">
 		SELECT f.*, s.f_price, s.seat_type, s.seat_num FROM flights f, seats s
-		WHERE f.departure_city=#{departureCity} AND f.arrival_city=#{arrivalCity}
+		WHERE f.departure_city=#{departureCity} AND
+		f.arrival_city=#{arrivalCity}
 		AND s.seat_type =#{seatType}
-		AND f.departure_date = #{departureDate}
+		AND
+		f.departure_date = #{departureDate}
+		AND s.seat_num like f.flight||'%'
+		AND s.reserve_yn='N'
 		<if test="airline!=null and airline!=''">
 			AND f.airline=#{airline}
 		</if>
 		<if test="departureTime!=null and departureTime!=''">
 			AND f.departure_time=#{departureTime}
 		</if>
-		
+
 	</select>
-	
+
 	<select id="distinctAir" resultMap="flightResult">
 		SELECT DISTINCT airline FROM
 		(SELECT airline FROM flights f, seats s
-		WHERE f.departure_city=#{departureCity} AND
-		f.arrival_city=#{arrivalCity} AND s.seat_type =#{seatType}
+		WHERE
+		f.departure_city=#{departureCity} AND
+		f.arrival_city=#{arrivalCity} AND
+		s.seat_type =#{seatType}
 		AND
 		f.departure_date = #{departureDate})
 	</select>
-	
+
 	<select id="distinctTime" resultMap="flightResult">
 		SELECT DISTINCT departure_time FROM (SELECT departure_time FROM
 		flights f, seats s
@@ -86,30 +102,12 @@
 		)
 		ORDER BY departure_time ASC
 	</select>
-	
-	<select id="getFlight"  resultMap="flightResult">
-		SELECT * FROM flights f, seats s
-		WHERE f.flight=#{flight} AND s.seat_num=#{seatNum}
-	</select>
-	
-	
-	
-	
-	
-	<select id="getFlights" resultMap="flightResult">
-		SELECT * FROM flights
-	</select>
-	<select id="getViewFlight" resultMap="flightResult">
-		SELECT * FROM
-		view_flight_reserve
-	</select>
 
-
-	
 
 	<select id="searchAir" resultMap="flightResult">
 		SELECT * FROM (SELECT * FROM flights
-		WHERE departure_city=#{departureCity} AND arrival_city=#{arrivalCity} AND
+		WHERE
+		departure_city=#{departureCity} AND arrival_city=#{arrivalCity} AND
 		seat_type =#{seatType}
 		AND departure_date >= #{departureDate})
 		WHERE
@@ -126,10 +124,87 @@
 		</choose>
 	</select>
 
-	
 
 	<select id="selectFlight" resultMap="flightResult">
 		SELECT * FROM flights
-		WHERE airplane_code=#{airplaneCode}
+		WHERE
+		airplane_code=#{airplaneCode}
 	</select>
+
+
+	<select id="getFlight" resultMap="flightResult">
+		SELECT * FROM flights f, seats
+		s
+		WHERE f.flight=#{flight} AND s.seat_num=#{seatNum}
+	</select>
+
+	<select id="getFlights" resultMap="flightResult">
+		SELECT * FROM flights f, seats
+		s
+		WHERE f.flight=#{flight} AND s.seat_num=#{seatNum}
+	</select>
+
+
+	<select id="getViewFlights" resultMap="flightResult">
+		SELECT * FROM
+		view_flight_reserve
+		WHERE NOT id='guest'
+	</select>
+	<select id="getViewFlightsGuest" resultMap="flightResult">
+		SELECT * FROM
+		view_flight_reserve
+		WHERE id='guest'
+	</select>
+
+
+
+	<insert id="insertReserveFlightGuest">
+		INSERT INTO
+		flight_reserve(f_reserve_code, f_reserve_name, reserve_birth, f_comment, seat_type, seat_num, flight
+		, passenger_birth, gender, passport, phone, passenger, lname_en,
+		fname_en)
+		VALUES(reserve_seq.nextval,#{flightReserveName}, #{reserveBirth}, #{flightComment}, #{seatType}, #{seatNum}, #{flight}
+		, #{passengerBirth}, #{gender}, #{passport}, #{phone}, #{passenger},
+		#{lname_en}, #{fname_en})
+
+	</insert>
+	<insert id="insertReserveFlight">
+		INSERT INTO
+		flight_reserve(f_reserve_code, f_reserve_name, reserve_birth, f_comment, seat_type, seat_num, flight
+		, passenger_birth, gender, passport, phone, passenger, lname_en,
+		fname_en, id)
+		VALUES(reserve_seq.nextval,#{flightReserveName}, #{reserveBirth}, #{flightComment}, #{seatType}, #{seatNum}, #{flight}
+		, #{passengerBirth}, #{gender}, #{passport}, #{phone}, #{passenger},
+		#{lname_en}, #{fname_en}, #{id})
+
+	</insert>
+
+	<update id="updateReserveSeatY">
+		UPDATE seats SET reserve_yn='Y'
+		WHERE seat_num=#{seatNum}
+	</update>
+	<update id="updateReserveSeatN">
+		UPDATE seats SET reserve_yn='N'
+		WHERE seat_num=(SELECT seat_num FROM flight_reserve
+		WHERE f_reserve_code=#{flightRserveCode})
+	</update>
+
+	<delete id="deleteReserve" parameterType="Integer">
+		DELETE FROM
+		flight_reserve WHERE f_reserve_code=#{cseq}
+	</delete>
+
+	<select id="checkReserve" parameterType="Integer"
+		resultMap="flightResult">
+		SELECT * FROM flights f, seats s, flight_reserve fr WHERE f_reserve_code=#{cseq}
+		AND f.flight=s.flight AND f.flight=fr.flight AND s.flight=fr.flight
+		AND s.seat_num=fr.seat_num AND s.seat_type = fr.seat_type
+	</select>
+	<update id="updateReserve">
+		UPDATE flight_reserve SET f_reserve_name=#{flightReserveName}, 
+		reserve_birth=#{reserveBirth}, passenger_birth=#{passengerBirth}, phone=#{phone}, passenger=#{passenger},
+		gender=#{gender}, lname_en=#{lname_en}, fname_en=#{fname_en}, passport=#{passport},
+		f_comment=#{flightComment} 
+		WHERE f_reserve_code=#{flightReserveCode}
+	</update>
 </mapper>

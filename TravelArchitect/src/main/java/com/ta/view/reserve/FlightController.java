@@ -25,7 +25,7 @@ public class FlightController {
 	private FlightService flightService;
 
 
-	@RequestMapping(value = "airReserve", method = RequestMethod.GET)
+	@GetMapping(value = "airReserve")
 	public String airReserve(FlightVO vo, Model model, String departureCity, String arrivalCity) {
 		model.addAttribute("distinctSeatTypes", flightService.distinctSeatTypes());
 		model.addAttribute("distinctDepartureCities", flightService.distinctDepartureCities());
@@ -38,19 +38,22 @@ public class FlightController {
 		return "flight/airReserve";
 	}
 
-	@RequestMapping(value = "airSchedules", method = RequestMethod.GET)
+	@GetMapping(value = "airSchedules")
 	public String airShcedules(FlightVO vo, Model model,
 			@SessionAttribute(value = "reserve", required = false) FlightVO session) {
-		if (session == null) {// 세션이 없을 경우
+		if (session == null) {
+			// reserve session이 없을 경우
 			model.addAttribute("reserve", vo);
-		} else {// 세션이 있고 departureCity가 있을 때 session에 vo 값을 넣어줌
+		} else {
 			if (vo.getDepartureCity() != null) {
+				// 세션이 있고 departureCity가 있을 때 session에 vo 값을 set함
 				session.setDepartureCity(vo.getDepartureCity());
 				session.setArrivalCity(vo.getArrivalCity());
 				session.setSeatType(vo.getSeatType());
 				session.setDepartureDate(vo.getDepartureDate());
 				model.addAttribute("reserve", session); // session 갱신
-			} else if (vo.getAirline() != null || vo.getDepartureTime() != null) { // vo.airline 값이 있으면
+			} else if (vo.getAirline() != null || vo.getDepartureTime() != null) {
+				// 항공사와 출발시간이 갖춰지면 session의값을 vo로 set함
 				vo.setDepartureCity(session.getDepartureCity());
 				vo.setArrivalCity(session.getArrivalCity());
 				vo.setSeatType(session.getSeatType());
@@ -60,9 +63,10 @@ public class FlightController {
 		}
 		
 		try {
-			model.addAttribute("flights", flightService.searchSchedules(vo));
-			model.addAttribute("distinctAir", flightService.distinctAir(vo));
-			model.addAttribute("distinctTime", flightService.distinctTime(vo));
+			model.addAttribute("flights", flightService.searchSchedules(vo));	// 항공편 리스트
+			model.addAttribute("distinctAir", flightService.distinctAir(vo));	// 항공사 선택 리스트
+			model.addAttribute("distinctTime", flightService.distinctTime(vo));	// 출발시간 선택 리스트
+			// 이전 페이지의 요청값을 가지고 옴
 			model.addAttribute("airline", vo.getAirline());
 			model.addAttribute("time", vo.getDepartureTime());
 			model.addAttribute("info", vo);
@@ -74,7 +78,7 @@ public class FlightController {
 	}
 	
 	
-	@RequestMapping(value= {"selectReserve", "checkReserve"}, method=RequestMethod.GET)
+	@GetMapping(value= {"selectReserve", "checkReserve"})
 	public String selectReserve(FlightVO vo, Model model,
 			@RequestParam(value="cseq", required=false) Integer cseq) {
 		FlightVO flight = null;
@@ -87,7 +91,7 @@ public class FlightController {
 		return "flight/reserve";
 	}
 	
-	@RequestMapping(value="reserve", method=RequestMethod.GET)
+	@GetMapping(value="reserve")
 	public String reserve(FlightVO vo, Model model,@SessionAttribute(value="loginMember", required=false) MemberVO member) {
 			// 예약자 정보와 예약 항공편 저장
 		FlightVO reserve = flightService.getFlight(vo);

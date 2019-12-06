@@ -59,7 +59,6 @@
 					}
 
 			})
-			
 		</script>
 
 		<div class="a-r-t-h">

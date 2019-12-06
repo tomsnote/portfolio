@@ -13,7 +13,7 @@
 <section class="f-m-s">
 	
 		<div class="b2-h">
-			<p>좌석 정보 입력</p>
+			<p>항공편 입력</p>
 		</div>
 
 		<form class="flightList" name="formm" method="get">

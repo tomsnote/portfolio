@@ -18,7 +18,14 @@
 
 		<form class="flightList" name="formm" method="get">
 			<div>
-				<input type="submit" value="항공편 추가" onclick="return insertFlight()" />
+				<c:choose>
+					<c:when test="${empty flight}">
+						<input type="submit" value="항공편 추가" onclick="return insertFlight()" />
+					</c:when>
+					<c:otherwise>
+						<input type="submit" value="항공편 수정" onclick="return updateFlight()" />
+					</c:otherwise>
+				</c:choose>
 			</div>
 			<table id="addSeat">
 				<thead class="thead">
@@ -35,14 +42,14 @@
 				</thead>
 				<tbody id="selectFlight">
 					<tr>
-						<td><input type="text" name="airline"/></td>
-						<td><input type="text" name="flight"/></td>
-						<td><input type="text" name="departureCity"/></td>
-						<td><input type="text" name="arrivalCity"/></td>
-						<td><input type="date" name="departureDate"/></td>
-						<td><input type="date" name="arrivalDate"/></td>
-						<td><input type="text" name="departureTime"/></td>
-						<td><input type="text" name="arrivalTime"/></td>
+						<td><input type="text" name="airline" value="${flight.airline}"/></td>
+						<td><input type="text" name="flight" value="${flight.flight}"/></td> 
+						<td><input type="text" name="departureCity" value="${flight.departureCity}"/></td>
+						<td><input type="text" name="arrivalCity" value="${flight.arrivalCity}"/></td>
+						<td><input type="date" name="departureDate" value="${flight.departureDate}" /></td>
+						<td><input type="date" name="arrivalDate" value="${flight.arrivalDate}"/></td>
+						<td><input type="text" name="departureTime" value="${flight.departureTime}"/></td>
+						<td><input type="text" name="arrivalTime" value="${flight.arrivalTime}"/></td>
 					</tr>
 				</tbody>
 			</table>

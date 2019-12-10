@@ -160,6 +160,11 @@ public class FlightServiceImpl implements FlightService {
 		return flightDAO.checkReserve(cseq);
 	}
 
+	@Override
+	public FlightVO moveUpdateFlight(String flight) {
+		return flightDAO.moveUpdateFlight(flight);
+	}
+
 	
 	
 

@@ -12,9 +12,47 @@
 			<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
 		</ol>
 		<div class="carousel-inner" role="listbox">
+			<!-- Slide Three - Set the background image for this slide in the line below -->
+			<div class="carousel-item active" style="background-color: skyblue">
+				<div class="carousel-caption d-none d-md-block">
+					<h3>여행지 어떻게 갈까?</h3>
+					<div class="search-t">
+						<form name="formm" method="get">
+							<table>
+								<colgroup>
+									<col width="50%" />
+									<col width="50%" />
+								</colgroup>
+								<tr class="t-n">
+									<td colspan='2'>여행지</td>
+								</tr>
+								<tr>
+									<td colspan='2'><input type="search" name="search_text"
+										size="35%" placeholder="ex) 부산, 홍콩" /></td>
+								</tr>
+								<tr class="t-n">
+									<td>체크인</td>
+									<td>체크아웃</td>
+								</tr>
+								<tr>
+									<td><input type="date" /></td>
+									<td><input type="date" /></td>
+								</tr>
+								<tr>
+									<td colspan='2' class="t-n">인원</td>
+								</tr>
+								<tr>
+									<td><input type="number" /></td>
+								</tr>
+							</table>
+							<input class="search" type="submit" name="search" value="검색" />
+						</form>
+					</div>
+				</div>
+			</div>
 			<!-- Slide One - Set the background image for this slide in the line below -->
-			<div class="carousel-item active"
-				style="background-image: url('img/index1.jpg')">
+			<div class="carousel-item"
+				style="background-image: url('img/index2.jpg')">
 				<div class="carousel-caption d-none d-md-block">
 					<h3>여행 떠나볼래?</h3>
 					<div class="button_base b03_skewed_slide_in">
@@ -26,7 +64,7 @@
 			</div>
 			<!-- Slide Two - Set the background image for this slide in the line below -->
 			<div class="carousel-item"
-				style="background-image: url('img/index2.jpg')">
+				style="background-image: url('img/index3.jpg')">
 				<div class="carousel-caption d-none d-md-block">
 					<h3>잘 곳은 정했니?</h3>
 					<div class="button_base b03_skewed_slide_in">
@@ -36,25 +74,16 @@
 					</div>
 				</div>
 			</div>
-			<!-- Slide Three - Set the background image for this slide in the line below -->
-			<!-- <div class="carousel-item"
-					style="background-image: url('https://placeimg.com/1900/1080/any')">
-					<div class="carousel-caption d-none d-md-block">
-						<h3>Third Slide</h3>
-						<p>This is a description for the third slide.</p>
-					</div>
-				</div> -->
+			<a class="carousel-control-prev" href="#carouselExampleIndicators"
+				role="button" data-slide="prev"> <span
+				class="carousel-control-prev-icon" aria-hidden="true"></span> <span
+				class="sr-only">Previous</span>
+			</a> <a class="carousel-control-next" href="#carouselExampleIndicators"
+				role="button" data-slide="next"> <span
+				class="carousel-control-next-icon" aria-hidden="true"></span> <span
+				class="sr-only">Next</span>
+			</a>
 		</div>
-		<a class="carousel-control-prev" href="#carouselExampleIndicators"
-			role="button" data-slide="prev"> <span
-			class="carousel-control-prev-icon" aria-hidden="true"></span> <span
-			class="sr-only">Previous</span>
-		</a> <a class="carousel-control-next" href="#carouselExampleIndicators"
-			role="button" data-slide="next"> <span
-			class="carousel-control-next-icon" aria-hidden="true"></span> <span
-			class="sr-only">Next</span>
-		</a>
-	</div>
 </header>
 
 <!-- Page Content -->
@@ -63,17 +92,17 @@
 
 	<hr>
 	<h3>추천 여행지</h3>
-	<div  class="clr">
-	<c:forEach items="${images}" var="img">
-		<div class="imgs" onclick="location.href='#'">
-			<img src="${img.path}">
-			<div class="img-name">${img.img_name}</div>
-		</div>
-	</c:forEach>
+	<div class="clr">
+		<c:forEach items="${images}" var="img">
+			<div class="imgs" onclick="location.href='#'">
+				<img src="${img.path}">
+				<div class="img-name">${img.img_name}</div>
+			</div>
+		</c:forEach>
 	</div>
 	<hr>
 	<!-- Call to Action Section -->
-	<div class="row mb-4"> 
+	<div class="row mb-4">
 		<div class="col-md-8">
 			<h3>Contact Details</h3>
 			<p>

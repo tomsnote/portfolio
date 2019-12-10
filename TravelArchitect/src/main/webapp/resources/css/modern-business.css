@@ -7,24 +7,27 @@ body {
 	padding-top: 56px;
 }
 
-.imgs{
-	float:left;
+.imgs {
+	float: left;
 	margin: 5px 20px;
 	cursor: pointer;
 }
-.clr{
+
+.clr {
 	margin-left: 8%;
 }
-.clr::after{
-	content:"";
+
+.clr::after {
+	content: "";
 	display: block;
-	clear:both;
+	clear: both;
 }
-.img-name{
-	text-align:center;
+
+.img-name {
+	text-align: center;
 	height: 24px;
 	transform: translate(0, -24px);
-	background-color: rgba(255,255,255,0.5);
+	background-color: rgba(255, 255, 255, 0.5);
 	font-weight: bold;
 }
 
@@ -37,98 +40,111 @@ body {
 	-o-background-size: cover;
 	background-size: cover;
 }
-.carousel-item:before{
-	content:"";
-	position:absolute;
-	top:0; left:0; right:0; bottom:0;
-	background:inherit;
-	z-index:-1;
-	filter:blur(3px);
+
+.carousel-item:before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: inherit;
+	z-index: -1;
+	filter: blur(3px);
 	-webkit-filter: blur(3px);
 	-moz-filter: blur(3px);
 	-o-filter: blur(3px);
 }
 
+.search-t {
+	margin: 0 auto;
+	width:50%;height: 400px;
+	border: 1px solid red;
+	padding: 10px 50px;
+	border-radius: 10px;
+	background-color: #000080;
+	text-align: left;
+}
+
+
 .button_base {
-    margin: 0;
-    border: 0;
-    font-size: 18px;
-    position: relative;
-    top: 50%;
-    left: 50%;
-    /* margin-top: -25px; */
-    margin-left: -100px;
-    width: 200px;
-    height: 50px;
-    text-align: center;
-    box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-user-select: none;
-    cursor: default;
+	margin: 0;
+	border: 0;
+	font-size: 18px;
+	position: relative;
+	top: 50%;
+	left: 50%;
+	/* margin-top: -25px; */
+	margin-left: -100px;
+	width: 200px;
+	height: 50px;
+	text-align: center;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-user-select: none;
+	cursor: default;
 }
 
 .button_base:hover {
-    cursor: pointer;
+	cursor: pointer;
 }
 
 .b03_skewed_slide_in {
-    overflow: hidden;
-    border: #000000 solid 1px;
+	overflow: hidden;
+	border: #000000 solid 1px;
 }
 
 .b03_skewed_slide_in div {
-    position: absolute;
-    text-align: center;
-    width: 100%;
-    height: 50px;
-    box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    padding: 10px;
+	position: absolute;
+	text-align: center;
+	width: 100%;
+	height: 50px;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	padding: 10px;
 }
 
 .b03_skewed_slide_in div:nth-child(1) {
-    color: #000000;
-    background-color: #ffffff;
+	color: #000000;
+	background-color: #ffffff;
 }
 
 .b03_skewed_slide_in div:nth-child(2) {
-    background-color: #000000;
-    width: 230px;
-    transition: all 0.2s ease;
-    -webkit-transition: all 0.2s ease;
-    -moz-transition: all 0.2s ease;
-    transform: translate(-250px, 0px) skewX(-30deg);
-    -webkit-transform: translate(-250px, 0px) skewX(-30deg);
-    -moz-transform: translate(-250px, 0px) skewX(-30deg);
+	background-color: #000000;
+	width: 230px;
+	transition: all 0.2s ease;
+	-webkit-transition: all 0.2s ease;
+	-moz-transition: all 0.2s ease;
+	transform: translate(-250px, 0px) skewX(-30deg);
+	-webkit-transform: translate(-250px, 0px) skewX(-30deg);
+	-moz-transform: translate(-250px, 0px) skewX(-30deg);
 }
 
 .b03_skewed_slide_in div:nth-child(3) {
-    color: #ffffff;
-    left: -200px;
-    transition: left 0.2s ease;
-    -webkit-transition: left 0.2s ease;
-    -moz-transition: left 0.2s ease;
+	color: #ffffff;
+	left: -200px;
+	transition: left 0.2s ease;
+	-webkit-transition: left 0.2s ease;
+	-moz-transition: left 0.2s ease;
 }
 
 .b03_skewed_slide_in:hover div:nth-child(2) {
-    transition: all 0.5s ease;
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    transform: translate(-15px, 0px) skewX(-30deg);
-    -webkit-transform: translate(-15px, 0px) skewX(-30deg);
-    -moz-transform: translate(-15px, 0px) skewX(-30deg);
+	transition: all 0.5s ease;
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	transform: translate(-15px, 0px) skewX(-30deg);
+	-webkit-transform: translate(-15px, 0px) skewX(-30deg);
+	-moz-transform: translate(-15px, 0px) skewX(-30deg);
 }
 
 .b03_skewed_slide_in:hover div:nth-child(3) {
-    left: 0px;
-    transition: left 0.30000000000000004s ease;
-    -webkit-transition: left 0.30000000000000004s ease;
-    -moz-transition: left 0.30000000000000004s ease;
+	left: 0px;
+	transition: left 0.30000000000000004s ease;
+	-webkit-transition: left 0.30000000000000004s ease;
+	-moz-transition: left 0.30000000000000004s ease;
 }
-
-
 
 .portfolio-item {
 	margin-bottom: 30px;
@@ -138,117 +154,133 @@ body {
 	width: 60%;
 	margin: 0 auto;
 }
+
 .join {
 	width: 70%;
 	margin: 0 auto;
 }
 
-.mypageTop h3{
-	float:left;
-	margin-left: 120px; 
+.mypageTop h3 {
+	float: left;
+	margin-left: 120px;
 }
-.mypageTop ul{
-	list-style:none;	
-	float:right;
+
+.mypageTop ul {
+	list-style: none;
+	float: right;
 	margin: 50px 30px 0 0;
 }
-.mypageTop>ul>li{
-	float:left;
+
+.mypageTop>ul>li {
+	float: left;
 	margin-left: 10px;
 	color: #ccc;
 }
 
-.mypageTop>ul>li>a{
+.mypageTop>ul>li>a {
 	color: #ccc;
-	text-decoration:none;
+	text-decoration: none;
 }
-.mypageTop>ul>li>a:hover{
+
+.mypageTop>ul>li>a:hover {
 	color: red;
 }
-.myInfo ul{
-	float:left;
+
+.myInfo ul {
+	float: left;
 }
-.mypageTop::after{
-	content:"";
-	display:block;
-	clear:both;
+
+.mypageTop::after {
+	content: "";
+	display: block;
+	clear: both;
 }
-.mypageBody1, .mypageBody2{
+
+.mypageBody1, .mypageBody2 {
 	margin: 20px 100px;
-	
 }
 
-.b1-h p{
-	margin:0;
+.b1-h p {
+	margin: 0;
 	border-bottom: 3px solid skyblue;
-	float:left;
-}
-.b1-h::after{
-	content:"";
-	display:block;
-	clear:both;
+	float: left;
 }
 
-.myInfo{
+.b1-h::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.myInfo {
 	margin-top: -3px;
 	border-top: 3px solid #ccc;
 }
-.m-left, .m-right{
+
+.m-left, .m-right {
 	margin: 20px;
-	float:left;
+	float: left;
 	width: 45%;
 	height: 210px;
 }
-.myInfo::after{
-	content:"";
-	display:block;
-	clear:both;
+
+.myInfo::after {
+	content: "";
+	display: block;
+	clear: both;
 }
 
-.b2-h{
+.b2-h {
 	margin: 0;
 	width: inherited;
-	border-bottom:3px solid #ccc;
+	border-bottom: 3px solid #ccc;
 }
-.b2-h p{
-	position:relative;
-	left:43%;
-	margin-bottom:-3px;
+
+.b2-h p {
+	position: relative;
+	left: 43%;
+	margin-bottom: -3px;
 	border-bottom: 3px solid skyblue;
-	float:left;
+	float: left;
 }
-.b2-h::after{
-	content:"";
-	display:block;
-	clear:both;
+
+.b2-h::after {
+	content: "";
+	display: block;
+	clear: both;
 }
-.flightList{
+
+.flightList {
 	margin: 10px 0;
 }
-.flightList table, .reserveList table{
-	text-align:center;
-	margin:0;
-	width:100%;
+
+.flightList table, .reserveList table {
+	text-align: center;
+	margin: 0;
+	width: 100%;
 }
-.flightList div:first-child,.reserveList div:first-child{
-	float:right;
+
+.flightList div:first-child, .reserveList div:first-child {
+	float: right;
 }
-.flightList div:first-child input,.reserveList div:first-child input{
+
+.flightList div:first-child input, .reserveList div:first-child input {
 	margin: 10px;
 	border-radius: 5px;
-	background-color: #ccc;	
+	background-color: #ccc;
 }
-.thead, .tbody{
-	text-align:center;
+
+.thead, .tbody {
+	text-align: center;
 }
-.thead th{
+
+.thead th {
 	color: white;
 	background-color: skyblue;
 }
 
-
 /* airReserve */
-#a-r-s{
+#a-r-s {
 	border: 1px solid #ccc;
 	border-radius: 10px;
 	width: 90%;
@@ -256,100 +288,110 @@ body {
 	padding: 10px;
 	height: auto;
 }
-.a-r-t, .a-r-b{
-	float:left;
+
+.a-r-t, .a-r-b {
+	float: left;
 	margin: 0 10px;
 }
 
-#a-r-h::after, #a-r-m::after{
-	display:block;
-	content:"";
-	clear:both;
+#a-r-h::after, #a-r-m::after {
+	display: block;
+	content: "";
+	clear: both;
 }
 
-#a-r-h, #a-r-m{
-	margin:20px;
+#a-r-h, #a-r-m {
+	margin: 20px;
 }
 
-.a-r-t-h{
+.a-r-t-h {
 	margin: 30px 0 20px 0;
 	width: 100%;
-	border-bottom:3px solid #ccc;
+	border-bottom: 3px solid #ccc;
 }
-.a-r-t-h p{
-	margin:0 0 -3px 0;
+
+.a-r-t-h p {
+	margin: 0 0 -3px 0;
 	border-bottom: 3px solid skyblue;
-	float:left;
+	float: left;
 }
-.a-r-t-h::after{
-	content:"";
-	display:block;
-	clear:both;
+
+.a-r-t-h::after {
+	content: "";
+	display: block;
+	clear: both;
 }
-.a-r-mt{
+
+.a-r-mt {
 	margin: 20px;
 	padding: 10px;
-	background-color:#eee;
+	background-color: #eee;
 }
-.a-r-mt table{
+
+.a-r-mt table {
 	margin: 0 auto;
 	width: 100%;
-	background-color:#fff;
+	background-color: #fff;
 }
-.r-table{
-	text-align:center;
+
+.r-table {
+	text-align: center;
 	width: 80%;
 	margin: 0 auto;
 }
 
-textarea{
-	text-align:left;
+textarea {
+	text-align: left;
 	width: 100%;
 	height: 100px;
 }
 
-.a-r-button{
+.a-r-button {
 	margin-top: 30px;
-	text-align:center;
+	text-align: center;
 }
 
-.a-r-button input{
+.a-r-button input {
 	margin: 0 10px;
 }
 
 /* 관리자 페이지 */
-#admin-h{
-	width:50%;
-	margin:50px auto;
+#admin-h {
+	width: 50%;
+	margin: 50px auto;
 	border: 1px solid #ccc;
 	border-radius: 10px;
 	padding: 10px;
 }
-#admin-h::after{
-	display:block;
-	content:"";
-	clear:both;
+
+#admin-h::after {
+	display: block;
+	content: "";
+	clear: both;
 }
-.admin-h-ul, .f-m-ul{
-	list-style:none;
-	padding:0;
+
+.admin-h-ul, .f-m-ul {
+	list-style: none;
+	padding: 0;
 }
-.admin-menu{
-	float:left;
+
+.admin-menu {
+	float: left;
 	padding: 10px 20px;
 	position: relative;
 	left: 12%;
 }
-.admin-h-ul>div{
+
+.admin-h-ul>div {
 	width: 200px;
 	margin: 0 auto;
 	height: 200px;
 	background-image: url('https://placeimg.com/200/200/any');
-	background-repeat: no-repeat; 
+	background-repeat: no-repeat;
 }
 
-.f-m-s{
-	width:90%;
+.f-m-s {
+	width: 90%;
 	margin: 0 auto;
 	border: 1px solid #ccc;
 	border-radius: 10px;
@@ -357,35 +399,41 @@ textarea{
 	padding: 10px 20px;
 }
 
-.f-m-s::after{
-	display:block;
-	content:"";
-	clear:both;
+.f-m-s::after {
+	display: block;
+	content: "";
+	clear: both;
 }
-.f-m-d{
-	float:left;
+
+.f-m-d {
+	float: left;
 	width: 40%;
 	margin: 10px;
 }
-#f-m-d{
+
+#f-m-d {
 	width: 55%;
 }
 
-#addSeat input{
+#addSeat input {
 	width: 100px;
 	height: 30px;
 }
-#addSeat select{
+
+#addSeat select {
 	height: 30px;
 }
-.tri{
-	border:1px solid #ccc;
+
+.tri {
+	border: 1px solid #ccc;
 	padding: 5px;
-	border-radius:5px;
-	cursor:pointer;
+	border-radius: 5px;
+	cursor: pointer;
 }
-.tri>div{
-	width:0; height:0;
+
+.tri>div {
+	width: 0;
+	height: 0;
 	border-top: 10px solid transparent;
 	border-bottom: 10px solid transparent;
 	border-left: 10px solid black;

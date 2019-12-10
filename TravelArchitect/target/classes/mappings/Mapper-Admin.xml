@@ -54,4 +54,14 @@
 		UPDATE seats SET seat_type=#{seatType}, f_price=#{flightPrice}
 		WHERE seat_num=#{seatNum}
 	</update>
+	<select id="moveUpdateFlight" resultMap="flightResult">
+		SELECT * FROM flights 
+		WHERE flight=#{flight}
+	</select>
+	<update id="updateFlight">
+		UPDATE flights SET departure_city=#{departureCity}, arrival_city=#{arrivalCity},
+		departure_date=#{departureDate}, arrival_date=#{arrivalDate},
+		departure_time=#{departureTime}, arrival_time=#{arrivalTime} 
+		WHERE flight=#{flight} 
+	</update>
 </mapper>

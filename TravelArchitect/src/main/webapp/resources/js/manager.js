@@ -129,3 +129,58 @@ function updateSeat(){
 		return true;
 	}
 }
+
+function movoUpdateFlight(){
+	var checkbox = document.getElementsByName('flight');
+	var count = true;
+	for ( var i=0; i < checkbox.length; i++) {
+		if (checkbox[i].checked) {
+			count=false;
+		}
+	}
+	if(count)
+		alert('수정할 항목을 선택해 주세요.');
+	else {
+		document.formm.action = "moveUpdateFlight";
+		document.formm.submit();
+	}
+}
+function updateFlight() {
+	if (document.formm.airline.value == ""  ) {
+		alert("항공사를 정해주세요.");
+		document.formm.airline.focus();
+		return false;
+	} else if (document.formm.flight.value  == "" ) {
+		alert("항공편을 입력해주세요.");
+		document.formm.flight.focus();
+		return false;
+	} else if (document.formm.departureCity.value == "") {
+		alert("출발도시를 입력해주세요.");
+		document.formm.departureCity.focus();
+		return false;
+	} else if (document.formm.arrivalCity.value  == "" ) {
+		alert("도착도시를 입력해주세요.");
+		document.formm.arrivalCity.focus();
+		return false;
+	} else if (document.formm.departureDate.value == "") {
+		alert("출발날짜를 입력해주세요.");
+		document.formm.departureDate.focus();
+		return false;
+	} else if (document.formm.arrivalDate.value == "") {
+		alert("도착날짜를 입력해주세요.");
+		document.formm.arrivalDate.focus();
+		return false;
+	} else if (document.formm.departureTime.value  == "" ) {
+		alert("출발시간을 입력해주세요.");
+		document.formm.departureTime.focus();
+		return false;
+	} else if (document.formm.arrivalTime.value == "") {
+		alert("도착시간을 입력해주세요.");
+		document.formm.arrivalTime.focus();
+		return false;
+	}  else {
+		document.formm.action="updateFlight";
+		document.formm.submit();
+		return true;
+	}
+}

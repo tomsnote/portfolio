@@ -56,8 +56,9 @@ public class AdminController {
 		return "redirect:/flightManage";
 	}
 	
-	@GetMapping(value="moveInsertFlight")
-	public String moveInsertFlight() {
+	@GetMapping(value= {"moveInsertFlight","moveUpdateFlight"})
+	public String moveInsertFlight(FlightVO vo, Model model) {
+		model.addAttribute("flight", flightService.moveUpdateFlight(vo.getFlight()));
 		return "admin/insertFlight";
 	}
 	@GetMapping(value="insertFlight")

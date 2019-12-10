@@ -44,4 +44,5 @@ public interface FlightService {
 	FlightVO selectSeat(String seatNum);
 	void updateSeat(FlightVO vo);
 	void updateFlight(FlightVO vo);
+	FlightVO moveUpdateFlight(String flight);
 }

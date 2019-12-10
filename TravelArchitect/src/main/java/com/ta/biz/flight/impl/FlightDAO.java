@@ -126,5 +126,8 @@ public class FlightDAO {
 	public void updateFlight(FlightVO vo) {
 		mybatis.update("Admin.updateFlight", vo);
 	}
+	public FlightVO moveUpdateFlight(String flight) {
+		return mybatis.selectOne("Admin.moveUpdateFlight", flight);
+	}
 }
 

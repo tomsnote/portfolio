@@ -99,13 +99,13 @@
 				<th>기타의견</th>
 			</tr>
 			<tr>
-				<td colspan='7'><textarea name="flightComment"></textarea></td>
+				<td colspan='7'><textarea name="flightComment" ></textarea></td>
 			</tr>
 
 		</table>
 		<script>
 			$(document).ready(function(){
-				$("textarea[name=flightComment]").val('${flight.flightComment}');				
+				$("textarea[name=flightComment]").val('${flight.flightComment}');
 			})
 		</script>
 		<div class="a-r-t-h">

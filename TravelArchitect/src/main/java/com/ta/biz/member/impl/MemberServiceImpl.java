@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ta.biz.member.AddressVO;
+import com.ta.biz.address.AddressVO;
 import com.ta.biz.member.MemberService;
 import com.ta.biz.member.MemberVO;
 
@@ -23,11 +23,6 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public String checkMember(String id) {
 		return memberDAO.checkMember(id);
-	}
-
-	@Override
-	public List<AddressVO> selectAddressByDong(String dong) {
-		return memberDAO.selectAddressByDong(dong);
 	}
 
 	@Override

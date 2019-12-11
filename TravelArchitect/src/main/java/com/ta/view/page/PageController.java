@@ -15,18 +15,23 @@ import com.ta.biz.flight.FlightVO;
 import com.ta.biz.member.MemberVO;
 
 @Controller
-@SessionAttributes(value= "reserveList")
+@SessionAttributes(value = "reserveList")
 public class PageController {
 
 	@Autowired
 	private FlightService flightService;
 
+	// 페이징 메소드
+	public void paging(String pageName) {
+		int totalCount;
+	}
+	
 	@GetMapping(value = { "/", "index" })
-	public String home(@SessionAttribute(value="adminUser", required=false) MemberVO adminUser, Model model) {
+	public String home(@SessionAttribute(value = "adminUser", required = false) MemberVO adminUser, Model model) {
 		model.addAttribute("images", flightService.image());
-		if(adminUser !=null)
+		if (adminUser != null)
 			return "admin/managerHome";
-		
+
 		return "index";
 	}
 
@@ -34,15 +39,16 @@ public class PageController {
 	public String about() {
 		return "about";
 	}
-	
+
 	@GetMapping(value = "mypage")
 	public String mypage(@RequestParam(value = "change", required = false, defaultValue = "airList") String change,
-			@SessionAttribute(value = "loginMember", required = false) MemberVO member, Model model) {
+			@SessionAttribute(value = "loginMember", required = false) MemberVO member,
+			@SessionAttribute(value="guest", required = false) FlightVO guest, Model model) {
 		List<FlightVO> reserveList = null;
 		if(member!=null) {	// 회원, 비회원 구별
 			reserveList = flightService.getViewFlights();
-		} else {
-			reserveList = flightService.getViewFlightsGuest();
+		} else if(guest!=null){
+			reserveList = flightService.getViewFlightsGuest(guest.getFlightReserveName());
 		}
 		
 		if (!change.equals("airList")) {

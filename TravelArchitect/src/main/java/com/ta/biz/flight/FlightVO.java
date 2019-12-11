@@ -23,6 +23,7 @@ public class FlightVO {
 	private String seatNum;
 	private Integer flightPrice;
 	private String reserve_yn;
+	
 	// flight resevation 
 	private Integer flightReserveCode;
 	private String flightReserveName;
@@ -37,6 +38,7 @@ public class FlightVO {
 	private String passport;
 	private String flightComment;
 	private String id;
+	private Integer headCount;
 	
 	
 }

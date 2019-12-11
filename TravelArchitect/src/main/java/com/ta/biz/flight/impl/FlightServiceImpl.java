@@ -42,8 +42,8 @@ public class FlightServiceImpl implements FlightService {
 		return flightDAO.getViewFlights();
 	}
 	@Override
-	public List<FlightVO> getViewFlightsGuest() {
-		return flightDAO.getViewFlightsGuest();
+	public List<FlightVO> getViewFlightsGuest(String flightReserveName) {
+		return flightDAO.getViewFlightsGuest(flightReserveName);
 	}
 
 	@Override
@@ -110,59 +110,15 @@ public class FlightServiceImpl implements FlightService {
 	}
 	
 
-//	admin
-	@Override
-	public List<FlightVO> getFlightSeatListAdmin() {
-		return flightDAO.getFlightSeatListAdmin();
-	}
-	
-	@Override
-	public List<FlightVO> getFlightListAdmin() {
-		return flightDAO.getFlightListAdmin();
-	}
-	
-	@Override
-	public void insertSeat(FlightVO vo) {
-		flightDAO.insertSeat(vo);
-	}
-	@Override
-	public void insertFlight(FlightVO vo) {
-		flightDAO.insertFlight(vo);
-	}
 
 	@Override
-	public void deleteSeat(String seatNum) {
-		flightDAO.deleteSeat(seatNum);
-	}
-
-	@Override
-	public void deleteFlight(String flight) {
-		flightDAO.deleteFlight(flight);
-	}
-	
-	@Override
-	public FlightVO selectSeat(String seatNum) {
-		return flightDAO.selectSeat(seatNum);
-	}
-
-	@Override
-	public void updateSeat(FlightVO vo) {
-		flightDAO.updateSeat(vo);
-	}
-
-	@Override
-	public void updateFlight(FlightVO vo) {
-		flightDAO.updateFlight(vo);
+	public List<FlightVO> findCallReserve(String name) {
+		return flightDAO.findCallReserve(name);
 	}
 
 	@Override
 	public FlightVO checkReserve(Integer cseq) {
 		return flightDAO.checkReserve(cseq);
-	}
-
-	@Override
-	public FlightVO moveUpdateFlight(String flight) {
-		return flightDAO.moveUpdateFlight(flight);
 	}
 
 	

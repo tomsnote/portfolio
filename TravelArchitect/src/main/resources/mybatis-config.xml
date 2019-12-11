@@ -6,7 +6,7 @@
 	<properties resource="config/db.properties" />
 	<typeAliases>
 		<typeAlias type="com.ta.biz.member.MemberVO" alias="member"></typeAlias>
-		<typeAlias type="com.ta.biz.member.AddressVO" alias="address"></typeAlias>
+		<typeAlias type="com.ta.biz.address.AddressVO" alias="address"></typeAlias>
 		<typeAlias type="com.ta.biz.flight.FlightVO" alias="flight"></typeAlias>
 	</typeAliases>
 	<!-- <environments default="development">

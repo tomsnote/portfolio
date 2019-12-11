@@ -29,7 +29,10 @@
 		</div>
 		<form name="formm" class="reserveList" method="get">
 			<div>
-				<input type="button" value="확인 및 변경" onclick="moveUpdateReserve()"/>
+				<c:if test="${empty loginMember}">
+					<input type="button" value="예약확인" onclick="findReserve()";/>
+				</c:if>
+				<input type="button" value="내용 변경" onclick="moveUpdateReserve()"/>
 				<input type="button" value="예약취소" onclick="deleteReserve()" />
 			</div>
 			<table>

@@ -6,7 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.ta.biz.member.AddressVO;
+import com.ta.biz.address.AddressVO;
 import com.ta.biz.member.MemberVO;
 
 @Repository("memberDAO")
@@ -37,9 +37,7 @@ public class MemberDAO {
 		return mybatis.selectOne("MemberDAO.checkMember", id);
 	}
 
-	public List<AddressVO> selectAddressByDong(String dong) {
-		return mybatis.selectList("MemberDAO.selectAddressByDong", dong);
-	}
+	
 
 	public void insertMember(MemberVO vo) {
 		mybatis.insert("MemberDAO.insertMember", vo);

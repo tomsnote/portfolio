@@ -7,18 +7,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ta.biz.flight.FlightService;
 import com.ta.biz.flight.FlightVO;
 import com.ta.biz.member.MemberVO;
 
 @Controller
-@SessionAttributes("reserve")
+@SessionAttributes(value= {"reserve", "guest"})
 public class FlightController {
 
 	@Autowired
@@ -110,8 +109,31 @@ public class FlightController {
 			flightService.insertReserveFlight(reserve);
 		} else {
 			flightService.insertReserveFlightGuest(reserve);
+			model.addAttribute("guest", reserve);
 		}
 		flightService.updateReserveSeatY(reserve.getSeatNum());
+		return "redirect:/mypage";
+	}
+	
+	@GetMapping(value="findReserve")
+	public String findCallReserve(FlightVO vo, Model model) {
+		int message=0;
+		if(vo.getFlightReserveName()!=null) {
+			message=-1;
+			List<FlightVO> reserveList = flightService.findCallReserve(vo.getFlightReserveName());
+			for(FlightVO list: reserveList) {
+				if(vo.getFlightReserveName().equals(list.getFlightReserveName())) {
+					message=1;
+					model.addAttribute("flightReserveName", list.getFlightReserveName());
+				}
+			}
+		}
+		model.addAttribute("message",message);
+		return "flight/findReserve";
+	}
+	@GetMapping(value="callReserve")
+	public String callReserve(FlightVO vo, Model model) {
+		model.addAttribute("guest", vo);
 		return "redirect:/mypage";
 	}
 	
@@ -125,7 +147,8 @@ public class FlightController {
 	}
 	
 	@GetMapping(value="updateReserve")
-	public String updateReserve(FlightVO vo) {
+	public String updateReserve(FlightVO vo, Model model) {
+		model.addAttribute("guest", vo);
 		flightService.updateReserve(vo);
 		return "redirect:/mypage";
 	}

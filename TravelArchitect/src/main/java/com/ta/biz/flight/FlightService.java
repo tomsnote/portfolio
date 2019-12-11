@@ -26,7 +26,7 @@ public interface FlightService {
 	
 	// airList.jsp
 	List<FlightVO> getViewFlights();
-	List<FlightVO> getViewFlightsGuest();
+	List<FlightVO> getViewFlightsGuest(String flightReserveName);
 	void updateReserveSeatY(String seatNum);
 	void updateReserveSeatN(Integer code);
 	void deleteReserve(Integer cseq);
@@ -34,15 +34,10 @@ public interface FlightService {
 	FlightVO checkReserve(Integer cseq);
 	void updateReserve(FlightVO vo);
 	
-	// adimn
-	List<FlightVO> getFlightSeatListAdmin();
-	List<FlightVO> getFlightListAdmin();
-	void insertSeat(FlightVO vo);
-	void insertFlight(FlightVO vo);
-	void deleteSeat(String seatNum);
-	void deleteFlight(String flight);
-	FlightVO selectSeat(String seatNum);
-	void updateSeat(FlightVO vo);
-	void updateFlight(FlightVO vo);
-	FlightVO moveUpdateFlight(String flight);
+	
+	// findReserve
+	List<FlightVO> findCallReserve(String name);
+	
+	
+	
 }

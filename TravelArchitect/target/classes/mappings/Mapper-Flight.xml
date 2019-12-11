@@ -150,10 +150,10 @@
 		view_flight_reserve
 		WHERE NOT id='guest'
 	</select>
-	<select id="getViewFlightsGuest" resultMap="flightResult">
+	<select id="getViewFlightsGuest" parameterType="String" resultMap="flightResult">
 		SELECT * FROM
 		view_flight_reserve
-		WHERE id='guest'
+		WHERE id='guest' AND f_reserve_name=#{flightReserveName}
 	</select>
 
 
@@ -207,4 +207,11 @@
 		f_comment=#{flightComment} 
 		WHERE f_reserve_code=#{flightReserveCode}
 	</update>
+	
+	<select id="findCallReserve" resultMap="flightResult">
+		SELECT * FROM flight_reserve 
+		WHERE f_reserve_name=#{flightReserveName}
+	</select>
+	
+	
 </mapper>

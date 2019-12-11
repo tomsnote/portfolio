@@ -183,6 +183,7 @@ insert into img values(img_seq.nextval, 'img/toronto.jpg', '토론토');
 SELECT path FROM img;
 
 
+select count(*) as totalCount from flights;
 --SELECT * FROM flights f, seats s
 --		WHERE f.flight=s.flight;
 --        SELECT * FROM seats WHERE seat_num='A0148';

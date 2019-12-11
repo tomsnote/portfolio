@@ -118,3 +118,12 @@ function updateReserve(){
 		return true;
 	}
 }
+function findReserve(){
+	var url = "findReserve";
+	window.open(url,"_blank_1",	"toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=400, height=400, top=300, left=300 ")
+}
+function callReserve(){
+	var name = document.formm.flightReserveName.value;
+	opener.location.href="callReserve?flightReserveName="+name;
+	self.close();
+}

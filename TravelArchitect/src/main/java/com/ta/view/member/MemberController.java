@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
+import com.ta.biz.address.AddressService;
 import com.ta.biz.member.MemberService;
 import com.ta.biz.member.MemberVO;
 
@@ -23,7 +24,8 @@ import com.ta.biz.member.MemberVO;
 public class MemberController {
 	@Autowired
 	private MemberService memberService;
-
+	@Autowired 
+	private AddressService addressService;
 	@RequestMapping(value = "loginForm", method = RequestMethod.GET)
 	public String loginForm() {
 		return "member/login";
@@ -94,7 +96,7 @@ public class MemberController {
 	@RequestMapping(value = "findZipNum", method = RequestMethod.POST)
 	public String findZipNumPost(HttpServletRequest request, Model model) throws IOException {
 		String dong = request.getParameter("dong");
-		model.addAttribute("addressList", memberService.selectAddressByDong(dong));
+		model.addAttribute("addressList", addressService.selectAddressByDong(dong));
 		return "member/findZipNum";
 	}
 

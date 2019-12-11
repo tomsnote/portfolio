@@ -5,7 +5,21 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2019-12-10T01:41:10Z</updated>
+  <updated>2019-12-10T22:57:31Z</updated>
+  <entry>
+    <title>Spring Boot 2.1.x EOL November 1st 2020</title>
+    <link rel="alternate" href="https://spring.io/blog/2019/12/10/spring-boot-2-1-x-eol-november-1st-2020" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Phil Webb</name>
+    </author>
+    <id>tag:spring.io,2019-12-10:3907</id>
+    <updated>2019-12-10T22:57:31Z</updated>
+    <content type="html">&lt;p&gt;With the recent release of Spring Boot 2.2, we&amp;rsquo;d like to announce that maintenance for Spring Boot 2.1 will end on November 1st 2020.&lt;/p&gt;
+&lt;p&gt;We&amp;rsquo;ll keep publishing the occasional maintenance release up until that point, but we recommend that all users consider upgrading to Spring Boot 2.2 as soon as possible. Upgrading to Spring Boot 2.2 from 2.1 should not be too difficult, and upgrade instructions are &lt;a href="https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.2-Release-Notes#upgrading-from-spring-boot-21"&gt;available on the WIKI&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;In order to help track the state of supported releases we&amp;rsquo;ve also introduced a &lt;a href="https://github.com/spring-projects/spring-boot/wiki/Supported-Versions"&gt;new &amp;ldquo;supported versions&amp;rdquo; WIKI page&lt;/a&gt;. You can see at a glance which Spring Boot versions are supported and when they will EOL.&lt;/p&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
   <entry>
     <title>This Week in Spring - December 10th, 2019</title>
     <link rel="alternate" href="https://spring.io/blog/2019/12/10/this-week-in-spring-december-10th-2019" />
@@ -1118,83 +1132,6 @@ compile &amp;#39;org.springframework.cloud:spring-cloud-starter-netflix-eureka-c
 ...&#xD;
 }
 &lt;/code&gt;&lt;/pre&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Integration AWS 2.3 GA and Spring Cloud Stream Kinesis Binder 2.0 GA Available</title>
-    <link rel="alternate" href="https://spring.io/blog/2019/11/27/spring-integration-aws-2-3-ga-and-spring-cloud-stream-kinesis-binder-2-0-ga-available" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Artem Bilan</name>
-    </author>
-    <id>tag:spring.io,2019-11-27:3887</id>
-    <updated>2019-11-27T16:33:17Z</updated>
-    <content type="html">&lt;div class="paragraph"&gt;
-&lt;p&gt;Dear Spring Community,&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;Today it&amp;#8217;s my pleasure to announce General Availability of Spring Integration for Amazon Web Services extension version &lt;code&gt;2.3.0&lt;/code&gt; and Spring Cloud Stream Binder for AWS Kinesis version &lt;code&gt;2.0.0&lt;/code&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;These releases can be downloaded from Maven Central, JCenter, and our &lt;a href="https://repo.spring.io/release"&gt;release repository&lt;/a&gt;:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="listingblock"&gt;
-&lt;div class="content"&gt;
-&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-groovy" data-lang="groovy"&gt;compile "org.springframework.integration:spring-integration-aws:2.3.0.RELEASE"&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;If you don&amp;#8217;t use Kinesis Binder.
-Or via Binder dependency:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="listingblock"&gt;
-&lt;div class="content"&gt;
-&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-groovy" data-lang="groovy"&gt;compile "org.springframework.cloud:spring-cloud-stream-binder-kinesis:2.0.0.RELEASE"&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="sect1"&gt;
-&lt;h2 id="release-highlights"&gt;&lt;a class="anchor" href="#release-highlights"&gt;&lt;/a&gt;Release Highlights&lt;/h2&gt;
-&lt;div class="sectionbody"&gt;
-&lt;div class="ulist"&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;The main theme of both these releases is about an integration testing using a &lt;a href="https://github.com/localstack/localstack"&gt;Local Stack&lt;/a&gt; framework which helped us to spot several bugs and race conditions in both libraries.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;The &lt;code&gt;spring-integration-aws&lt;/code&gt; provides a &lt;code&gt;PutRecordsRequest&lt;/code&gt; (batch) support for &lt;code&gt;KplMessageHandler&lt;/code&gt; collecting async results for &lt;code&gt;UserRecords&lt;/code&gt; in that batch using Project Reactor &lt;code&gt;Mono.fromFuture()&lt;/code&gt; functionality.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;A &lt;code&gt;KinesisShardEndedEvent&lt;/code&gt; is now emitted from the &lt;code&gt;KinesisMessageDrivenChannelAdapter&lt;/code&gt; when the next shard request returns &lt;code&gt;null&lt;/code&gt; with the meaning that shard is closed and no records can be added to that any more.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;The &lt;code&gt;spring-cloud-stream-binder-kinesis&lt;/code&gt; is based on the recently released Spring Cloud Stream version &lt;code&gt;3.0&lt;/code&gt; and provides a new &lt;code&gt;KinesisBinderHealthIndicator&lt;/code&gt; to check that all the streams involved in binding configurations are available.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;A &lt;code&gt;ProducerMessageHandlerCustomizer&lt;/code&gt; and &lt;code&gt;ConsumerEndpointCustomizer&lt;/code&gt; can now be specified in the application context as bean and they are going to be injected into the &lt;code&gt;KinesisMessageChannelBinder&lt;/code&gt; for an appropriate endpoints customization.
-This can be useful, for example, in cases when some endpoint properties are not covered by the configuration options.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;Many thanks to everyone from the Community for all the feedback and contribution to these projects.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;Any feedback is welcome via all the available communication channels!&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;Spring Integration for AWS resources:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;&lt;a href="https://github.com/spring-projects/spring-integration-aws"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-integration/blob/master/CONTRIBUTING.adoc"&gt;Contributing&lt;/a&gt; | &lt;a href="http://stackoverflow.com/questions/tagged/spring-integration"&gt;Help&lt;/a&gt; | &lt;a href="https://gitter.im/spring-projects/spring-integration"&gt;Chat&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;Spring Cloud Stream Binder for AWS Kinesis resources:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;&lt;a href="https://github.com/spring-cloud/spring-cloud-stream-binder-aws-kinesis"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-cloud/spring-cloud-stream-binder-aws-kinesis/blob/master/spring-cloud-stream-binder-kinesis-docs/src/main/asciidoc/contributing.adoc"&gt;Contributing&lt;/a&gt; | &lt;a href="http://stackoverflow.com/questions/tagged/spring-cloud-stream"&gt;Help&lt;/a&gt; | &lt;a href="https://gitter.im/spring-projects/spring-cloud-stream"&gt;Chat&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
 &lt;!-- rendered by Sagan Renderer Service --&gt;</content>
   </entry>
 </feed>

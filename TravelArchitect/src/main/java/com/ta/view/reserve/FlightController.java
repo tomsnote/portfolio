@@ -91,21 +91,26 @@ public class FlightController {
 	}
 	
 	@GetMapping(value="reserve")
-	public String reserve(FlightVO vo, Model model,@SessionAttribute(value="loginMember", required=false) MemberVO member) {
-			// 예약자 정보와 예약 항공편 저장
+	public String reserve(FlightVO vo, Model model,@SessionAttribute(value="loginMember", required=false) MemberVO loginMember) {
+		// 항공편 reserve에 저장
 		FlightVO reserve = flightService.getFlight(vo);
+		// 예약자 정보 입력
 		reserve.setFlightReserveName(vo.getFlightReserveName());
-		reserve.setReserveBirth(vo.getReserveBirth());
+		reserve.setFlightReserveBirth(vo.getFlightReserveBirth());
+		reserve.setFlightReservePhone(vo.getFlightReservePhone());
+		reserve.setFlightReserveEmail(vo.getFlightReserveEmail());
+		// 탑승자 정보 입력
 		reserve.setPassport(vo.getPassport());
-		reserve.setFlightComment(vo.getFlightComment());
-		reserve.setPhone(vo.getPhone());
+		reserve.setPassenger(vo.getPassenger());
 		reserve.setLname_en(vo.getLname_en());
 		reserve.setFname_en(vo.getFname_en());
-		reserve.setPassenger(vo.getPassenger());
 		reserve.setPassengerBirth(vo.getPassengerBirth());
 		reserve.setGender(vo.getGender());
-		if(member!=null) {	// 회원, 비회원 구별// 예약 등록 및 자리 업데이트
-			reserve.setId(member.getId());
+		reserve.setPassengerPhone(vo.getPassengerPhone());
+		reserve.setFlightComment(vo.getFlightComment());
+		
+		if(loginMember!=null) {	
+			reserve.setMember(loginMember.getId());	// 회원일 때, 예약자에 회원 ID SET
 			flightService.insertReserveFlight(reserve);
 		} else {
 			flightService.insertReserveFlightGuest(reserve);

@@ -29,15 +29,15 @@
 			<tr>
 				<td>예약자 명</td>
 				<td><input type="text" name="flightReserveName"
-					value="${loginMember.fname_ko}${loginMember.lname_ko}" /></td>
+					value="${loginMember.fname_ko}${loginMember.lname_ko}${guest.flightReserveName}" /></td>
 				<td>생년월일</td>
-				<td><input type="date" name="reserveBirth" value="${loginMember.birth}" /></td>
+				<td><input type="date" name="flightReserveBirth" value="${loginMember.birth}${guest.flightReserveBirth}" /></td>
 			</tr>
 			<tr>
 				<td>연락처</td>
-				<td><input type="tel" name="flightPhone" value="${loginMember.phone}"/></td>
+				<td><input type="tel" name="flightReservePhone" value="${loginMember.phone}${guest.flightReservePhone}"/></td>
 				<td>이메일</td>
-				<td><input type="text" name="flightEmail" value="${loginMember.email}" /></td>
+				<td><input type="text" name="flightReserveEmail" value="${loginMember.email}${guest.flightReserveEmail}" /></td>
 			</tr>
 		</table>
 		<div style="text-align: right; margin: 20px 40px;">
@@ -48,13 +48,13 @@
 			$("#check").click(function() {
 				if (check) {
 					$("input[name=passenger]").val($("input[name=flightReserveName]").val());
-					$("input[name=passengerBirth]").val($("input[name=reserveBirth]").val());
-					$("input[name=phone]").val($("input[name=flightPhone]").val());
+					$("input[name=passengerBirth]").val($("input[name=flightReserveBirth]").val());
+					$("input[name=passengerPhone]").val($("input[name=flightReservePhone]").val());
 					check = false;
 					} else {
 						$("input[name=passenger]").val('');
 						$("input[name=passengerBirth]").val('');
-						$("input[name=phone]").val('');
+						$("input[name=passengerPhone]").val('');
 					check = true;
 					}
 
@@ -93,7 +93,7 @@
 						<option value="M">남자
 						<option value="W">여자
 				</select></td>
-				<td><input type="tel" name="phone" value="${flight.phone}"/></td>
+				<td><input type="tel" name="passengerPhone" value="${flight.passengerPhone}"/></td>
 			</tr>
 			<tr>
 				<th>기타의견</th>

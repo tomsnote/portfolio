@@ -4,26 +4,31 @@
 
 <mapper namespace="FlightDAO">
 	<resultMap type="flight" id="flightResult">
-		<result property="flight" column="flight" />
-		<result property="airline" column="airline" />
+		<!-- 항공편 -->
 		<result property="departureCity" column="departure_city" />
 		<result property="arrivalCity" column="arrival_city" />
 		<result property="departureDate" column="departure_date" />
 		<result property="arrivalDate" column="arrival_date" />
 		<result property="departureTime" column="departure_time" />
 		<result property="arrivalTime" column="arrival_time" />
-
+		
+		<!-- 좌석 -->
 		<result property="seatNum" column="seat_num" />
 		<result property="seatType" column="seat_type" />
 		<result property="flightPrice" column="f_price" />
+
+		<!-- 예약자 -->
 		<result property="flightReserveCode" column="f_reserve_code" />
 		<result property="flightReserveName" column="f_reserve_name" />
+		<result property="flightReserveBirth" column="f_reserve_birth" />
+		<result property="flightReserveEmail" column="f_reserve_email" />
 		<result property="flightReserveDate" column="f_reserve_date" />
+		
+	
+		<!-- 탑승자 -->
 		<result property="passengerBirth" column="passenger_birth" />
-		<result property="reserveBirth" column="reserve_birth" />
-		<result property="passport" column="passport" />
+		<result property="passengerPhone" column="passenger_phone" />
 		<result property="flightComment" column="f_comment" />
-		<result property="id" column="id" />
 	</resultMap>
 
 	<parameterMap type="flight" id="flightParameter">
@@ -160,13 +165,13 @@
 
 	<insert id="insertReserveFlightGuest">
 		INSERT INTO
-		flight_reserve(f_reserve_code, f_reserve_name, reserve_birth, f_comment, seat_type, seat_num, flight
-		, passenger_birth, gender, passport, phone, passenger, lname_en,
-		fname_en)
-		VALUES(reserve_seq.nextval,#{flightReserveName}, #{reserveBirth}, #{flightComment}, #{seatType}, #{seatNum}, #{flight}
-		, #{passengerBirth}, #{gender}, #{passport}, #{phone}, #{passenger},
-		#{lname_en}, #{fname_en})
-
+		flight_reserve(f_reserve_code, f_reserve_name, f_reserve_birth, f_reserve_phone, f_reserve_email,
+		 passport, passenger, lname_en, fname_en, passenger_birth, gender, passenger_phone, 
+		 f_comment, flight, seat_num)
+		VALUES(
+		reserve_seq.nextval, #{flightReserveName}, #{flightReserveBirth}, #{flightReservePhone}, #{flightReserveEmail},
+		#{passport}, #{passenger}, #{lname_en}, #{fname_en}, #{passengerBirth}, #{gender}, #{passengerPhone},
+		#{flightComment}, #{flight}, #{seatNum})
 	</insert>
 	<insert id="insertReserveFlight">
 		INSERT INTO

@@ -1,9 +1,5 @@
 package com.ta.biz.member;
 
-import java.util.List;
-
-import com.ta.biz.address.AddressVO;
-
 public interface MemberService {
 
 	MemberVO memberLogin(MemberVO vo);

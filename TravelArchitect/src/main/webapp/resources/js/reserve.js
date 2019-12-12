@@ -50,10 +50,10 @@ function reserve(){
 	if(document.formm.passport.value==""){
 		alert("여권번호를 입력해주세요.")
 		document.formm.passport.focus();
-		return false;reserveBirth
-	} else if(document.formm.reserveBirth.value==""){
+		return false;
+	} else if(document.formm.flightReserveBirth.value==""){
 		alert("생일을 입력해주세요.")
-		document.formm.reserveBirth.focus();
+		document.formm.flightReserveBirth.focus();
 		return false;
 	} else if(document.formm.passengerBirth.value==""){
 		alert("생일을 입력해주세요.")

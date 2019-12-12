@@ -41,7 +41,7 @@ public class MemberController {
 			} else if (!loginCheck.getPwd().equals(vo.getPwd())) { // 비번이 틀리면
 				alert = "비밀번호가 틀립니다.";
 			} else {
-				if (loginCheck.getAuthority().equals("Y")) {
+				if (loginCheck.getAuthority().equals("1")) {
 					model.addAttribute("adminUser", loginCheck);
 					return "admin/managerHome";
 				} else {

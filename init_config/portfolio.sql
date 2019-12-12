@@ -15,6 +15,7 @@
 --sqlplus / as sysdba 
 --SELECT * FROM DBA_DATA_FILES; --datafiles 확인 쿼리
 -- 테이블스페이스 생성
+
 DROP TABLESPACE portfolio 
 INCLUDING CONTENTS AND DATAFILES
 CASCADE CONSTRAINTS;
@@ -39,7 +40,8 @@ DROP TABLE flights;
 DROP VIEW view_flight_reserve;
 DROP TABLE hotel_reserve;
 DROP TABLE hotels;
-
+DROP TABLE img;
+DROP SEQUENCE img_seq;
 ---------------------테이블 생성 및 속성 추가-----------------------
 
 -- 회원 테이블
@@ -50,19 +52,19 @@ fname_ko    VARCHAR2(20),
 lname_ko    VARCHAR2(20),
 fname_en    VARCHAR2(20),
 lname_en    VARCHAR2(20),
-nationality VARCHAR2(10),
 birth       DATE,
 gender      CHAR(1),
+nationality VARCHAR2(10),
+phone       VARCHAR2(20),
 address     VARCHAR2(100),
 email       VARCHAR2(40),
-phone       VARCHAR2(20),
 passport    VARCHAR2(30),
 useyn       CHAR(1) DEFAULT 'Y',
 regdate     DATE DEFAULT sysdate,
-authority   CHAR(1) DEFAULT 'N',
+authority   CHAR(1) DEFAULT '0',
 CONSTRAINT pk_id PRIMARY KEY(id),
 CONSTRAINT chk_use CHECK(useyn IN('Y','N')),
-CONSTRAINT chk_authority CHECK(authority IN('Y', 'N')),
+CONSTRAINT chk_authority CHECK(authority IN('1', '0')),
 CONSTRAINT chk_gender CHECK(gender IN('M', 'W'))
 );
 
@@ -79,12 +81,12 @@ COMMENT ON COLUMN members.email IS '이메일';
 COMMENT ON COLUMN members.phone IS '전화번호';
 COMMENT ON COLUMN members.useyn IS '''N'' 탈퇴여부';
 COMMENT ON COLUMN members.regdate IS '가입일';
-COMMENT ON COLUMN members.authority IS '''Y''관리자권한';
+COMMENT ON COLUMN members.authority IS '''1''관리자권한';
 
 INSERT INTO members(id, pwd, fname_ko, lname_ko, fname_en, lname_en, nationality, birth, gender, passport, address, email, phone)
         VALUES('test', '1', '', '테스트', '', 'test', '한국', TO_DATE('19980101','YYYYMMDD'), 'M', 'TESTTEST', 'test home', 'test@email.com', '010-7777-7777');
 INSERT INTO members(id, pwd, fname_ko, lname_ko, fname_en, lname_en, nationality, birth, gender, passport, address, email, phone, authority) 
-    VALUES('admin','1', '', '관리자', '', 'admin', '한국', TO_DATE('20000101','YYYYMMDD'), 'M', 'ADMINADMIN', '관리자 집', 'admin@email.com', '010-0000-0000', 'Y');
+    VALUES('admin','1', '', '관리자', '', 'admin', '한국', TO_DATE('20000101','YYYYMMDD'), 'M', 'ADMINADMIN', '관리자 집', 'admin@email.com', '010-0000-0000', '1');
 
 
 -- 항공편 테이블
@@ -121,57 +123,48 @@ CONSTRAINT fk_flight FOREIGN KEY(flight) REFERENCES flights(flight)
 
 -- 항공편예약 
 CREATE TABLE flight_reserve(
+---예약자---
 f_reserve_code  NUMBER,
 f_reserve_name  VARCHAR2(20),
+f_reserve_birth DATE,
+f_reserve_phone VARCHAR2(20),
+f_reserve_email VARCHAR2(40),
 f_reserve_date  DATE DEFAULT sysdate,
-reserve_birth   DATE,
-passenger_birth DATE,
-phone           VARCHAR(20),
-passenger       VARCHAR2(30),
-gender          CHAR(1),
-lname_en        VARCHAR(20),
-fname_en        VARCHAR(20),
+---탑승자---
 passport        VARCHAR2(30),
+passenger       VARCHAR2(30),
+lname_en        VARCHAR2(20),
+fname_en        VARCHAR2(20),
+passenger_birth DATE,
+gender          CHAR(1),
+passenger_phone VARCHAR2(20),
 f_comment       VARCHAR2(300),
-seat_type       VARCHAR2(22),
-seat_num        VARCHAR2(10),
-reserve_yn      CHAR(1),
-id              VARCHAR2(20) DEFAULT 'guest',
+member          VARCHAR2(20) DEFAULT 'guest',
 flight          VARCHAR2(15),
+seat_num        VARCHAR2(10),
 CONSTRAINT pk_f_reserve_code PRIMARY KEY(f_reserve_code),
-CONSTRAINT fk_flight_reserve FOREIGN KEY(flight) REFERENCES flights(flight)
+CONSTRAINT fk_flight_reserve FOREIGN KEY(flight) REFERENCES flights(flight),
+CONSTRAINT fk_seat_num FOREIGN KEY(seat_num) REFERENCES seats(seat_num)
 );
 CREATE SEQUENCE reserve_seq START WITH 1 INCREMENT BY 1 NOCYCLE NOORDER NOCACHE;
 
-
-
-
-
 CREATE OR REPLACE VIEW view_flight_reserve
-AS SELECT 
-fr.*,
-f.airline,f.arrival_city, f.arrival_date, f.arrival_time, f.departure_city, f.departure_date, f.departure_time,
-s.f_price
+AS SELECT fr.*,
+f.airline, f.departure_city, f.departure_date, f.departure_time, f.arrival_city, f.arrival_date, f.arrival_time,
+s.seat_type, s.reserve_yn, s.f_price
 FROM flight_reserve fr, flights f, seats s
-WHERE s.reserve_yn='Y' AND f.flight=fr.flight 
-AND f.flight=s.flight AND fr.seat_num=s.seat_num
-AND fr.seat_type=s.seat_type;
+WHERE s.reserve_yn='Y'
+AND f.flight=fr.flight AND f.flight=s.flight AND s.flight = fr.flight
+AND fr.seat_num=s.seat_num;
 
 
-SELECT * FROM flights f, seats s, flight_reserve fr 
-WHERE fr.f_reserve_code=5
-and f.flight=s.flight and f.flight=fr.flight and s.flight=fr.flight
-and s.seat_num=fr.seat_num and s.seat_type = fr.seat_type;
-
-
-drop table img;
 CREATE TABLE img(
 img_code    NUMBER PRIMARY KEY,
 path        VARCHAR2(100),
 img_name        VARCHAR2(20)
 );
 CREATE SEQUENCE img_seq START WITH 1 INCREMENT BY 1 NOCYCLE NOORDER NOCACHE;
-delete from img;
+
 insert into img values(img_seq.nextval, 'img/busan.jpg', '부산');
 insert into img values(img_seq.nextval, 'img/danang.png', '다낭');
 insert into img values(img_seq.nextval, 'img/gwam.jpg', '괌');
@@ -180,7 +173,7 @@ insert into img values(img_seq.nextval, 'img/kangleung.jpg', '강릉');
 insert into img values(img_seq.nextval, 'img/lundun.jpg', '런던');
 insert into img values(img_seq.nextval, 'img/seoul.jpg', '서울');
 insert into img values(img_seq.nextval, 'img/toronto.jpg', '토론토');
-SELECT path FROM img;
+
 
 
 select count(*) as totalCount from flights;

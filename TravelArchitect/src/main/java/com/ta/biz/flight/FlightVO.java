@@ -6,10 +6,10 @@ import lombok.Data;
 
 @Data
 public class FlightVO {
-	//img
+	// img
 	private String path;
 	private String img_name;
-	
+
 	// flight table
 	private String flight;
 	private String airline;
@@ -19,26 +19,31 @@ public class FlightVO {
 	private Date arrivalDate;
 	private String departureTime;
 	private String arrivalTime;
+	
+	// ÁÂ¼®
 	private String seatType;
 	private String seatNum;
 	private Integer flightPrice;
 	private String reserve_yn;
-	
-	// flight resevation 
+
+	// flight ¿¹¾àÀÚ
 	private Integer flightReserveCode;
 	private String flightReserveName;
+	private Date flightReserveBirth;
+	private String flightReservePhone;
+	private String flightReserveEmail;
 	private Date flightReserveDate;
-	private Date reserveBirth;
+	
+	// Å¾½Â°´
+	private String passport;
 	private String passenger;
-	private Date passengerBirth;
-	private String gender;
-	private String phone;
 	private String lname_en;
 	private String fname_en;
-	private String passport;
+	private Date passengerBirth;
+	private String gender;
+	private String passengerPhone;
 	private String flightComment;
-	private String id;
 	private Integer headCount;
-	
-	
+	private String member;	// È¸¿ø È®ÀÎÀÚ
+
 }

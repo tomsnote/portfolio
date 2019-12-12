@@ -29,7 +29,7 @@ public class AdminController {
 		if(change.equals("seatList")) {
 			model.addAttribute("flightSeatList", adminService.getFlightSeatListAdmin());
 		} else {
-			flightService.getTotalCount();
+//			flightService.getTotalCount();
 			model.addAttribute("flightList", adminService.getFlightListAdmin());
 		}
 		model.addAttribute("change", change);

@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import com.ta.biz.admin.AdminService;
 import com.ta.biz.flight.FlightVO;
+import com.ta.biz.member.MemberVO;
+import com.ta.biz.qa.QAVO;
 @Service("adminService")
 public class AdminServiceImpl implements AdminService{
 	@Autowired
@@ -59,6 +61,22 @@ public class AdminServiceImpl implements AdminService{
 	@Override
 	public FlightVO moveUpdateFlight(String flight) {
 		return adminDAO.moveUpdateFlight(flight);
+	}
+	
+	// member
+	@Override
+	public Integer count() {
+		return adminDAO.count();
+	}
+	@Override
+	public List<MemberVO> selectMember(){
+		return adminDAO.selectMember();
+	}
+	
+	// Q&A
+	@Override 
+	public List<QAVO> selectQA(){
+		return adminDAO.selectQA();
 	}
 
 }

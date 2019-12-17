@@ -22,4 +22,6 @@ public class MemberVO {
 	private String useyn;
 	private Date regDate;
 	private String authority;
+	
+	private Integer count;
 }

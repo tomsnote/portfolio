@@ -102,22 +102,7 @@
 		</c:forEach>
 	</div>
 	<hr>
-	<!-- Call to Action Section -->
-	<div class="row mb-4">
-		<div class="col-md-8">
-			<h3>Contact Details</h3>
-			<p>
-				Phone Number: +82 10 1234 1234<br> Email: admin@email.com<br>
-				Address: 서울특별시 휴먼구 휴먼로 휴멀길
-			</p>
-		</div>
-		<div class="col-md-4">
-			<a class="btn btn-lg btn-secondary btn-block" href="#">Call to
-				Action</a>
-		</div>
-
-
-	</div>
+	
 
 </div>
 <!-- /.container -->

@@ -34,16 +34,16 @@ public class MemberController {
 	@RequestMapping(value = "login", method = RequestMethod.POST)
 	public String login(MemberVO vo, Model model) {
 		MemberVO loginCheck = memberService.memberLogin(vo);
-		String alert = "¾ÆÀÌµğ°¡ Æ²¸³´Ï´Ù. ´Ù½ÃÀÔ·ÂÇØÁÖ¼¼¿ä.";
+		String alert = "ì•„ì´ë””ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.";
 		if (loginCheck != null) {
-			if (loginCheck.getId().equals("none")) {// ¾ÆÀÌµğ¸¦ ÀÔ·Â ¾ÈÇÒ½Ã
-				alert = "¾ÆÀÌµğ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä";
-			} else if (!loginCheck.getPwd().equals(vo.getPwd())) { // ºñ¹øÀÌ Æ²¸®¸é
-				alert = "ºñ¹Ğ¹øÈ£°¡ Æ²¸³´Ï´Ù.";
+			if (loginCheck.getId().equals("none")) {// ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½
+				alert = "ì•„ì´ë””ê°€ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.";
+			} else if (!loginCheck.getPwd().equals(vo.getPwd())) { // ï¿½ï¿½ï¿½ï¿½ï¿½ Æ²ï¿½ï¿½ï¿½ï¿½
+				alert = "ë¹„ë°€ë²ˆí˜¸ê°€ í‹€ë¦½ë‹ˆë‹¤.";
 			} else {
 				if (loginCheck.getAuthority().equals("1")) {
 					model.addAttribute("adminUser", loginCheck);
-					return "admin/managerHome";
+					return "redirect:/";
 				} else {
 					model.addAttribute("loginMember", loginCheck);
 					return "index";

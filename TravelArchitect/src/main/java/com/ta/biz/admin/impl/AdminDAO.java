@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.ta.biz.flight.FlightVO;
+import com.ta.biz.member.MemberVO;
+import com.ta.biz.qa.QAVO;
 @Repository("adminDAO")
 public class AdminDAO {
 	@Autowired
@@ -43,5 +45,18 @@ public class AdminDAO {
 		}
 		public FlightVO moveUpdateFlight(String flight) {
 			return mybatis.selectOne("Admin.moveUpdateFlight", flight);
+		}
+		
+		// member 
+		public Integer count() {
+			return mybatis.selectOne("Admin.count");
+		}
+		public List<MemberVO> selectMember(){
+			return mybatis.selectList("Admin.selectMember");
+		}
+		
+		// Q&A
+		public List<QAVO> selectQA(){
+			return mybatis.selectList("Admin.selectQA");
 		}
 }

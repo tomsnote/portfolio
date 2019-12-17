@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import com.ta.biz.flight.FlightService;
 import com.ta.biz.flight.FlightVO;
 import com.ta.biz.member.MemberVO;
+import com.ta.biz.qa.QAVO;
 
 @Controller
 @SessionAttributes(value = "reserveList")
@@ -21,7 +23,7 @@ public class PageController {
 	@Autowired
 	private FlightService flightService;
 
-	// ÆäÀÌÂ¡ ¸Þ¼Òµå
+	// ï¿½ï¿½ï¿½ï¿½Â¡ ï¿½Þ¼Òµï¿½
 	public void paging(String pageName) {
 		int totalCount;
 	}
@@ -45,7 +47,7 @@ public class PageController {
 			@SessionAttribute(value = "loginMember", required = false) MemberVO member,
 			@SessionAttribute(value="guest", required = false) FlightVO guest, Model model) {
 		List<FlightVO> reserveList = null;
-		if(member!=null) {	// È¸¿ø, ºñÈ¸¿ø ±¸º°
+		if(member!=null) {	// È¸ï¿½ï¿½, ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			reserveList = flightService.getViewFlights();
 		} else if(guest!=null){
 			reserveList = flightService.getViewFlightsGuest(guest.getFlightReserveName());
@@ -63,6 +65,12 @@ public class PageController {
 	
 	@GetMapping(value="customerService")
 	public String customerService() {
+		return "page/contact";
+	}
+	
+	@PostMapping(value="sentMessage")
+	public String sentMessage(QAVO vo) {
+		
 		return "page/contact";
 	}
 }

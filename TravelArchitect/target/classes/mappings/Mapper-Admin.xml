@@ -25,6 +25,10 @@
 		<result property="flightComment" column="f_comment" />
 		<result property="id" column="id" />
 	</resultMap>
+	<resultMap type="member" id="memberResult">
+		<result property="regDate" column="regdate"/>
+	</resultMap>
+	<!-- 비행편 -->
 	<select id="getFlightSeatListAdmin" resultMap="flightResult">
 		SELECT * FROM flights f, seats s
 		WHERE f.flight=s.flight
@@ -64,4 +68,31 @@
 		departure_time=#{departureTime}, arrival_time=#{arrivalTime} 
 		WHERE flight=#{flight} 
 	</update>
+	
+	<!-- 회원 관리 -->
+	<select id="count" resultType="int">
+		SELECT COUNT(*) as count FROM members
+	</select>
+	<select id="selectMember" resultMap="memberResult">
+		SELECT * FROM members
+	</select>
+	
+	<!-- Q&A -->
+	<select id="selectQA" resultType="qa">
+		SELECT * FROM q_and_a
+	</select>
+	
+	<insert id="insertQA">
+		<choose>
+			<when test="member != ''">
+				INSERT INTO q_and_a(qa_num, name, phone, email, context, member) 
+				VALUES(seq_qa.nextval, #{name}, #{phone}, #{email}, #{context}, #{member})
+			</when>
+			<otherwise>
+				INSERT INTO q_and_a(qa_num, name, phone, email, context) 
+				VALUES(seq_qa.nextval, #{name}, #{phone}, #{email}, #{context})
+			</otherwise>
+		</choose>
+		
+	</insert>
 </mapper>

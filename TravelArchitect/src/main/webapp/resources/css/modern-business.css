@@ -355,7 +355,7 @@ textarea {
 	margin: 0 10px;
 }
 
-/* °ü¸®ÀÚ ÆäÀÌÁö */
+/* ê´€ë¦¬ìž */
 #admin-h {
 	width: 50%;
 	margin: 50px auto;
@@ -377,17 +377,24 @@ textarea {
 
 .admin-menu {
 	float: left;
-	padding: 10px 20px;
+	padding: 10px 5%;
 	position: relative;
-	left: 12%;
+	left: 8%;
 }
 
-.admin-h-ul>div {
-	width: 200px;
-	margin: 0 auto;
-	height: 200px;
-	background-image: url('https://placeimg.com/200/200/any');
+.admin-menu>div {
+	cursor:pointer;
+	width: 300px;
+	padding-top:100%;
+	background-image: url('https://placeimg.com/300/300/any');
 	background-repeat: no-repeat;
+}
+.admin-menu>div>div{
+	text-align: center;
+	height: 24px;
+	transform: translate(0, -24px);
+	background-color: rgba(255, 255, 255, 0.5);
+	font-weight: bold;
 }
 
 .f-m-s {
@@ -438,4 +445,9 @@ textarea {
 	border-bottom: 10px solid transparent;
 	border-left: 10px solid black;
 	border-right: 10px solid none;
+}
+
+.list{
+	width: 100%;
+	margin: 0 auto;
 }

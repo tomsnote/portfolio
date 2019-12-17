@@ -34,14 +34,16 @@ AUTOEXTEND ON NEXT 10M;
 -- 테이블 삭제
 DROP TABLE seats;
 DROP TABLE flight_reserve;
-DROP SEQUENCE reserve_seq;
+DROP SEQUENCE seq_reserve;
 DROP TABLE members;
 DROP TABLE flights;
 DROP VIEW view_flight_reserve;
 DROP TABLE hotel_reserve;
 DROP TABLE hotels;
 DROP TABLE img;
-DROP SEQUENCE img_seq;
+DROP SEQUENCE seq_img;
+DROP TABLE q_and_a;
+DROP SEQUENCE seq_qa;
 ---------------------테이블 생성 및 속성 추가-----------------------
 
 -- 회원 테이블
@@ -59,7 +61,7 @@ phone       VARCHAR2(20),
 address     VARCHAR2(100),
 email       VARCHAR2(40),
 passport    VARCHAR2(30),
-useyn       CHAR(1) DEFAULT 'Y',
+useyn       CHAR(1) DEFAULT 'N',
 regdate     DATE DEFAULT sysdate,
 authority   CHAR(1) DEFAULT '0',
 CONSTRAINT pk_id PRIMARY KEY(id),
@@ -146,7 +148,7 @@ CONSTRAINT pk_f_reserve_code PRIMARY KEY(f_reserve_code),
 CONSTRAINT fk_flight_reserve FOREIGN KEY(flight) REFERENCES flights(flight),
 CONSTRAINT fk_seat_num FOREIGN KEY(seat_num) REFERENCES seats(seat_num)
 );
-CREATE SEQUENCE reserve_seq START WITH 1 INCREMENT BY 1 NOCYCLE NOORDER NOCACHE;
+CREATE SEQUENCE seq_reserve START WITH 1 INCREMENT BY 1 NOCYCLE NOORDER NOCACHE;
 
 CREATE OR REPLACE VIEW view_flight_reserve
 AS SELECT fr.*,
@@ -162,64 +164,28 @@ img_code    NUMBER PRIMARY KEY,
 path        VARCHAR2(100),
 img_name        VARCHAR2(20)
 );
-CREATE SEQUENCE img_seq START WITH 1 INCREMENT BY 1 NOCYCLE NOORDER NOCACHE;
+CREATE SEQUENCE seq_img START WITH 1 INCREMENT BY 1 NOCYCLE NOORDER NOCACHE;
 
-insert into img values(img_seq.nextval, 'img/busan.jpg', '부산');
-insert into img values(img_seq.nextval, 'img/danang.png', '다낭');
-insert into img values(img_seq.nextval, 'img/gwam.jpg', '괌');
-insert into img values(img_seq.nextval, 'img/jeju.jpg', '제주');
-insert into img values(img_seq.nextval, 'img/kangleung.jpg', '강릉');
-insert into img values(img_seq.nextval, 'img/lundun.jpg', '런던');
-insert into img values(img_seq.nextval, 'img/seoul.jpg', '서울');
-insert into img values(img_seq.nextval, 'img/toronto.jpg', '토론토');
+insert into img values(seq_img.nextval, 'img/busan.jpg', '부산');
+insert into img values(seq_img.nextval, 'img/danang.png', '다낭');
+insert into img values(seq_img.nextval, 'img/gwam.jpg', '괌');
+insert into img values(seq_img.nextval, 'img/jeju.jpg', '제주');
+insert into img values(seq_img.nextval, 'img/kangleung.jpg', '강릉');
+insert into img values(seq_img.nextval, 'img/lundun.jpg', '런던');
+insert into img values(seq_img.nextval, 'img/seoul.jpg', '서울');
+insert into img values(seq_img.nextval, 'img/toronto.jpg', '토론토');
 
-
-
-select count(*) as totalCount from flights;
---SELECT * FROM flights f, seats s
---		WHERE f.flight=s.flight;
---        SELECT * FROM seats WHERE seat_num='A0148';
-
---delete from flight_reserve;
---DELETE FROM flight_reserve WHERE f_reserve_code=6;
-
---update seats set reserve_yn = 'N' 
---where seat_num = (select seat_num from flight_reserve
---where f_reserve_code=13);
+CREATE TABLE q_and_a(
+qa_num  NUMBER,
+name    VARCHAR2(20),
+phone   VARCHAR2(20),
+email   VARCHAR2(40),
+context VARCHAR2(200),
+regdate DATE DEFAULT SYSDATE,
+answer  CHAR(1) DEFAULT 'N',
+member  VARCHAR2(20) DEFAULT 'guest',
+CONSTRAINT pk_qa_num PRIMARY KEY(qa_num),
+CONSTRAINT chk_answer CHECK(answer IN('Y', 'N'))
+);
+CREATE SEQUENCE seq_qa START WITH 1 INCREMENT BY 1 NOCYCLE NOORDER NOCACHE;
 COMMIT;
---INSERT INTO 
---		flight_reserve(f_reserve_code, f_reserve_name, reserve_birth, passport, f_comment, seat_type, seat_num, flight)  
---		select reserve_seq.nextval,'테스트', to_date('20191111','YYYYMMDD'),
---		'dgadga', 'ddalg;ha', '일반석', 'A0111', 'A01' from flight_reserve, seats s
---        WHERE s.reserve_yn='N';
-
---UPDATE SEATS SET RESERVE_YN = 'Y' WHERE SEAT_NUM='A0441';
-
---SELECT s.reserve_yn, f.*, s.f_price, s.seat_type, s.seat_num FROM flights f, seats s
---		WHERE f.departure_city='인천' AND f.arrival_city='홍콩'
---		AND s.seat_type ='일등석'
---		AND f.departure_date = to_date('20191111', 'YYYYMMDD')
---        AND s.seat_num like f.flight||'%'
---        AND s.reserve_yn='N';
-
---select * from view_flight_reserve;
---
---
---
---
---SELECT * FROM (select * from flights
---		WHERE departure_city='인천' AND arrival_city='보라카이' AND seats_type ='일반석'
---		AND departure_date >= to_date('20191111', 'YYYYMMDD'))
---where (departure_time='9:00' and airline='아시아나항공') or (airline='아시아나항공') or (departure_time='9:00');
---
---
---COMMIT;
---select distinct departure_city from flights where departure_city = '제주';
---
---SELECT distinct arrival_city FROM flights
---where departure_city = '런던';
---SELECT distinct seat_type FROM seats;
---
---SELECT DISTINCT to_char(departure_date, 'DD')as dd FROM flights
---where departure_city='인천' and arrival_city='홍콩'
---order by dd asc;

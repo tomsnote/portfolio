@@ -153,12 +153,12 @@
 	<select id="getViewFlights" resultMap="flightResult">
 		SELECT * FROM
 		view_flight_reserve
-		WHERE NOT id='guest'
+		WHERE NOT member='guest'
 	</select>
 	<select id="getViewFlightsGuest" parameterType="String" resultMap="flightResult">
 		SELECT * FROM
 		view_flight_reserve
-		WHERE id='guest' AND f_reserve_name=#{flightReserveName}
+		WHERE member='guest' AND f_reserve_name=#{flightReserveName}
 	</select>
 
 

@@ -60,4 +60,9 @@ public class PageController {
 		model.addAttribute("change", change);
 		return "member/mypage";
 	}
+	
+	@GetMapping(value="customerService")
+	public String customerService() {
+		return "page/contact";
+	}
 }

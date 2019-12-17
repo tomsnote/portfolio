@@ -157,7 +157,6 @@ WHERE s.reserve_yn='Y'
 AND f.flight=fr.flight AND f.flight=s.flight AND s.flight = fr.flight
 AND fr.seat_num=s.seat_num;
 
-
 CREATE TABLE img(
 img_code    NUMBER PRIMARY KEY,
 path        VARCHAR2(100),

@@ -177,6 +177,7 @@ insert into img values(seq_img.nextval, 'img/toronto.jpg', '토론토');
 
 CREATE TABLE q_and_a(
 qa_num  NUMBER,
+title VARCHAR2(100),
 name    VARCHAR2(20),
 phone   VARCHAR2(20),
 email   VARCHAR2(40),
@@ -188,4 +189,5 @@ CONSTRAINT pk_qa_num PRIMARY KEY(qa_num),
 CONSTRAINT chk_answer CHECK(answer IN('Y', 'N'))
 );
 CREATE SEQUENCE seq_qa START WITH 1 INCREMENT BY 1 NOCYCLE NOORDER NOCACHE;
+delete from q_and_a;
 COMMIT;

@@ -59,4 +59,18 @@
 		, nationality=#{nationality}, address=#{address}, email=#{email}, phone=#{phone}
 		WHERE id=#{id}
 	</update>
+	
+	<!-- Q&A -->
+	<insert id="inesrtSentMessage">
+		<choose>
+			<when test="member != ''">
+				INSERT INTO q_and_a(qa_num, title, name, phone, email, context, member) 
+				VALUES(seq_qa.nextval, #{title}, #{name}, #{phone}, #{email}, #{context}, #{member})
+			</when>
+			<otherwise>
+				INSERT INTO q_and_a(qa_num, title, name, phone, email, context) 
+				VALUES(seq_qa.nextval, #{title}, #{name}, #{phone}, #{email}, #{context})
+			</otherwise>
+		</choose>
+	</insert>
 </mapper>

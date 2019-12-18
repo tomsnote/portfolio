@@ -18,22 +18,21 @@
 	<table class="list">
 		<thead class="thead">
 			<tr>
-				<th></th>
 				<th>제목</th>
 				<th>아이디</th>
 				<th>생성날짜</th>
-				<th>답변</th>
+				<th>답변여부</th>
+				<th></th>
 			</tr>
 		</thead>
 		<tbody class="tbaody">
 			<c:forEach items="${qaList}" var="qa">
 				<tr>
-					<td><input type="radio" name="qa_num"
-									value="${qa.qa_num}" /></td>
 					<td>${qa.name}</td>
 					<td>${qa.member}</td>
 					<td>${qa.regdate}</td>
 					<td>${qa.answer}</td>
+					<td><input type="button" value="답변하기" onclick="location.href='answer?qa_num=${qa.qa_num}'"/></td>
 				</tr>
 			</c:forEach>
 		</tbody>

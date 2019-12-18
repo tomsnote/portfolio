@@ -64,3 +64,53 @@ function findPassword() {
 	var url = "findPasswordForm";
 	window.open(url,"_blank_1",	"toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=400, height=400, top=300, left=300 ")
 }
+
+// Q&A
+function check_qa() {
+	if (document.sentMessage.title.value == ""  ) {
+		alert("제목을 입력해주세요.");
+		document.sentMessage.title.focus();
+		return false;
+	} else if (document.sentMessage.name.value == ""  ) {
+		alert("이름을 입력해주세요.");
+		document.sentMessage.name.focus();
+		return false;
+	} else if (document.sentMessage.phone.value == "" ) {
+		alert("전화번호를 입력해주세요.");
+		document.sentMessage.phone.focus();
+		return false;
+	} else if (document.sentMessage.email.value == "") {
+		alert("이메일을 입력해주세요.");
+		document.sentMessage.email.focus();
+		return false;
+	} else if (document.sentMessage.context.value =="") {
+		alert("내용을 확인해주세요.");
+		document.sentMessage.context.focus();
+		return false;
+	} else {
+		alert("메세지를 보냈습니다.")
+		document.sentMessage.action = "sentMessage";
+		document.sentMessage.submit();
+		return true;
+	}
+}
+function responseQA() {
+	if (document.responseMessage.title.value == ""  ) {
+		alert("제목을 입력해주세요.");
+		document.responseMessage.title.focus();
+		return false;
+	} else if (document.responseMessage.email.value == "") {
+		alert("이메일을 입력해주세요.");
+		document.responseMessage.email.focus();
+		return false;
+	} else if (document.responseMessage.context.value =="") {
+		alert("내용을 확인해주세요.");
+		document.responseMessage.context.focus();
+		return false;
+	} else {
+		alert("메세지를 보냈습니다.")
+		document.responseMessage.action = "responseMessage";
+		document.responseMessage.submit();
+		return true;
+	}
+}

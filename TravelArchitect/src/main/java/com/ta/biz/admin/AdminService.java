@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.ta.biz.flight.FlightVO;
 import com.ta.biz.member.MemberVO;
-import com.ta.biz.qa.QAVO;
+import com.ta.biz.member.QAVO;
 
 public interface AdminService {
 	// flight

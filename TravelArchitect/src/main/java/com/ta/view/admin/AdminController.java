@@ -2,7 +2,11 @@ package com.ta.view.admin;
 
 import java.util.List;
 
+import javax.mail.internet.MimeMessage;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,18 +15,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ta.biz.admin.AdminService;
-import com.ta.biz.flight.FlightService;
 import com.ta.biz.flight.FlightVO;
-import com.ta.biz.member.MemberService;
+import com.ta.biz.member.QAService;
+import com.ta.biz.member.QAVO;
 
 @Controller
 public class AdminController {
-	@Autowired
-	private FlightService flightService;
-	@Autowired
-	private MemberService memberService;
+	
 	@Autowired
 	private AdminService adminService;
+	@Autowired
+	private JavaMailSender mailSender;
+	@Autowired
+	private QAService qaService;
 	
 	@GetMapping(value= "flightManage")
 	public String flightManage(Model model, @RequestParam(value="change", required=false, defaultValue="flightList") String change) {
@@ -103,9 +108,37 @@ public class AdminController {
 		return "admin/memberManage";
 	}
 	
-	@PostMapping(value="q_and_a")
+	@GetMapping(value="qaList")
 	public String q_and_a(Model model) {
 		model.addAttribute("qaList", adminService.selectQA());
 		return "admin/q_and_a";
+	}
+	
+	@GetMapping(value="answer")
+	public String answer(QAVO vo, Model model) {
+		model.addAttribute("qa", qaService.selectQA(vo.getQa_num()));
+		return "admin/answer";
+	}
+	
+	@PostMapping(value="responseMessage")
+	public String responseMessage(QAVO vo) {
+		String setfrom = "shyoffice00@gmail.com";
+		try {
+			MimeMessage message = mailSender.createMimeMessage();
+			MimeMessageHelper messageHelper = new MimeMessageHelper(message, true, "UTF-8");
+			
+			messageHelper.setFrom(setfrom);
+			messageHelper.setTo(vo.getEmail());
+			messageHelper.setSubject(vo.getTitle());
+			messageHelper.setText(vo.getContext());
+			
+			mailSender.send(message);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			qaService.update();
+		}
+		
+		return "redirect:/qaList";
 	}
 }

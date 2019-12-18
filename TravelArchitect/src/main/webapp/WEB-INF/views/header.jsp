@@ -73,7 +73,7 @@
 						</c:choose>
 					</c:if>
 					<c:if test="${!empty adminUser}">
-						<li class="nav-item"><a class="nav-link" href="q_and_a">Q&A목록</a></li>
+						<li class="nav-item"><a class="nav-link" href="qaList">Q&A목록</a></li>
 					</c:if>
 					<c:choose>
 						<c:when test="${empty loginMember && empty adminUser}">

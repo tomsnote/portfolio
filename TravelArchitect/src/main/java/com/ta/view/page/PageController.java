@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import com.ta.biz.flight.FlightService;
 import com.ta.biz.flight.FlightVO;
 import com.ta.biz.member.MemberVO;
-import com.ta.biz.qa.QAVO;
+import com.ta.biz.member.QAVO;
 
 @Controller
 @SessionAttributes(value = "reserveList")
@@ -65,12 +65,6 @@ public class PageController {
 	
 	@GetMapping(value="customerService")
 	public String customerService() {
-		return "page/contact";
-	}
-	
-	@PostMapping(value="sentMessage")
-	public String sentMessage(QAVO vo) {
-		
 		return "page/contact";
 	}
 }

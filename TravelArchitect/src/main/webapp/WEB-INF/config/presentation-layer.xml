@@ -24,7 +24,6 @@
 	<mvc:resources mapping="/vendor/jquery/**" location="/resources/vendor/jquery/" />
 	<mvc:resources mapping="/vendor/bootstrap/js/**" location="/resources/vendor/bootstrap/js/" />
 	<mvc:resources mapping="/js/**" location="/resources/js/"/>
-	<mvc:resources mapping="/mail/**" location="/resources/mail/"/>
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources 
 		in the /WEB-INF/views directory -->

@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,6 +19,8 @@ import org.springframework.web.bind.support.SessionStatus;
 import com.ta.biz.address.AddressService;
 import com.ta.biz.member.MemberService;
 import com.ta.biz.member.MemberVO;
+import com.ta.biz.member.QAService;
+import com.ta.biz.member.QAVO;
 
 @Controller
 @SessionAttributes(value = { "adminUser", "loginMember" })
@@ -26,6 +29,9 @@ public class MemberController {
 	private MemberService memberService;
 	@Autowired 
 	private AddressService addressService;
+	@Autowired
+	private QAService qaService;
+	
 	@RequestMapping(value = "loginForm", method = RequestMethod.GET)
 	public String loginForm() {
 		return "member/login";
@@ -171,5 +177,11 @@ public class MemberController {
 		model.addAttribute("loginMember", vo);
 
 		return "redirect:mypage";
+	}
+	
+	@PostMapping(value="sentMessage")
+	public String sentMessage(QAVO vo) {
+		qaService.inesrtSentMessage(vo);
+		return "page/contact";
 	}
 }

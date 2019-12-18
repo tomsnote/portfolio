@@ -43,41 +43,45 @@
 	<div class="row">
 		<div class="col-lg-8 mb-4">
 			<h3>Q&A</h3>
-			<form name="sentMessage" id="contactForm" novalidate
-				action="sentMessage">
-				<input type="hidden" name="member" value="${loginUser.id}"/>
+			<form name="sentMessage" id="contactForm" method="POST">
+				<input type="hidden" name="member" value="${loginMember.id}" />
 				<div class="control-group form-group">
 					<div class="controls">
-						<label>이름:</label> <input type="text" class="form-control"
-							id="name" name="name" required data-validation-required-message="이름을 입력해주세요.">
+						<label>제목:</label> <input type="text" class="form-control"
+							id="title" name="title" >
 						<p class="help-block"></p>
 					</div>
 				</div>
 				<div class="control-group form-group">
 					<div class="controls">
+						<label>이름:</label> <input type="text" class="form-control"
+							id="name" name="name" value="${loginMember.fname_ko}${loginMember.lname_ko}">
+					</div>
+				</div>
+				<div class="control-group form-group">
+					<div class="controls">
 						<label>전화번호:</label> <input type="tel" class="form-control"
-							id="phone" name="phone" required
-							data-validation-required-message="전화번호를 입력해주세요.">
+							id="phone" name="phone" value="${loginMember.phone}">
 					</div>
 				</div>
 				<div class="control-group form-group">
 					<div class="controls">
 						<label>이메일:</label> <input type="email" class="form-control"
-							id="email" name="email" required
-							data-validation-required-message="이메일을 입력해주세요.">
+							id="email" name="email"  value="${loginMember.email}">
 					</div>
 				</div>
 				<div class="control-group form-group">
 					<div class="controls">
 						<label>내용:</label>
-						<textarea rows="10" cols="100" class="form-control" id="message" name="context"
-							required data-validation-required-message="메시지를 입력해주세요"
-							maxlength="999" style="resize: none"></textarea>
+						<textarea rows="10" cols="100" class="form-control" id="message"
+							name="context" 
+						    maxlength="999"
+							style="resize: none"></textarea>
 					</div>
 				</div>
 				<div id="success"></div>
 				<!-- For success/fail messages -->
-				<button type="submit" class="btn btn-primary" id="sendMessageButton">Send
+				<button type="submit" class="btn btn-primary" id="sendMessageButton" onclick="return check_qa()">Send
 					Message</button>
 			</form>
 		</div>

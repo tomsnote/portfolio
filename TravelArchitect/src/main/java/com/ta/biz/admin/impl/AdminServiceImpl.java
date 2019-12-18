@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.ta.biz.admin.AdminService;
 import com.ta.biz.flight.FlightVO;
 import com.ta.biz.member.MemberVO;
-import com.ta.biz.qa.QAVO;
+import com.ta.biz.member.QAVO;
 @Service("adminService")
 public class AdminServiceImpl implements AdminService{
 	@Autowired

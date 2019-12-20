@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import com.ta.biz.flight.FlightService;
 import com.ta.biz.flight.FlightVO;
 import com.ta.biz.member.MemberVO;
-import com.ta.biz.member.QAVO;
 
 @Controller
 @SessionAttributes(value = "reserveList")
@@ -23,10 +21,7 @@ public class PageController {
 	@Autowired
 	private FlightService flightService;
 
-	// ����¡ �޼ҵ�
-	public void paging(String pageName) {
-		int totalCount;
-	}
+
 	
 	@GetMapping(value = { "/", "index" })
 	public String home(@SessionAttribute(value = "adminUser", required = false) MemberVO adminUser, Model model) {

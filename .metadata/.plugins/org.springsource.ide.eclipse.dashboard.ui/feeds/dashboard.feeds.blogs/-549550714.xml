@@ -5,7 +5,66 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2019-12-18T07:54:10Z</updated>
+  <updated>2019-12-19T09:24:42Z</updated>
+  <entry>
+    <title>Spring Tools 4.5.0 released</title>
+    <link rel="alternate" href="https://spring.io/blog/2019/12/19/spring-tools-4-5-0-released" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Martin Lippert</name>
+    </author>
+    <id>tag:spring.io,2019-12-19:3913</id>
+    <updated>2019-12-19T09:24:42Z</updated>
+    <content type="html">&lt;p&gt;Dear Spring Community,&lt;/p&gt;
+&lt;p&gt;I am happy to announce the 4.5.0 release of the Spring Tools 4 for Eclipse, Visual Studio Code, and Theia.&lt;/p&gt;
+&lt;p&gt;Highlights from this release include:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;em&gt;(Eclipse)&lt;/em&gt;: Spring Tools 4 for Eclipse distribution updated to Eclipse 2019-12 release&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;(Eclipse)&lt;/em&gt; improvement: progress updates from new live hover mechanism now appears in Eclipse as well&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;(Eclipse)&lt;/em&gt; bugfix: fixed NPE when deleting apps from CF via the boot dashboard&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;(Eclipse)&lt;/em&gt; bugfix: finish button was disabled after selecting an org/space when creating a CF target in the boot dashboard&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;(Spring Boot)&lt;/em&gt; improvement: better and more consistent labels for running processes in live hover actions across the board&lt;/li&gt;
+  &lt;li&gt;various improvements to the Spring Tools 4 user guide&lt;/li&gt;
+  &lt;li&gt;bugfixes&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;To download the distribution for Eclipse and find links to the marketplace entries for Visual Studio Code and Theia, please go visit:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Spring Tools 4: &lt;a href="https://spring.io/tools/"&gt;https://spring.io/tools/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Detailed changes can be found here: &lt;a href="https://github.com/spring-projects/sts4/wiki/Changelog#2019-12-19-450-release"&gt;https://github.com/spring-projects/sts4/wiki/Changelog#2019-12-19-450-release&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Spring Tools 4.5.1 is scheduled to be released in late January 2020.&lt;/p&gt;
+&lt;p&gt;Enjoy!&lt;/p&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
+  <entry>
+    <title>Spring for Apache Kafka 2.4 Release Candidate</title>
+    <link rel="alternate" href="https://spring.io/blog/2019/12/18/spring-for-apache-kafka-2-4-release-candidate" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Gary Russell</name>
+    </author>
+    <id>tag:spring.io,2019-12-13:3911</id>
+    <updated>2019-12-18T17:32:15Z</updated>
+    <content type="html">&lt;div class="paragraph"&gt;
+&lt;p&gt;Hot on the heels of the recent Apache Kafka 2.4.0 release, I am pleased to announce the release candidate for Spring for Apache Kafka 2.4 - 2.4.0.RC1 - is available in the &lt;a href="https://repo.spring.io/milestone"&gt;Spring milestone repository&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;This version is essentially functionally equivalent to 2.3.x, but is compiled against the 2.4.0 &lt;code&gt;kafka-clients&lt;/code&gt; and supports the new incremental rebalancing protocol.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;The 2.4.0 kafka clients are not binary compatible with Spring for Apache Kafka 2.3 so if you wish to use the 2.4.0 clients, you must upgrade to this version. See the appendix in the reference manual for how to override the jar versions, especially if you are using Spring Boot and/or the test embedded kafka broker.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;We expect to release the GA shortly.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;At the time of writing, it is expected that the next Spring Boot version (2.3) will pull in 2.4.x of this project via its dependency management.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;&lt;a href="https://spring.io/projects/spring-kafka/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-kafka"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-kafka/issues"&gt;Issues&lt;/a&gt; | &lt;a href="https://docs.spring.io/spring-kafka/docs/2.4.0..RC1/reference/html/"&gt;Documentation&lt;/a&gt; | &lt;a href="https://stackoverflow.com/questions/tagged/spring-kafka"&gt;Stack Overflow&lt;/a&gt; | &lt;a href="https://gitter.im/spring-projects/spring-kafka"&gt;Gitter&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
   <entry>
     <title>This Week in Spring - December 18th, 2019</title>
     <link rel="alternate" href="https://spring.io/blog/2019/12/18/this-week-in-spring-december-18th-2019" />
@@ -1125,42 +1184,6 @@ public Function&amp;lt;KStream&amp;lt;Long, Order&amp;gt;,&#xD;
 &lt;p&gt;The inputs from the three partial functions (&lt;code&gt;KStream&lt;/code&gt;, &lt;code&gt;GlobalKTable&lt;/code&gt;, &lt;code&gt;GlobalKTable&lt;/code&gt;, respectively) are available in the method body for implementing the business logic as part of the lambda expression.&lt;/p&gt;
 &lt;p&gt;Bear in mind that, using function currying in Java as described above for more than a reasonable number of inputs (like three as in the above example) might cause code readability issues. Therefore, you have to carefully evaluate and decompose your application to see the appropriateness of having a larger number of input bindings in a single processor.&lt;/p&gt;&lt;h2&gt;&lt;a href="#summary" class="anchor" name="summary"&gt;&lt;/a&gt;Summary&lt;/h2&gt;
 &lt;p&gt;In this blog post, we took a whirlwind tour of the various functional programming models that you can use in a Spring Cloud Stream-based Kafka Streams applications. We saw the ways in which we can use &lt;code&gt;java.util.function.Function&lt;/code&gt; (or &lt;code&gt;Consumer&lt;/code&gt; as we saw in the &lt;a href="https://spring.io/blog/2019/12/02/stream-processing-with-spring-cloud-stream-and-apache-kafka-streams-part-1-programming-model"&gt;previous blog&lt;/a&gt;), &lt;code&gt;java.util.function.BiFunction&lt;/code&gt;, and &lt;code&gt;BiConsumer.&lt;/code&gt; We also saw how multiple bindings can be supported on the outbound by using Kafka Stream¡¯s branching feature, which provides an array of &lt;code&gt;KStream&lt;/code&gt; as output. Finally, we saw the ways in which more than two input bindings can be supported through partially applied (curried) functions. In the next blog post, we will see how data deserialization and serialization are performed by the Kafka Streams binder. &lt;/p&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Framework maintenance roadmap in 2020 (including 4.3 EOL)</title>
-    <link rel="alternate" href="https://spring.io/blog/2019/12/03/spring-framework-maintenance-roadmap-in-2020-including-4-3-eol" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Juergen Hoeller</name>
-    </author>
-    <id>tag:spring.io,2019-12-03:3894</id>
-    <updated>2019-12-03T13:44:11Z</updated>
-    <content type="html">&lt;p&gt;Dear Spring community,&lt;/p&gt;
-&lt;p&gt;With &lt;a href="https://spring.io/blog/2019/12/03/spring-framework-5-2-2-and-5-1-12-available-now"&gt;Spring Framework 5.2.2 and 5.1.12 being available now&lt;/a&gt;, let me take the opportunity to provide an update on the maintenance roadmap in 2020.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Most importantly, Spring Framework 4.3.x and therefore Spring Framework 4 overall will reach its end-of-life next year: Our EOL cut-off is December 31st, 2020, with no further support on 4.3.x beyond that point. At the same time, we are also phasing out 5.0.x and 5.1.x for good.&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;As for planned releases, first up is a full round in mid January: with 5.2.3 and 5.1.13 accompanied by 5.0.16 and 4.3.26. The latter are the last maintenance releases in the 5.0.x and 4.3.x lines. We may do critical patches in case of vulnerabilities but otherwise no further releases are planned in those lines until the final cut-off at the end of 2020.&lt;/p&gt;
-&lt;p&gt;The 5.1.x line will receive general maintenance throughout 2020 but just with infrequent releases (~ once a quarter). The primary active branch is 5.2.x now, with frequent releases planned (~ once a month), supporting not only the current Spring Boot 2.2 generation but also the upcoming Spring Boot 2.3 (April 2020) for its entire lifetime.&lt;/p&gt;
-&lt;p&gt;Last but not least, the next Spring Framework feature release will be 5.3, with GA planned for October 2020, aligned with Spring Boot 2.4. This is expected to be the last 5.x feature branch, enjoying an extended support life. We intend to wrap up all 5.x themes for 5.3, including our runtime tuning efforts (startup performance, memory consumption).&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;TL;DR: By the end of 2020, the only active Spring Framework branches are going to be 5.2.x and the then-new 5.3.x line (which is expected to receive long-term support, effectively superseding 4.3.x from that perspective). Please upgrade to 5.2+ at your earliest convenience.&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Cheers,&lt;br/&gt;Juergen&lt;/p&gt;
-&lt;p&gt;P.S.: See the &lt;a href="https://github.com/spring-projects/spring-framework/wiki/Spring-Framework-Versions#supported-versions"&gt;versions page&lt;/a&gt; for support timeframes and the &lt;a href="https://github.com/spring-projects/spring-framework/milestones"&gt;milestones page&lt;/a&gt; for release dates.&lt;/p&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Framework 5.2.2 and 5.1.12 available now</title>
-    <link rel="alternate" href="https://spring.io/blog/2019/12/03/spring-framework-5-2-2-and-5-1-12-available-now" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Brian Clozel</name>
-    </author>
-    <id>tag:spring.io,2019-12-01:3890</id>
-    <updated>2019-12-03T10:43:20Z</updated>
-    <content type="html">&lt;p&gt;On behalf of the team and everyone who has contributed, I am pleased to announce that Spring Framework 5.2.2 and 5.1.12 are available now.&lt;/p&gt;
-&lt;p&gt;The second maintenance release of the 5.2 line includes &lt;a href="https://github.com/spring-projects/spring-framework/releases/tag/v5.2.2.RELEASE"&gt;over 100 fixes and improvements&lt;/a&gt;. Spring Framework 5.1.12 &lt;a href="https://github.com/spring-projects/spring-framework/releases/tag/v5.1.12.RELEASE"&gt;includes 25 selected fixes and improvements&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;As usual, we&amp;rsquo;ll follow up shortly with corresponding Spring Boot releases (2.2.2 and 2.1.11).&lt;/p&gt;
-&lt;p&gt;See you early 2020 for a full round of Spring Framework releases, from 4.3.x up to the 5.2.x generation. More on that in a future blog post, stay tuned!&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://projects.spring.io/spring-framework/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-framework"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-framework/issues"&gt;Issues&lt;/a&gt; | &lt;a href="https://docs.spring.io/spring-framework/docs/5.2.2.RELEASE/spring-framework-reference"&gt;Documentation&lt;/a&gt;&lt;/p&gt;
 &lt;!-- rendered by Sagan Renderer Service --&gt;</content>
   </entry>
 </feed>

@@ -154,6 +154,18 @@
 			<scope>provided</scope>
 		</dependency>
 
+		<!-- mail -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.mail</groupId>
+			<artifactId>javax.mail</artifactId>
+			<version>1.5.6</version>
+		</dependency>
+
 	</dependencies>
 	<build>
 		<plugins>

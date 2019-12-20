@@ -24,7 +24,7 @@
 			<div class="b2-h">
 				<p>항공권 좌석 리스트</p>
 			</div>
-			<form class="flightList" name="formm">
+			<form class="adminList" name="formm">
 				<div>
 					<input type="button" value="추가"
 						onclick="location.href='moveInsertSeat'" /> <input type="button"

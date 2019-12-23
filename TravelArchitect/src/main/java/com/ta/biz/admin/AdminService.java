@@ -5,6 +5,7 @@ import java.util.List;
 import com.ta.biz.flight.FlightVO;
 import com.ta.biz.member.MemberVO;
 import com.ta.biz.member.QAVO;
+import com.ta.biz.page.PageVO;
 
 public interface AdminService {
 	// flight
@@ -24,5 +25,6 @@ public interface AdminService {
 	List<MemberVO> selectMember();
 	
 	// Q&A
-	List<QAVO> selectQA();
+	List<QAVO> selectQA(PageVO vo);
+	int getQAListCnt();
 }

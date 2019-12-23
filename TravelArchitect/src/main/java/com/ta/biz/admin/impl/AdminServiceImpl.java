@@ -9,6 +9,7 @@ import com.ta.biz.admin.AdminService;
 import com.ta.biz.flight.FlightVO;
 import com.ta.biz.member.MemberVO;
 import com.ta.biz.member.QAVO;
+import com.ta.biz.page.PageVO;
 @Service("adminService")
 public class AdminServiceImpl implements AdminService{
 	@Autowired
@@ -75,8 +76,13 @@ public class AdminServiceImpl implements AdminService{
 	
 	// Q&A
 	@Override 
-	public List<QAVO> selectQA(){
-		return adminDAO.selectQA();
+	public List<QAVO> selectQA(PageVO vo){
+		return adminDAO.selectQA(vo);
+	}
+
+	@Override
+	public int getQAListCnt() {
+		return adminDAO.getQAListCnt();
 	}
 
 }

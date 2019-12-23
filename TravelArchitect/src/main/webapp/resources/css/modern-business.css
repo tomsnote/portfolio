@@ -450,3 +450,7 @@ textarea {
 	margin: 0 auto;
 	text-align: center;
 }
+
+#paginationBox>.pagination{
+	width:100%; margin-left: 40%;
+}

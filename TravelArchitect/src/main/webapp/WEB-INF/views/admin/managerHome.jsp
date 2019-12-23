@@ -12,7 +12,7 @@
 		<li class="admin-menu"><div onclick="location.href='flightManage'"><div>항공권관리</div></div></li>
 		<li class="admin-menu"><div onclick="location.href='hotelManage'"><div>호텔관리</div></div></li>
 		<li class="admin-menu"><div onclick="location.href='memberManage'"><div>회원관리</div></div></li>
-		<li class="admin-menu"><div onclick="location.href='q_and_a'"><div>관리자추가</div></div></li>
+		<li class="admin-menu"><div onclick="location.href='qaList'"><div>Q&A목록</div></div></li>
 	</ul>
 </section>
 <%@ include file="../footer.jsp"%>

@@ -18,6 +18,7 @@ import com.ta.biz.admin.AdminService;
 import com.ta.biz.flight.FlightVO;
 import com.ta.biz.member.QAService;
 import com.ta.biz.member.QAVO;
+import com.ta.biz.page.PageVO;
 
 @Controller
 public class AdminController {
@@ -108,9 +109,20 @@ public class AdminController {
 		return "admin/memberManage";
 	}
 	
+	
+	/* Q&A */
 	@GetMapping(value="qaList")
-	public String q_and_a(Model model) {
-		model.addAttribute("qaList", adminService.selectQA());
+	public String q_and_a(Model model
+			,@RequestParam(required =false, defaultValue="1")int page
+			,@RequestParam(required =false, defaultValue="1")int range) {
+		
+		int listCnt = adminService.getQAListCnt();
+		
+		PageVO pagination = new PageVO();
+		pagination.pageInfo(page, range, listCnt);
+		
+		model.addAttribute("pagination", pagination);
+		model.addAttribute("qaList", adminService.selectQA(pagination));
 		return "admin/q_and_a";
 	}
 	

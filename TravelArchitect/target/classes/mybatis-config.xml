@@ -9,6 +9,7 @@
 		<typeAlias type="com.ta.biz.member.QAVO" alias="qa"/>
 		<typeAlias type="com.ta.biz.address.AddressVO" alias="address"/>
 		<typeAlias type="com.ta.biz.flight.FlightVO" alias="flight"/>
+		<typeAlias type="com.ta.biz.page.PageVO" alias="page"/>
 	</typeAliases>
 	<!-- <environments default="development">
 		<environment id="development">

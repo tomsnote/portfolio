@@ -189,5 +189,9 @@ CONSTRAINT pk_qa_num PRIMARY KEY(qa_num),
 CONSTRAINT chk_answer CHECK(answer IN('Y', 'N'))
 );
 CREATE SEQUENCE seq_qa START WITH 1 INCREMENT BY 1 NOCYCLE NOORDER NOCACHE;
-delete from q_and_a;
+
 COMMIT;
+
+delete q_and_a;
+SELECT temp.* FROM (select rownum rnum, a.* from q_and_a a) temp
+		WHERE  temp.rnum > 3 and temp.rnum <=10;

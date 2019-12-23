@@ -79,7 +79,14 @@
 	
 	<!-- Q&A -->
 	<select id="selectQA" resultType="qa">
-		SELECT * FROM q_and_a
+	<![CDATA[
+		SELECT qa.* FROM (SELECT ROWNUM rnum, q.* FROM q_and_a q) qa
+		WHERE qa.rnum>=#{startList} AND qa.rnum<=#{listSize}
+		]]>
+	</select>
+	<select id="getQAListCnt" resultType="int">
+		SELECT COUNT(*) as listCnt
+		FROM q_and_a
 	</select>
 	<update id="update">
 	 UPDATE q_and_a SET answer='Y'

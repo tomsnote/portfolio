@@ -37,7 +37,8 @@
 	</parameterMap>
 
 	<select id="image" resultType="flight">
-		SELECT path, img_name FROM img
+		SELECT * FROM img
+		WHERE page=#{page}
 	</select>
 
 	<select id="distinctDepartureCities" resultType="String">
@@ -57,7 +58,7 @@
 	</select>
 	<select id="possibleDate" parameterMap="flightParameter"
 		resultType="String">
-		SELECT DISTINCT TO_CHAR(departure_date, 'DD') AS dd FROM
+		SELECT DISTINCT TO_CHAR(departure_date, 'DD') AS dd, TO_CHAR(arrival_date, 'DD') as ad FROM
 		flights
 		WHERE departure_city=#{departureCity} AND
 		arrival_city=#{arrivalCity}

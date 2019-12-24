@@ -13,8 +13,8 @@ public class FlightDAO {
 	@Autowired
 	private SqlSessionTemplate mybatis;
 	
-	public List<FlightVO> image(){
-		return mybatis.selectList("FlightDAO.image");
+	public List<FlightVO> image(String page){
+		return mybatis.selectList("FlightDAO.image", page);
 	}
 	
 	public List<String> distinctDepartureCities(){

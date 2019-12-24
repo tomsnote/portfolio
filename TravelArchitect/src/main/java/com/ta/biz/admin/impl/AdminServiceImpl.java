@@ -15,16 +15,29 @@ public class AdminServiceImpl implements AdminService{
 	@Autowired
 	private AdminDAO adminDAO;
 	// flight
+
+	
 	@Override
-	public List<FlightVO> getFlightSeatListAdmin() {
-		return adminDAO.getFlightSeatListAdmin();
+	public int getSeatListCnt() {
+		return adminDAO.getSeatListCnt();
+	}
+	@Override
+	public List<FlightVO> getFlightSeatListAdmin(PageVO vo) {
+		return adminDAO.getFlightSeatListAdmin(vo);
+	}
+	@Override
+	public int getFlightListCnt() {
+		return adminDAO.getFlightListCnt();
+	}
+	@Override
+	public List<FlightVO> getFlightListAdmin(PageVO vo) {
+		return adminDAO.getFlightListAdmin(vo);
 	}
 	
 	@Override
-	public List<FlightVO> getFlightListAdmin() {
-		return adminDAO.getFlightListAdmin();
+	public List<FlightVO> getFlightSeatCheck() {
+		return adminDAO.getFlightSeatCheck();
 	}
-	
 	@Override
 	public void insertSeat(FlightVO vo) {
 		adminDAO.insertSeat(vo);
@@ -84,5 +97,6 @@ public class AdminServiceImpl implements AdminService{
 	public int getQAListCnt() {
 		return adminDAO.getQAListCnt();
 	}
+	
 
 }

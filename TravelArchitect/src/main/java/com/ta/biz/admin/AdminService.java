@@ -9,8 +9,11 @@ import com.ta.biz.page.PageVO;
 
 public interface AdminService {
 	// flight
-	List<FlightVO> getFlightSeatListAdmin();
-	List<FlightVO> getFlightListAdmin();
+	int getSeatListCnt();
+	List<FlightVO> getFlightSeatListAdmin(PageVO vo);
+	int getFlightListCnt();
+	List<FlightVO> getFlightListAdmin(PageVO vo);
+	List<FlightVO> getFlightSeatCheck();
 	void insertSeat(FlightVO vo);
 	void insertFlight(FlightVO vo);
 	void deleteSeat(String seatNum);
@@ -27,4 +30,5 @@ public interface AdminService {
 	// Q&A
 	List<QAVO> selectQA(PageVO vo);
 	int getQAListCnt();
+	
 }

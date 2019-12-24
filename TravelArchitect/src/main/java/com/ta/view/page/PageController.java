@@ -25,7 +25,7 @@ public class PageController {
 	
 	@GetMapping(value = { "/", "index" })
 	public String home(@SessionAttribute(value = "adminUser", required = false) MemberVO adminUser, Model model) {
-		model.addAttribute("images", flightService.image());
+		model.addAttribute("images", flightService.image("index"));
 		if (adminUser != null)
 			return "admin/managerHome";
 
@@ -58,8 +58,5 @@ public class PageController {
 		return "member/mypage";
 	}
 	
-	@GetMapping(value="customerService")
-	public String customerService() {
-		return "page/contact";
-	}
+
 }

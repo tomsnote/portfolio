@@ -160,20 +160,21 @@ AND f.flight=fr.flight AND f.flight=s.flight AND s.flight = fr.flight
 AND fr.seat_num=s.seat_num;
 
 CREATE TABLE img(
-img_code    NUMBER PRIMARY KEY,
-path        VARCHAR2(100),
-img_name        VARCHAR2(20)
+code    NUMBER PRIMARY KEY,
+path    VARCHAR2(100),
+name    VARCHAR2(20),
+page    VARCHAR2(30)
 );
 CREATE SEQUENCE seq_img START WITH 1 INCREMENT BY 1 NOCYCLE NOORDER NOCACHE;
 
-insert into img values(seq_img.nextval, 'img/busan.jpg', '부산');
-insert into img values(seq_img.nextval, 'img/danang.png', '다낭');
-insert into img values(seq_img.nextval, 'img/gwam.jpg', '괌');
-insert into img values(seq_img.nextval, 'img/jeju.jpg', '제주');
-insert into img values(seq_img.nextval, 'img/kangleung.jpg', '강릉');
-insert into img values(seq_img.nextval, 'img/lundun.jpg', '런던');
-insert into img values(seq_img.nextval, 'img/seoul.jpg', '서울');
-insert into img values(seq_img.nextval, 'img/toronto.jpg', '토론토');
+insert into img values(seq_img.nextval, 'img/busan.jpg', '부산', 'index');
+insert into img values(seq_img.nextval, 'img/danang.png', '다낭', 'index');
+insert into img values(seq_img.nextval, 'img/gwam.jpg', '괌', 'index');
+insert into img values(seq_img.nextval, 'img/jeju.jpg', '제주', 'index');
+insert into img values(seq_img.nextval, 'img/kangleung.jpg', '강릉', 'index');
+insert into img values(seq_img.nextval, 'img/lundun.jpg', '런던', 'index');
+insert into img values(seq_img.nextval, 'img/seoul.jpg', '서울', 'index');
+insert into img values(seq_img.nextval, 'img/toronto.jpg', '토론토', 'index');
 
 CREATE TABLE q_and_a(
 qa_num  NUMBER,
@@ -193,5 +194,20 @@ CREATE SEQUENCE seq_qa START WITH 1 INCREMENT BY 1 NOCYCLE NOORDER NOCACHE;
 COMMIT;
 
 delete q_and_a;
-SELECT temp.* FROM (select rownum rnum, a.* from q_and_a a) temp
-		WHERE  temp.rnum > 3 and temp.rnum <=10;
+select count(*)  from q_and_a;
+SELECT qa.* FROM (SELECT ROWNUM as rnum, q.* FROM q_and_a q order by q.regdate desc) qa
+		WHERE qa.rnum between 1 AND 10;
+SELECT fs.* FROM (
+		SELECT ROWNUM rnum, f.* FROM flights f
+		) fs
+		WHERE fs.rnum between 1 AND 10;
+        
+SELECT fs.* FROM (
+		SELECT ROWNUM rnum, f.*, s.seat_num, s.seat_type, s.f_price, s.reserve_yn FROM flights f, seats s 
+		WHERE f.flight=s.flight) fs
+		WHERE fs.rnum between 1 AND 10;
+
+SELECT DISTINCT TO_CHAR(departure_date, 'DD') AS dd, TO_CHAR(arrival_date, 'DD') as ad FROM
+		flights
+		WHERE departure_city='인천' AND
+		arrival_city='홍콩';

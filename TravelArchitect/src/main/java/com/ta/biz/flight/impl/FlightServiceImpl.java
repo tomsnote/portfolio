@@ -14,8 +14,8 @@ public class FlightServiceImpl implements FlightService {
 	private FlightDAO flightDAO;
 	
 	@Override
-	public List<FlightVO> image() {
-		return flightDAO.image();
+	public List<FlightVO> image(String page) {
+		return flightDAO.image(page);
 	}
 
 	@Override

@@ -24,7 +24,7 @@
 			<div class="b2-h">
 				<p>항공권 좌석 리스트</p>
 			</div>
-			<form class="adminList" name="formm">
+			<form class="flightList" name="formm">
 				<div>
 					<input type="button" value="추가"
 						onclick="location.href='moveInsertSeat'" /> <input type="button"
@@ -71,6 +71,10 @@
 						</c:forEach>
 					</tbody>
 				</table>
+				<br>
+				<c:set var="url" value="flightManage"/>
+				<input type="hidden" name="change" value="${change}"/>
+				<%@ include file="../page/pagination.jsp" %>
 			</form>
 		</c:when>
 		<c:otherwise>
@@ -116,13 +120,9 @@
 						</c:forEach>
 					</tbody>
 				</table>
-				<div>
-				<a href="#">왼쪽</a>
-					<a href="#">1</a>
-					<a href="#">2</a>
-					<a href="#">3</a>
-				<a href="#">오른쪽</a>
-				</div>
+				<br>
+				<c:set var="url" value="flightManage"/> 
+				<%@ include file="../page/pagination.jsp" %>
 			</form>
 		</c:otherwise>
 	</c:choose>

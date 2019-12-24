@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface FlightService {
 	// index img
-	List<FlightVO> image();
+	List<FlightVO> image(String page);
 	
 	// airReserve.jsp
 	List<String> distinctDepartureCities();

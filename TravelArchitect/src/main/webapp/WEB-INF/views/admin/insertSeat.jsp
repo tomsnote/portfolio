@@ -59,6 +59,9 @@
 					</c:forEach>
 				</tbody>
 			</table>
+			<br>
+			<c:set var="url" value="moveInsertSeat"/> 
+			<%@ include file="../page/pagination.jsp" %>
 		</form>
 	</div>
 	<div class="f-m-d">

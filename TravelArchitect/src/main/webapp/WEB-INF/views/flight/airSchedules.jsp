@@ -61,6 +61,10 @@
 				<h5>출발날짜</h5>
 				<p>${info.departureDate}</p>
 			</div>
+			<div class="a-r-t">
+				<h5>도착날짜</h5>
+				<p>${info.arrivalDate}</p>
+			</div>
 		</div>
 	</form>
 	<div id="a-r-m" align="center" class="a-r-mt">

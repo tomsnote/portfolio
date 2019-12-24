@@ -54,7 +54,6 @@ public class MemberController {
 					model.addAttribute("loginMember", loginCheck);
 					return "index";
 				}
-				
 			}
 		}
 			

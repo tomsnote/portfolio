@@ -28,13 +28,33 @@
 	<resultMap type="member" id="memberResult">
 		<result property="regDate" column="regdate"/>
 	</resultMap>
+	
 	<!-- 비행편 -->
-	<select id="getFlightSeatListAdmin" resultMap="flightResult">
+	<select id="getSeatListCnt" resultType="int">
+		SELECT COUNT(*) FROM flights f, seats s
+		WHERE f.flight = s.flight
+	</select>
+	<select id="getFlightSeatListAdmin" resultMap="flightResult" parameterType="page">
+	<![CDATA[
+		SELECT fs.* FROM (
+		SELECT ROWNUM rnum, f.*, s.seat_num, s.seat_type, s.f_price, s.reserve_yn FROM flights f, seats s 
+		WHERE f.flight=s.flight) fs
+		WHERE fs.rnum between #{startList} AND (#{startList}+#{listSize}-1)
+		]]>
+	</select>
+	<select id="getFlightListCnt" resultType="int">
+		SELECT COUNT(*) FROM flights
+	</select>
+	<select id="getFlightListAdmin" resultMap="flightResult" parameterType="page">
+		<![CDATA[
+		SELECT fs.* FROM (
+		SELECT ROWNUM rnum, f.* FROM flights f) fs
+		WHERE fs.rnum between #{startList} AND (#{startList}+#{listSize}-1)
+		]]>
+	</select>
+	<select id="getFlightSeatCheck" resultMap="flightResult">
 		SELECT * FROM flights f, seats s
 		WHERE f.flight=s.flight
-	</select>
-	<select id="getFlightListAdmin" resultMap="flightResult">
-		SELECT * FROM flights
 	</select>
 	<insert id="insertSeat">
 		INSERT INTO seats (seat_num, seat_type, f_price, flight)
@@ -81,7 +101,7 @@
 	<select id="selectQA" resultType="qa">
 	<![CDATA[
 		SELECT qa.* FROM (SELECT ROWNUM rnum, q.* FROM q_and_a q) qa
-		WHERE qa.rnum>=#{startList} AND qa.rnum<=#{listSize}
+		WHERE qa.rnum between #{startList} AND (#{startList}+#{listSize}-1)
 		]]>
 	</select>
 	<select id="getQAListCnt" resultType="int">

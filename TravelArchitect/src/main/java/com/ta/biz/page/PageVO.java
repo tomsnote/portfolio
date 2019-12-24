@@ -23,7 +23,7 @@ public class PageVO {
 		this.listCnt=listCnt;
 		
 		// 전체 페이지 수
-		this.pageCnt=(int) Math.ceil(listCnt/listSize);
+		this.pageCnt=(int) Math.ceil((double)listCnt/listSize);
 		
 		// 시작 페이지
 		this.startPage = (range-1) * rangeSize + 1;
@@ -32,13 +32,13 @@ public class PageVO {
 		this.endPage = range * rangeSize;
 		
 		// 게시판 시작번호
-		this.startList = (page -1) * listSize;
+		this.startList = (page-1)*listSize+1;
 		
 		// 이전 버튼 상태
 		this.prev = range == 1? false: true;
 		
 		// 다음 버튼 상태
-		this.next = endPage > pageCnt ? false: true;
+		this.next = endPage >= pageCnt ? false: true;
 		if(this.endPage> this.pageCnt) {
 			this.endPage = this.pageCnt;
 			this.next = false;

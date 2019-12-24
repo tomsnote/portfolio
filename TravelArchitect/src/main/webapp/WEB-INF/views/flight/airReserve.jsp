@@ -74,14 +74,15 @@
 				</script>
 			</div>
 			<div class="a-r-b">
-				<h5>언제 떠날까?</h5>
-				<input type="date" id="depart" name="departureDate"
-					value="2019-11-11" />
-					
 				<h5>비행 가능한 날짜</h5>
 				<p><c:forEach items="${possibleDate}" var="date">
 				${date}일
 				</c:forEach></p>
+				
+				<h5>언제 떠날까?</h5>
+				<input type="date" id="depart" name="departureDate"
+					value="2019-11-11" />
+			
 			</div>
 		</div>
 		<div align="right" style="margin-right: 20px;">

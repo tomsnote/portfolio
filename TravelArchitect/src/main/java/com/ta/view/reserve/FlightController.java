@@ -31,6 +31,7 @@ public class FlightController {
 		model.addAttribute("distinctArrivalCities", flightService.distinctArrivalCities(departureCity));
 		if (vo.getDepartureCity() != null && vo.getArrivalCity() != null) {
 			model.addAttribute("possibleDate", flightService.possibleDate(vo));
+			System.out.println(flightService.possibleDate(vo));
 		}
 		model.addAttribute("depart", departureCity);
 		model.addAttribute("arrival", arrivalCity);
@@ -41,18 +42,18 @@ public class FlightController {
 	public String airShcedules(FlightVO vo, Model model,
 			@SessionAttribute(value = "reserve", required = false) FlightVO session) {
 		if (session == null) {
-			// reserve sessionÀÌ ¾øÀ» °æ¿ì
+			// reserve sessionï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 			model.addAttribute("reserve", vo);
 		} else {
 			if (vo.getDepartureCity() != null) {
-				// ¼¼¼ÇÀÌ ÀÖ°í departureCity°¡ ÀÖÀ» ¶§ session¿¡ vo °ªÀ» setÇÔ
+				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö°ï¿½ departureCityï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ sessionï¿½ï¿½ vo ï¿½ï¿½ï¿½ï¿½ setï¿½ï¿½
 				session.setDepartureCity(vo.getDepartureCity());
 				session.setArrivalCity(vo.getArrivalCity());
 				session.setSeatType(vo.getSeatType());
 				session.setDepartureDate(vo.getDepartureDate());
-				model.addAttribute("reserve", session); // session °»½Å
+				model.addAttribute("reserve", session); // update session
 			} else if (vo.getAirline() != null || vo.getDepartureTime() != null) {
-				// Ç×°ø»ç¿Í Ãâ¹ß½Ã°£ÀÌ °®ÃçÁö¸é sessionÀÇ°ªÀ» vo·Î setÇÔ
+				// ï¿½×°ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ß½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ sessionï¿½Ç°ï¿½ï¿½ï¿½ voï¿½ï¿½ setï¿½ï¿½
 				vo.setDepartureCity(session.getDepartureCity());
 				vo.setArrivalCity(session.getArrivalCity());
 				vo.setSeatType(session.getSeatType());
@@ -62,10 +63,10 @@ public class FlightController {
 		}
 		
 		try {
-			model.addAttribute("flights", flightService.searchSchedules(vo));	// Ç×°øÆí ¸®½ºÆ®
-			model.addAttribute("distinctAir", flightService.distinctAir(vo));	// Ç×°ø»ç ¼±ÅÃ ¸®½ºÆ®
-			model.addAttribute("distinctTime", flightService.distinctTime(vo));	// Ãâ¹ß½Ã°£ ¼±ÅÃ ¸®½ºÆ®
-			// ÀÌÀü ÆäÀÌÁöÀÇ ¿äÃ»°ªÀ» °¡Áö°í ¿È
+			model.addAttribute("flights", flightService.searchSchedules(vo));	// ï¿½×°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
+			model.addAttribute("distinctAir", flightService.distinctAir(vo));	// ï¿½×°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
+			model.addAttribute("distinctTime", flightService.distinctTime(vo));	// ï¿½ï¿½ß½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
+			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 			model.addAttribute("airline", vo.getAirline());
 			model.addAttribute("time", vo.getDepartureTime());
 			model.addAttribute("info", vo);
@@ -92,14 +93,14 @@ public class FlightController {
 	
 	@GetMapping(value="reserve")
 	public String reserve(FlightVO vo, Model model,@SessionAttribute(value="loginMember", required=false) MemberVO loginMember) {
-		// Ç×°øÆí reserve¿¡ ÀúÀå
+		// ï¿½×°ï¿½ï¿½ï¿½ reserveï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		FlightVO reserve = flightService.getFlight(vo);
-		// ¿¹¾àÀÚ Á¤º¸ ÀÔ·Â
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½
 		reserve.setFlightReserveName(vo.getFlightReserveName());
 		reserve.setFlightReserveBirth(vo.getFlightReserveBirth());
 		reserve.setFlightReservePhone(vo.getFlightReservePhone());
 		reserve.setFlightReserveEmail(vo.getFlightReserveEmail());
-		// Å¾½ÂÀÚ Á¤º¸ ÀÔ·Â
+		// Å¾ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½
 		reserve.setPassport(vo.getPassport());
 		reserve.setPassenger(vo.getPassenger());
 		reserve.setLname_en(vo.getLname_en());
@@ -110,7 +111,7 @@ public class FlightController {
 		reserve.setFlightComment(vo.getFlightComment());
 		
 		if(loginMember!=null) {	
-			reserve.setMember(loginMember.getId());	// È¸¿øÀÏ ¶§, ¿¹¾àÀÚ¿¡ È¸¿ø ID SET
+			reserve.setMember(loginMember.getId());	// È¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿ï¿½ È¸ï¿½ï¿½ ID SET
 			flightService.insertReserveFlight(reserve);
 		} else {
 			flightService.insertReserveFlightGuest(reserve);

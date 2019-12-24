@@ -28,15 +28,15 @@
 								</tr>
 								<tr>
 									<td colspan='2'><input type="search" name="search_text"
-										size="35%" placeholder="ex) 부산, 홍콩" /></td>
+										size="35%" placeholder="ex) 홍콩" /></td>
 								</tr>
 								<tr class="t-n">
 									<td>체크인</td>
 									<td>체크아웃</td>
 								</tr>
 								<tr>
-									<td><input type="date" /></td>
-									<td><input type="date" /></td>
+									<td><input type="date" value="2019-11-11"/></td>
+									<td><input type="date" value="2019-11-13"/></td>
 								</tr>
 								<tr>
 									<td colspan='2' class="t-n">인원</td>
@@ -97,7 +97,7 @@
 		<c:forEach items="${images}" var="img">
 			<div class="imgs" onclick="location.href='#'">
 				<img src="${img.path}">
-				<div class="img-name">${img.img_name}</div>
+				<div class="img-name">${img.name}</div>
 			</div>
 		</c:forEach>
 	</div>

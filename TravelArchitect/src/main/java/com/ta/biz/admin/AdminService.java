@@ -28,7 +28,7 @@ public interface AdminService {
 	List<MemberVO> selectMember();
 	
 	// Q&A
-	List<QAVO> selectQA(PageVO vo);
+	List<QAVO> getQAList(PageVO vo);
 	int getQAListCnt();
 	
 }

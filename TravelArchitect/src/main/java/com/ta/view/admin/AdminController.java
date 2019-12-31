@@ -73,7 +73,6 @@ public class AdminController {
 		}
 		if (seatCheck) {
 			model.addAttribute("seatCheck", seatCheck);
-			return "redirect:/flightManage";
 		}
 		return "admin/insertSeat";
 	}
@@ -146,7 +145,7 @@ public class AdminController {
 		PageVO pagination = new PageVO();
 		pagination.pageInfo(page, range, listCnt);
 		model.addAttribute("pagination", pagination);
-		model.addAttribute("qaList", adminService.selectQA(pagination));
+		model.addAttribute("qaList", adminService.getQAList(pagination));
 		return "admin/q_and_a";
 	}
 

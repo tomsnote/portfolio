@@ -98,7 +98,7 @@
 	</select>
 	
 	<!-- Q&A -->
-	<select id="selectQA" resultType="qa">
+	<select id="getQAList" resultType="qa">
 	<![CDATA[
 		SELECT qa.* FROM (SELECT ROWNUM rnum, q.* FROM q_and_a q) qa
 		WHERE qa.rnum between #{startList} AND (#{startList}+#{listSize}-1)
@@ -107,6 +107,10 @@
 	<select id="getQAListCnt" resultType="int">
 		SELECT COUNT(*) as listCnt
 		FROM q_and_a
+	</select>
+	<select id="selectQA" resultType="qa">
+		SELECT * FROM q_and_a
+		WHERE qa_num=#{qa_num}
 	</select>
 	<update id="update">
 	 UPDATE q_and_a SET answer='Y'

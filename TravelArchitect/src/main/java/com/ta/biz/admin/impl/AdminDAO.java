@@ -75,8 +75,8 @@ public class AdminDAO {
 	}
 
 	// Q&A
-	public List<QAVO> selectQA(PageVO vo) {
-		return mybatis.selectList("Admin.selectQA", vo);
+	public List<QAVO> getQAList(PageVO vo) {
+		return mybatis.selectList("Admin.getQAList", vo);
 	}
 
 	public int getQAListCnt() {

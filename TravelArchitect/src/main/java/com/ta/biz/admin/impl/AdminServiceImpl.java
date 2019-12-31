@@ -89,8 +89,8 @@ public class AdminServiceImpl implements AdminService{
 	
 	// Q&A
 	@Override 
-	public List<QAVO> selectQA(PageVO vo){
-		return adminDAO.selectQA(vo);
+	public List<QAVO> getQAList(PageVO vo){
+		return adminDAO.getQAList(vo);
 	}
 
 	@Override
